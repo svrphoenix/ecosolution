@@ -10,7 +10,7 @@ export const SocialsLink = styled.a`
   color: ${props => props.$mainColor};
 
   & > svg {
-    stroke: currentColor; 
+    stroke: currentColor;
   }
 
   &:hover,

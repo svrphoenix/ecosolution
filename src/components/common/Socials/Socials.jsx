@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import { Icon } from '../Icon/Icon';
 import { SocialsLink, SocialsList } from './Socials.styled';
 import { SOCIALS } from '../../../constants/content';
-import { colors } from '../../../constants/theme';
 
-const Socials = ({ gap }) => {
+const Socials = ({ gap, mainColor, hoverColor }) => {
   return (
     <SocialsList $gap={gap}>
       {SOCIALS.map(item => (
         <li key={item.id}>
-          <SocialsLink $mainColor={colors.whiteColor} $hoverColor={colors.accentColor}>
+          <SocialsLink $mainColor={mainColor} $hoverColor={hoverColor}>
             <Icon name={item.iconName} width={24} height={24} />
           </SocialsLink>
         </li>
@@ -20,6 +19,8 @@ const Socials = ({ gap }) => {
 
 Socials.propTypes = {
   gap: PropTypes.string,
+  mainColor: PropTypes.string,
+  hoverColor: PropTypes.string,
 };
 
 export default Socials;

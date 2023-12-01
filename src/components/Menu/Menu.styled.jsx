@@ -50,7 +50,6 @@ export const MenuWrapper = styled.div`
 
 export const CloseBtn = styled.button`
   display: flex;
-  /* align-items: center; */
   gap: 4px;
 
   font-size: 16px;
@@ -73,7 +72,6 @@ export const UnderLine = styled.div`
   height: 1px;
   background-color: ${colors.whiteColor};
 `;
-/* background-color: ${({ theme }) => theme.colors.whiteTextColor}; */
 
 export const MenuList = styled.ul`
   margin-top: 22px;

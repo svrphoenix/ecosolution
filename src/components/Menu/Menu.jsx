@@ -4,6 +4,7 @@ import { Backdrop, CloseBtn, MenuItemLink, MenuList, MenuWrapper, UnderLine } fr
 import { Icon } from '../common/Icon/Icon';
 import { MENU_ITEMS } from '../../constants/content';
 import Socials from '../common/Socials/Socials';
+import { colors } from '../../constants/theme';
 
 const Menu = ({ handleMenuClose }) => {
   useEffect(() => {
@@ -44,7 +45,7 @@ const Menu = ({ handleMenuClose }) => {
             ))}
           </MenuList>
         </nav>
-        <Socials gap="8px" />
+        <Socials gap="8px" mainColor={colors.whiteColor} hoverColor={colors.accentColor} />
       </MenuWrapper>
     </Backdrop>
   );

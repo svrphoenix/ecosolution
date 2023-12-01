@@ -1,5 +1,6 @@
 import 'modern-normalize';
 import { createGlobalStyle } from 'styled-components';
+import { device } from '../constants/media';
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -80,6 +81,7 @@ const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: Fira Sans, sans-serif;
+  background-color: #F3F5FA;
 }
 
 h1,h2,h3,h4,h5,h6,p {
@@ -118,7 +120,22 @@ button {
   min-width: 360px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
+
+  @media ${device.mobile} {
+    max-width: 480px;
   }
+
+  @media ${device.tablet} {
+    max-width: 768px;
+    padding: 0 30px;
+  }
+  
+  @media ${device.desktop} {
+    max-width: 1280px;
+    padding: 0 100px;
+  }
+}
 `;
 
 export default GlobalStyle;

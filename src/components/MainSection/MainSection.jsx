@@ -1,11 +1,11 @@
-const Main = () => {
+const MainSection = () => {
   return (
-    <div>
+    <section>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, ducimus rem! Sint
       reprehenderit aliquid porro voluptatum dignissimos aut totam omnis saepe quod labore provident
       vel illum, magnam voluptate. Adipisci, officia!
-    </div>
+    </section>
   );
 };
 
-export default Main;
+export default MainSection;

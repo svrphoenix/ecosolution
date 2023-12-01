@@ -1,10 +1,9 @@
 import { styled } from 'styled-components';
 import { colors } from '../../../constants/theme';
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled.a`
   display: flex;
   align-items: center;
-  cursor: pointer;
 `;
 
 export const LogoMainText = styled.p`
@@ -12,7 +11,6 @@ export const LogoMainText = styled.p`
   color: ${colors.accentBackground};
   font-family: 'Fontspring';
   font-size: 33px;
-  line-height: normal;
   letter-spacing: -1.32px;
   &:hover {
     color: ${colors.accentColor};
