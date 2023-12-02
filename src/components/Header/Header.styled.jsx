@@ -5,12 +5,18 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   padding-top: 36px;
+  padding-bottom: 36px;
   gap: 11px;
-  /* width: 100%;
-  margin: 0 auto; */
-  /* position: fixed;
+
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: fixed;
+  z-index: 100;
   top: 0;
-  left: 0; */
+  left: 0;
+  /* background-color: #f3f5fa; */
 `;
 
 export const BtnWrapper = styled.div`

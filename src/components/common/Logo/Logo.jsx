@@ -1,4 +1,4 @@
-import { Icon } from '../Icon/Icon';
+import Icon from '../Icon/Icon';
 import { LogoMainText, LogoSloganAccented, LogoSloganText, LogoWrapper } from './Logo.styled';
 
 const Logo = () => {

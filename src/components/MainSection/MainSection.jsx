@@ -2,7 +2,7 @@ import { ADDRESS, EMAIL } from '../../constants/content';
 import { colors } from '../../constants/theme';
 import Button from '../common/Button/Button';
 import { Address, Email } from '../common/Contacts/Contact.styled';
-import { Icon } from '../common/Icon/Icon';
+import Icon from '../common/Icon/Icon';
 import { Text } from '../common/Text/Text.styled';
 import { UnderLine } from '../common/Underline/Underline.styled';
 import {
@@ -24,7 +24,7 @@ const MainSection = () => {
       <Button
         caption="Learn more"
         icon={
-          <Icon name={'arrow-right-line'} width={16} height={16} stroke={colors.accentBackground} />
+          <Icon name={'arrow-right-up'} width={16} height={16} stroke={colors.accentBackground} />
         }
       />
       <UnderLine />

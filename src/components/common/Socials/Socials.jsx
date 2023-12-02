@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Icon } from '../Icon/Icon';
+import Icon from '../Icon/Icon';
 import { SocialsLink, SocialsList } from './Socials.styled';
 import { SOCIALS } from '../../../constants/content';
 

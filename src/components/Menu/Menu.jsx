@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Backdrop, CloseBtn, MenuItemLink, MenuList, MenuWrapper, UnderLine } from './Menu.styled';
-import { Icon } from '../common/Icon/Icon';
+import Icon from '../common/Icon/Icon';
 import { MENU_ITEMS } from '../../constants/content';
 import Socials from '../common/Socials/Socials';
 import { colors } from '../../constants/theme';
 
-const Menu = ({ handleMenuClose }) => {
+const Menu = ({ handleMenuClose, refs }) => {
   useEffect(() => {
     const handleKeyDown = ({ code }) => {
       if (code === 'Escape') {
@@ -25,6 +25,16 @@ const Menu = ({ handleMenuClose }) => {
       handleMenuClose();
     }
   };
+  const handleItemClick = item => {
+    switch (item) {
+      case 0:
+        refs.mainRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 1:
+        break;
+    }
+  };
+
   return (
     <Backdrop onClick={onBackdropClick}>
       <MenuWrapper>
@@ -37,9 +47,9 @@ const Menu = ({ handleMenuClose }) => {
           <MenuList>
             {MENU_ITEMS.map(item => (
               <li key={item.id}>
-                <MenuItemLink>
+                <MenuItemLink onClick={handleItemClick}>
                   {item.value}
-                  <Icon name={'arrow-right'} width={16} height={16} />
+                  <Icon name={'arrow-right-up'} width={16} height={16} />
                 </MenuItemLink>
               </li>
             ))}

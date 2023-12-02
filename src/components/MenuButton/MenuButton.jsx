@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Icon } from '../common/Icon/Icon';
+import Icon from '../common/Icon/Icon';
 import { StyledButton } from './MenuButton.styled';
 
 const MenuButton = ({ handleMenuOpen }) => {

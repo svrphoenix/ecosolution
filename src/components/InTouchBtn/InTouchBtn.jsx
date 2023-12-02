@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { InTouchBtnStyled } from './InTouchBtn.styled';
 
-const InTouchBtn = ({ caption, icon: Icon }) => {
+const InTouchBtn = ({ handleClick, caption, icon: Icon }) => {
   return (
-    <InTouchBtnStyled>
+    <InTouchBtnStyled onClick={handleClick}>
       {caption}
       {Icon}
     </InTouchBtnStyled>
@@ -11,6 +11,7 @@ const InTouchBtn = ({ caption, icon: Icon }) => {
 };
 
 InTouchBtn.propTypes = {
+  handleClick: PropTypes.func,
   caption: PropTypes.string,
   icon: PropTypes.element,
 };

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Icon } from '../common/Icon/Icon';
 import { ScrollToTopBtn } from './ScrollToTop.styled';
 import { colors } from '../../constants/theme';
+import Icon from '../common/Icon/Icon';
 
 const ScrollToTop = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
+  // доробити - коли малювати кнопку
   useEffect(() => {
     const handleWindowScroll = () => {
-      if (window.scrollY > 5) {
+      if (window.scrollY > 100) {
         setShowTopBtn(true);
       } else {
         setShowTopBtn(false);

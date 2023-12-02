@@ -25,8 +25,7 @@ export const InTouchBtnStyled = styled.button`
       stroke: currentColor;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       color: ${colors.accentColor};
       background-color: ${colors.accentBackground};
     }
