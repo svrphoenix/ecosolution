@@ -3,7 +3,7 @@ import { device } from '../../constants/media';
 import { colors } from '../../constants/theme';
 
 export const InTouchBtnStyled = styled.button`
-  /* margin: 0 auto; */
+  margin: 0 auto;
   display: none;
 
   @media ${device.tablet} {

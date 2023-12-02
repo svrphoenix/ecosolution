@@ -12,3 +12,7 @@ export const SOCIALS = [
   { id: 0, value: 'Facebook', iconName: 'facebook' },
   { id: 1, value: 'Instagram', iconName: 'instagram' },
 ];
+
+export const ADDRESS = '79005, Ukraine, Lvivstreet. Shota Rustaveli, 7';
+
+export const EMAIL = 'office@ecosolution.com';
