@@ -11,6 +11,7 @@ import { colors } from '../../constants/theme';
 import Icon from '../common/Icon/Icon';
 import { ADDRESS, EMAIL, PHONES } from '../../constants/content';
 import Socials from '../common/Socials/Socials';
+import ContactsForm from '../ContactsForm/ContactsForm';
 
 const ContactsSection = forwardRef(function ContactsSection(props, ref) {
   return (
@@ -20,8 +21,8 @@ const ContactsSection = forwardRef(function ContactsSection(props, ref) {
         <div>
           <ContactTitle>Phone:</ContactTitle>
           <PhoneWrapper>
-            {PHONES.map(item => (
-              <li key={item.id}>
+            {PHONES.map((item, idx) => (
+              <li key={idx}>
                 <Contact
                   href={`tel:+${item
                     .split('')
@@ -61,11 +62,9 @@ const ContactsSection = forwardRef(function ContactsSection(props, ref) {
         </div>
         <div>
           <ContactTitle>Social Networks:</ContactTitle>
-          <Contact>
-            <Socials gap="32px" mainColor={colors.accentBackground} />
-          </Contact>
+          <Socials gap="32px" mainColor={colors.accentBackground} />
         </div>
-        {/* <ContactsForm /> */}
+        <ContactsForm />
       </AddressWrapper>
     </ContactsSectionStyled>
   );

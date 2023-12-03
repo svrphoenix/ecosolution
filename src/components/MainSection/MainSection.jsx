@@ -23,9 +23,7 @@ const MainSection = () => {
       </Text>
       <Button
         caption="Learn more"
-        icon={
-          <Icon name={'arrow-right-up'} width={16} height={16} stroke={colors.accentBackground} />
-        }
+        icon={<Icon name={'arrow-right'} width={16} height={16} stroke={colors.accentBackground} />}
       />
       <UnderLine />
       <ContactsWrapper>

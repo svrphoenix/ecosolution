@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { ButtonStyled, IconWrapper } from './Button.styled';
 
-const Button = ({ caption, icon: Icon }) => {
+const Button = ({ type = 'button', caption, icon: Icon }) => {
   return (
-    <ButtonStyled>
+    <ButtonStyled type={type}>
       {caption}
       <IconWrapper>{Icon}</IconWrapper>
     </ButtonStyled>
@@ -11,6 +11,7 @@ const Button = ({ caption, icon: Icon }) => {
 };
 
 Button.propTypes = {
+  type: PropTypes.string,
   caption: PropTypes.string,
   icon: PropTypes.element,
 };

@@ -13,7 +13,7 @@ import Menu from './Menu/Menu';
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const contactUs = useRef(null);
-  const mainRef = useRef(null);
+  // const mainRef = useRef(null);
 
   const handleMenuToogle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,7 +23,7 @@ const App = () => {
     <>
       <Header handleMenuOpen={handleMenuToogle} contactUs={contactUs} />
       <main>
-        <MainSection ref={mainRef} />
+        <MainSection />
         <ValuesSection />
         <ElectricitySection />
         <CasesSection />
