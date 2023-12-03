@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
+
 import Logo from '../common/Logo/Logo';
 import { BtnWrapper, StyledHeader } from './Header.styled';
 import MenuButton from '../MenuButton/MenuButton';
@@ -47,6 +49,11 @@ const Header = ({ contactUs, handleMenuOpen }) => {
       {/* {isMenuOpen && <Menu handleMenuClose={handleMenuToogle} />} */}
     </>
   );
+};
+
+Header.propTypes = {
+  handleMenuOpen: PropTypes.func,
+  contactUs: PropTypes.any,
 };
 
 export default Header;

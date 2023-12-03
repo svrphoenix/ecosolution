@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 import { colors } from '../../constants/theme';
-import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
 import {
   ActiveSlide,
   ArrowBtn,
@@ -113,6 +114,10 @@ const CasesSection = ({ id }) => {
       </SlideList>
     </CasesSectionStyled>
   );
+};
+
+CasesSection.propTypes = {
+  id: PropTypes.string,
 };
 
 export default CasesSection;

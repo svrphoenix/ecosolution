@@ -6,7 +6,7 @@ import { MENU_ITEMS } from '../../constants/content';
 import Socials from '../common/Socials/Socials';
 import { colors } from '../../constants/theme';
 
-const Menu = ({ handleMenuClose, refs }) => {
+const Menu = ({ handleMenuClose }) => {
   useEffect(() => {
     const handleKeyDown = ({ code }) => {
       if (code === 'Escape') {

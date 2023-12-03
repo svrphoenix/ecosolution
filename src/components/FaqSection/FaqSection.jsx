@@ -78,5 +78,7 @@ const FaqSection = ({ contactUs, id }) => {
 
 FaqSection.propTypes = {
   id: PropTypes.string,
+  contactUs: PropTypes.any,
 };
+
 export default FaqSection;

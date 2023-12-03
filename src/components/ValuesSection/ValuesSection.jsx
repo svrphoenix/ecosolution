@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { MAIN_VALUES } from '../../constants/content';
 import { colors } from '../../constants/theme';
 import Icon from '../common/Icon/Icon';
-import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
 import { Text } from '../common/Text/Text.styled';
 import { UnderLine } from '../common/Underline/Underline.styled';
 import {
