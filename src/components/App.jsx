@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import CasesSection from './CasesSection/CasesSection';
 import ElectricitySection from './ElectricitySection/ElectricitySection';
 import FaqSection from './FaqSection/FaqSection';
@@ -9,19 +9,16 @@ import MainSection from './MainSection/MainSection';
 import ValuesSection from './ValuesSection/ValuesSection';
 import ContactsSection from './ContacsSection/ContactsSection';
 import Menu from './Menu/Menu';
+import useMenuToggle from '../hooks/useMenuToggle';
 
 const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, onMenuToogle] = useMenuToggle();
   const contactUs = useRef(null);
   // const mainRef = useRef(null);
 
-  const handleMenuToogle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <>
-      <Header handleMenuOpen={handleMenuToogle} contactUs={contactUs} />
+      <Header handleMenuOpen={onMenuToogle} contactUs={contactUs} />
       <main>
         <MainSection />
         <ValuesSection />
@@ -31,7 +28,7 @@ const App = () => {
         <ContactsSection ref={contactUs} />
       </main>
       <Footer />
-      {isMenuOpen && <Menu handleMenuClose={handleMenuToogle} />}
+      {isMenuOpen && <Menu handleMenuClose={onMenuToogle} />}
       <GlobalStyle />
     </>
   );
