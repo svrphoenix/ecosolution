@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { device } from '../../constants/media';
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -16,7 +17,16 @@ export const StyledHeader = styled.header`
   z-index: 100;
   top: 0;
   left: 0;
-  /* background-color: #f3f5fa; */
+
+  @media ${device.tablet} {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media ${device.desktop} {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 `;
 
 export const BtnWrapper = styled.div`

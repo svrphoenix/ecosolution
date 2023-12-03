@@ -1,11 +1,11 @@
 export const MENU_ITEMS = [
-  { id: 0, value: 'Main' },
-  { id: 1, value: 'About' },
-  { id: 2, value: 'Service' },
-  { id: 3, value: 'Cases' },
-  { id: 4, value: 'FAQ' },
-  { id: 5, value: 'Customers' },
-  { id: 6, value: 'Contact Us' },
+  { id: 0, value: 'Main', anchor: 'main' },
+  { id: 1, value: 'About', anchor: 'about' },
+  { id: 2, value: 'Service', anchor: 'service' },
+  { id: 3, value: 'Cases', anchor: 'cases' },
+  { id: 4, value: 'FAQ', anchor: 'faq' },
+  { id: 5, value: 'Customers', anchor: 'customers' },
+  { id: 6, value: 'Contact Us', anchor: 'contacts' },
 ];
 
 export const SOCIALS = [

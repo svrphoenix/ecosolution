@@ -30,8 +30,7 @@ export const InTouchBtnStyled = styled.button`
       background-color: ${colors.accentBackground};
     }
 
-    &:hover > svg,
-    &:focus > svg {
+    &:hover > svg {
       fill: ${colors.accentColor};
       stroke: ${colors.accentBackground};
     }

@@ -18,7 +18,7 @@ import { colors } from '../../constants/theme';
 // import InTouchBtn from '../InTouchBtn/InTouchBtn';
 import Button from '../common/Button/Button';
 
-const FaqSection = () => {
+const FaqSection = ({ id }) => {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
 
   // const handleSelected = id => {
@@ -37,7 +37,7 @@ const FaqSection = () => {
   };
 
   return (
-    <FaqSectionStyled>
+    <FaqSectionStyled id={id}>
       <SectionTitle>Successful cases of our company</SectionTitle>
       <Questions>
         {FAQS.map(({ id, question, answer }) => (

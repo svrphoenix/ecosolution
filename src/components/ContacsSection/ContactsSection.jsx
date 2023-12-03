@@ -15,7 +15,7 @@ import ContactsForm from '../ContactsForm/ContactsForm';
 
 const ContactsSection = forwardRef(function ContactsSection(props, ref) {
   return (
-    <ContactsSectionStyled ref={ref}>
+    <ContactsSectionStyled id={props.id} ref={ref}>
       <ContactsTitle>Contact us</ContactsTitle>
       <AddressWrapper>
         <div>

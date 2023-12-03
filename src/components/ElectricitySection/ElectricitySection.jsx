@@ -6,9 +6,9 @@ import {
   VerticalLine,
 } from './ElectricitySection.styled';
 
-const ElectricitySection = () => {
+const ElectricitySection = ({ id }) => {
   return (
-    <ElectricitySectionStyled>
+    <ElectricitySectionStyled id={id}>
       <ElectricityTitle>Electricity we produced for all time</ElectricityTitle>
       <VerticalLine />
       <Counter>

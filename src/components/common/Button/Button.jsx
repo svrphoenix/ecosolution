@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { ButtonStyled, IconWrapper } from './Button.styled';
 
-const Button = ({ type = 'button', caption, icon: Icon }) => {
+const Button = ({ handleClick, type = 'button', caption, icon: Icon }) => {
   return (
-    <ButtonStyled type={type}>
+    <ButtonStyled type={type} onClick={handleClick}>
       {caption}
       <IconWrapper>{Icon}</IconWrapper>
     </ButtonStyled>
@@ -11,6 +11,7 @@ const Button = ({ type = 'button', caption, icon: Icon }) => {
 };
 
 Button.propTypes = {
+  handleClick: PropTypes.func,
   type: PropTypes.string,
   caption: PropTypes.string,
   icon: PropTypes.element,

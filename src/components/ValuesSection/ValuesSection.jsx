@@ -13,9 +13,9 @@ import {
   ValuesSectionStyled,
 } from './ValuesSection.styled';
 
-const ValuesSection = () => {
+const ValuesSection = ({ id }) => {
   return (
-    <ValuesSectionStyled>
+    <ValuesSectionStyled id={id}>
       <SectionTitle>Main values of our company</SectionTitle>
       <Text>
         EcoSolution envisions a world where sustainable energy solutions power a brighter and

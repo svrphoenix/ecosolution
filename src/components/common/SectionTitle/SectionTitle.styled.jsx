@@ -8,6 +8,6 @@ export const SectionTitle = styled.h2`
   font-family: Oswald;
   font-weight: 400;
   font-size: 28px;
-  line-height: calc(28 / 28);
+  line-height: 1;
   text-transform: uppercase;
 `;

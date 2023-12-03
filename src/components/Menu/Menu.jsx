@@ -25,14 +25,11 @@ const Menu = ({ handleMenuClose, refs }) => {
       handleMenuClose();
     }
   };
-  const handleItemClick = item => {
-    switch (item) {
-      case 0:
-        refs.mainRef.current?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 1:
-        break;
-    }
+
+  const handleMenuClick = anchor => {
+    const element = document.getElementById(anchor);
+    element?.scrollIntoView({ behavior: 'smooth' });
+    handleMenuClose();
   };
 
   return (
@@ -47,7 +44,7 @@ const Menu = ({ handleMenuClose, refs }) => {
           <MenuList>
             {MENU_ITEMS.map(item => (
               <li key={item.id}>
-                <MenuItemLink onClick={handleItemClick}>
+                <MenuItemLink onClick={() => handleMenuClick(item.anchor)}>
                   {item.value}
                   <Icon name={'arrow-right-up'} width={16} height={16} />
                 </MenuItemLink>

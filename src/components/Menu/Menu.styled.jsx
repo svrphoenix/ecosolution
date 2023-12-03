@@ -25,7 +25,7 @@ export const Backdrop = styled.div`
 
 export const MenuWrapper = styled.div`
   width: 310px;
-  min-height: 380px;
+  max-height: 100vh;
   overflow: auto;
   padding: 24px;
   display: flex;

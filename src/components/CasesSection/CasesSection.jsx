@@ -22,7 +22,7 @@ import {
 import { SLIDES } from '../../constants/content';
 import Icon from '../common/Icon/Icon';
 
-const CasesSection = () => {
+const CasesSection = ({ id }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchPosition, setTouchPosition] = useState(null);
 
@@ -64,7 +64,7 @@ const CasesSection = () => {
   };
 
   return (
-    <CasesSectionStyled>
+    <CasesSectionStyled id={id}>
       <SectionTitle>Successful cases of our company</SectionTitle>
       <PaginationWrapper>
         <Pagination>

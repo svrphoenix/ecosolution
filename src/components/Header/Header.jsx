@@ -8,7 +8,6 @@ import Icon from '../common/Icon/Icon';
 import { colors } from '../../constants/theme';
 
 const Header = ({ contactUs, handleMenuOpen }) => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [bgColor, setBgColor] = useState(false);
   const ref = useRef();
 
@@ -25,10 +24,6 @@ const Header = ({ contactUs, handleMenuOpen }) => {
     window.addEventListener('scroll', handleWindowScroll);
     return () => window.removeEventListener('scroll', handleWindowScroll);
   }, []);
-
-  // const handleMenuToogle = () => {
-  //   setIsMenuOpen(!isMenuOpen);
-  // };
 
   const handleClick = () => {
     contactUs.current?.scrollIntoView({ behavior: 'smooth' });

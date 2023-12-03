@@ -136,6 +136,10 @@ button {
     padding: 0 100px;
   }
 }
+
+.hidden{
+  overflow: hidden;
+}
 `;
 
 export default GlobalStyle;
