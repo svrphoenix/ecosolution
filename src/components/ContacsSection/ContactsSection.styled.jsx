@@ -5,6 +5,14 @@ import { device } from '../../constants/media';
 
 export const ContactsSectionStyled = styled.section`
   padding-bottom: 36px;
+
+  @media ${device.tablet} {
+    padding-bottom: 100px;
+  }
+
+  @media ${device.desktop} {
+    padding-bottom: 120px;
+  }
 `;
 
 export const ContactsTitle = styled(SectionTitle)`
@@ -63,4 +71,3 @@ export const Contact = styled.a`
     color: ${colors.accentColor};
   }
 `;
-

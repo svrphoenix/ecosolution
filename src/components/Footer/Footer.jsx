@@ -5,20 +5,34 @@ import { Address, Copyright, Email } from '../common/Contacts/Contact.styled';
 import Logo from '../common/Logo/Logo';
 import Socials from '../common/Socials/Socials';
 import { UnderLine } from '../common/Underline/Underline.styled';
-import { BtnWrapper, StyledFooter } from './Footer.styled';
+import {
+  AdditionWrapper,
+  AddressWrapper,
+  BtnWrapper,
+  StyledFooter,
+  Wrapper,
+} from './Footer.styled';
 
 const Footer = () => {
   return (
     <StyledFooter>
       <UnderLine />
-      <BtnWrapper>
-        <Logo />
-        <ScrollToTop />
-      </BtnWrapper>
-      <Socials gap="8px" mainColor={colors.accentBackground} />
-      <Address>{ADDRESS}</Address>
-      <Email href={`mailto:${EMAIL}`}>{EMAIL}</Email>
-      <Copyright>ecosolution © 2023</Copyright>
+      <Wrapper>
+        <AdditionWrapper>
+          <Logo />
+          <BtnWrapper>
+            <ScrollToTop />
+          </BtnWrapper>
+        </AdditionWrapper>
+        <Socials gap="8px" mainColor={colors.accentBackground} />
+      </Wrapper>
+      <Wrapper>
+        <AddressWrapper>
+          <Address>{ADDRESS}</Address>
+        </AddressWrapper>
+        <Email href={`mailto:${EMAIL}`}>{EMAIL}</Email>
+        <Copyright>ecosolution © 2023</Copyright>
+      </Wrapper>
     </StyledFooter>
   );
 };
