@@ -1,17 +1,19 @@
 import { styled } from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
 import { colors } from '../../constants/theme';
+import { device } from '../../constants/media';
 
 export const StyledForm = styled(Form)`
+  width: auto;
   padding: 36px 12px;
   display: flex;
   flex-direction: column;
   background-color: #eaedf1;
-  gap: 8px;
+  gap: 28px;
 `;
 
 export const FieldWrapper = styled.div`
-  padding-top: 30px;
+  /* padding-top: 30px; */
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -58,5 +60,12 @@ export const Error = styled(ErrorMessage)`
 
   position: absolute;
   right: 0;
-  top: 8px;
+`;
+
+export const ButtonWrapper = styled.div`
+  margin: 0 auto;
+  @media ${device.tablet} {
+    margin-left: auto;
+    margin-right: 0;
+  }
 `;

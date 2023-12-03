@@ -24,6 +24,10 @@ export const MainTitle = styled.h1`
   line-height: 1;
   text-transform: uppercase;
 
+  @media ${device.mobile} {
+    width: 320px;
+  }
+
   @media ${device.tablet} {
     width: 290px;
     font-size: 48px;
@@ -53,13 +57,14 @@ export const AdditionWrapper = styled.div`
   gap: 24px;
 
   @media ${device.tablet} {
+    padding-left: 10px;
     align-items: flex-start;
     width: 50%;
     justify-content: space-between;
   }
 
   @media ${device.desktop} {
-    width: 35%;
+    width: 40%;
   }
 `;
 
@@ -77,13 +82,14 @@ export const ContactsWrapper = styled.div`
 
 export const EmailWrapper = styled.div`
   @media ${device.tablet} {
+    padding-left: 10px;
     display: flex;
     justify-content: space-between;
     width: 50%;
   }
 
   @media ${device.desktop} {
-    width: 35%;
+    width: 40%;
   }
 `;
 

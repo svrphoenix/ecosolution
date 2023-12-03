@@ -1,14 +1,33 @@
 import { styled } from 'styled-components';
 import { colors } from '../../constants/theme';
+import { device } from '../../constants/media';
 
 export const FaqSectionStyled = styled.section`
   padding-bottom: 36px;
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 24px;
+
+  @media ${device.tablet} {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    position: relative;
+  }
+`;
+
+export const AdditionWrapper = styled.ul`
+  @media ${device.tablet} {
+    width: 50%;
+  }
+`;
+
 export const Questions = styled.ul`
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
   gap: 16px;
 `;
 
@@ -45,9 +64,25 @@ export const Answer = styled.p`
   letter-spacing: -0.56px;
 `;
 
+export const PositionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media ${device.tablet} {
+    width: 320px;
+    position: absolute;
+    bottom: 0;
+  }
+
+  @media ${device.desktop} {
+    width: 398px;
+  }
+`;
+
 export const MoreQuestion = styled.p`
-  margin-top: 36px;
-  margin-bottom: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 
   color: ${colors.accentBackground};
 

@@ -25,7 +25,7 @@ const App = () => {
         <ValuesSection id={MENU_ITEMS[1].anchor} />
         <ElectricitySection id={MENU_ITEMS[2].anchor} />
         <CasesSection id={MENU_ITEMS[3].anchor} />
-        <FaqSection id={MENU_ITEMS[4].anchor} />
+        <FaqSection id={MENU_ITEMS[4].anchor} contactUs={contactUs} />
         <ContactsSection id={MENU_ITEMS[6].anchor} ref={contactUs} />
       </main>
       <Footer />

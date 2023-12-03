@@ -1,5 +1,12 @@
 import { Formik } from 'formik';
-import { Error, FieldWrapper, Input, Label, StyledForm } from './ContactsForm.styled';
+import {
+  ButtonWrapper,
+  Error,
+  FieldWrapper,
+  Input,
+  Label,
+  StyledForm,
+} from './ContactsForm.styled';
 import Button from '../common/Button/Button';
 import Icon from '../common/Icon/Icon';
 import { colors } from '../../constants/theme';
@@ -16,7 +23,7 @@ const ContactsForm = () => {
       }}
       validationSchema={ContactSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
+        window.alert('Data sended!');
         actions.resetForm();
       }}
     >
@@ -70,13 +77,20 @@ const ContactsForm = () => {
               placeholder="Your message"
             />
           </FieldWrapper>
-          <Button
-            type="submit"
-            caption="Send"
-            icon={
-              <Icon name={'arrow-right'} width={16} height={16} stroke={colors.accentBackground} />
-            }
-          />
+          <ButtonWrapper>
+            <Button
+              type="submit"
+              caption="Send"
+              icon={
+                <Icon
+                  name={'arrow-right'}
+                  width={16}
+                  height={16}
+                  stroke={colors.accentBackground}
+                />
+              }
+            />
+          </ButtonWrapper>
         </StyledForm>
       )}
     </Formik>

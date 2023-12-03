@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
-// import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
+import { device } from '../../constants/media';
+import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
 
 export const ValuesSectionStyled = styled.section`
   /* display: flex;
@@ -8,11 +9,60 @@ export const ValuesSectionStyled = styled.section`
   /* gap: 24px; */
 `;
 
-// export const ValuesTitle = styled(SectionTitle)`
-
-// `;
-
 //******* GRIDS!!!!*/
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+  }
+`;
+
+export const AdditionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media ${device.tablet} {
+    padding-left: 10px;
+    align-items: flex-start;
+    width: 50%;
+    justify-content: space-between;
+  }
+
+  @media ${device.desktop} {
+    width: 40%;
+  }
+`;
+
+export const ValuesTitle = styled(SectionTitle)`
+  @media ${device.tablet} {
+    width: 280px;
+  }
+
+  @media ${device.desktop} {
+    width: 365px;
+  }
+`;
+
+export const VerticalLine = styled.div`
+  display: none;
+
+  @media ${device.tablet} {
+    display: block;
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    background-color: ${colors.accentColor};
+    position: absolute;
+  }
+`;
+
 export const ValuesList = styled.ul`
   padding: 36px 0;
   display: flex;

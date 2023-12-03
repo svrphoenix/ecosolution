@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   Counter,
   CounterUnit,
@@ -16,6 +18,10 @@ const ElectricitySection = ({ id }) => {
       </Counter>
     </ElectricitySectionStyled>
   );
+};
+
+ElectricitySection.propTypes = {
+  id: PropTypes.string,
 };
 
 export default ElectricitySection;

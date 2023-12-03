@@ -1,9 +1,19 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
 import { UnderLine } from '../common/Underline/Underline.styled';
+import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
+import { device } from '../../constants/media';
 
 export const CasesSectionStyled = styled.section`
   padding-bottom: 36px;
+`;
+
+export const CasesTitle = styled(SectionTitle)`
+  width: 264px;
+
+  @media ${device.desktop} {
+    width: 398px;
+  }
 `;
 
 export const PaginationWrapper = styled.div`

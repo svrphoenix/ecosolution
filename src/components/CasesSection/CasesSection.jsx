@@ -9,6 +9,7 @@ import {
   CaptionWrapper,
   CaseWrapper,
   CasesSectionStyled,
+  CasesTitle,
   CasesUnderline,
   Description,
   GoToBtn,
@@ -65,7 +66,7 @@ const CasesSection = ({ id }) => {
 
   return (
     <CasesSectionStyled id={id}>
-      <SectionTitle>Successful cases of our company</SectionTitle>
+      <CasesTitle>Successful cases of our company</CasesTitle>
       <PaginationWrapper>
         <Pagination>
           <ActiveSlide>{String(currentSlide + 1).padStart(2, '0')}</ActiveSlide>
