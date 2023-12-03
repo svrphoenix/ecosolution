@@ -17,6 +17,14 @@ export const QuestionWrapper = styled.div`
   display: flex;
 `;
 
+export const Btn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+`;
+
 export const Question = styled.p`
   margin-left: 8px;
 

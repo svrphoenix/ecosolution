@@ -7,6 +7,7 @@ import {
   Question,
   QuestionWrapper,
   Answer,
+  Btn,
 } from './FaqSection.styled';
 
 import { FAQS } from '../../constants/content';
@@ -18,17 +19,21 @@ import { colors } from '../../constants/theme';
 import Button from '../common/Button/Button';
 
 const FaqSection = () => {
-  const [selectedQuestion, setSelectedQuestion] = useState([]);
+  const [selectedQuestion, setSelectedQuestion] = useState(0);
+
+  // const handleSelected = id => {
+  //   setSelectedQuestion(state => {
+  //     const questions = [...state];
+  //     const index = questions.indexOf(id);
+  //     if (index === -1) {
+  //       questions.push(id);
+  //     } else questions.splice(index, 1);
+  //     return questions;
+  //   });
+  // };
 
   const handleSelected = id => {
-    setSelectedQuestion(state => {
-      const questions = [...state];
-      const index = questions.indexOf(id);
-      if (index === -1) {
-        questions.push(id);
-      } else questions.splice(index, 1);
-      return questions;
-    });
+    setSelectedQuestion(state => (state === id ? undefined : id));
   };
 
   return (
@@ -39,21 +44,22 @@ const FaqSection = () => {
           <li key={id}>
             <UnderLine />
             <QuestionWrapper>
-              <button type="button" onClick={() => handleSelected(id)}>
-                {selectedQuestion.indexOf(id) !== -1 ? (
+              <Btn type="button" onClick={() => handleSelected(id)}>
+                {selectedQuestion === id ? (
                   <Icon name={'minus'} width={16} height={16} stroke={colors.accentBackground} />
                 ) : (
                   <Icon name={'plus'} width={16} height={16} stroke={colors.accentColor} />
                 )}
-              </button>
-              <Question>{question}</Question>
+              </Btn>
+              <Question onClick={() => handleSelected(id)}>{question}</Question>
             </QuestionWrapper>
-            {selectedQuestion.indexOf(id) !== -1 && <Answer>{answer}</Answer>}
+            {selectedQuestion === id && <Answer>{answer}</Answer>}
           </li>
         ))}
       </Questions>
       <MoreQuestion>Didn&apos;t find the answer to your question? </MoreQuestion>
       <Button
+        // handleClick={handleClick}
         caption="Contact Us"
         icon={<Icon name={'arrow-down'} width={14} height={14} fill={colors.accentBackground} />}
       />
