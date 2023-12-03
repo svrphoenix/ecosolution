@@ -16,9 +16,10 @@ const Header = ({ contactUs, handleMenuOpen }) => {
   useEffect(() => {
     const height = ref.current.getBoundingClientRect().height;
     document.body.style.paddingTop = `${height}px`;
+
     const handleWindowScroll = () => {
       if (window.scrollY > 0) {
-        setBgColor('#fff');
+        setBgColor('rgba(255,255,255,.7)');
       } else {
         setBgColor('#f3f5fa');
       }
