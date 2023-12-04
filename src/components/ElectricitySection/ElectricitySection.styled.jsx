@@ -4,7 +4,8 @@ import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
 export const ElectricitySectionStyled = styled.section`
-  padding-bottom: 36px;
+  padding-top: 110px;
+  /* padding-bottom: 36px;
 
   @media ${device.tablet} {
     padding-bottom: 100px;
@@ -12,7 +13,7 @@ export const ElectricitySectionStyled = styled.section`
 
   @media ${device.desktop} {
     padding-bottom: 120px;
-  }
+  } */
 `;
 
 export const ElectricityTitle = styled(SectionTitle)`

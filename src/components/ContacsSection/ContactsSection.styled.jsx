@@ -4,6 +4,8 @@ import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
 export const ContactsSectionStyled = styled.section`
+  padding-top: 110px;
+
   padding-bottom: 36px;
 
   @media ${device.tablet} {

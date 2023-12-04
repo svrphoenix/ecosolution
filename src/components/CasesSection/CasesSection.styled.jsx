@@ -5,14 +5,43 @@ import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
 import { device } from '../../constants/media';
 
 export const CasesSectionStyled = styled.section`
-  padding-bottom: 36px;
+  /* padding-bottom: 36px; */
+  padding-top: 110px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+  }
 `;
 
 export const CasesTitle = styled(SectionTitle)`
   width: 264px;
 
+  @media ${device.tablet} {
+    margin-bottom: 0;
+  }
+
   @media ${device.desktop} {
     width: 398px;
+  }
+`;
+
+export const VerticalLine = styled.div`
+  display: none;
+
+  @media ${device.tablet} {
+    display: block;
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    background-color: ${colors.accentColor};
+    position: absolute;
   }
 `;
 
@@ -20,6 +49,16 @@ export const PaginationWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
+  @media ${device.tablet} {
+    padding-left: 10px;
+    align-items: flex-end;
+    width: 50%;
+  }
+
+  @media ${device.desktop} {
+    width: 40%;
+  }
 `;
 
 export const Pagination = styled.p`
@@ -59,36 +98,52 @@ export const ArrowBtn = styled.button`
 
 export const SlideList = styled.ul`
   margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   display: flex;
-  gap: 12px;
+  /* transition: opacity 1s ease; */
+
+  @media ${device.tablet} {
+    margin-top: 38px;
+    /* margin-bottom: 38px; */
+    gap: 24px;
+  }
+
+  @media ${device.desktop} {
+    margin-top: 120px;
+    /* margin-bottom: 120px; */
+    gap: 48px;
+  }
 `;
 
 export const Slide = styled.li`
   display: ${props => (props.$active ? 'block' : 'none')};
-  transition: opacity 0.5s ease;
+  transition: opacity 1s ease;
+  width: 100%;
+  height: 318px;
 
-  /* width: 100%;
-  height: 180px; */
+  @media ${device.tablet} {
+    display: ${props => (props.$next ? 'block' : 'none')};
+  }
 `;
 
 export const Img = styled.img`
-  /* width: 100%;
-  height: 180px; */
-  /* display: block;*/
-  /* width: 100%; */
-  /* height: 100%; */
   object-fit: cover;
 `;
 
 export const CaseWrapper = styled.div`
+  width: 100%;
+  height: 144px;
   padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
   background-color: #eaedf1;
 `;
 
 export const Caption = styled.h3`
   color: ${colors.accentBackground};
-  width: 175px;
+  /* width: 175px; */
 
   text-align: justify;
   font-size: 18px;
@@ -100,6 +155,8 @@ export const GoToBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 60px;
+  height: 60px;
   padding: 16px;
   border-radius: 50%;
   background-color: ${colors.accentColor};
@@ -119,7 +176,10 @@ export const TextWrapper = styled.div`
 `;
 
 export const CaptionWrapper = styled(TextWrapper)`
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  /* margin-bottom: 20px; */
 `;
 
 export const CasesUnderline = styled(UnderLine)`
