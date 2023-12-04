@@ -19,7 +19,6 @@ const App = () => {
   const electricity = useRef(null);
   const faq = useRef(null);
   const sectionRefs = { contactUs, cases, main, values, electricity, faq };
-  console.log(cases.current);
 
   return (
     <RefsContext.Provider value={sectionRefs}>
