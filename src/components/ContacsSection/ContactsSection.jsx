@@ -66,7 +66,11 @@ const ContactsSection = forwardRef(function ContactsSection(props, ref) {
           </div>
           <div>
             <ContactTitle>Social Networks:</ContactTitle>
-            <Socials gap="32px" mainColor={colors.accentBackground} />
+            <Socials
+              gap="32px"
+              mainColor={colors.accentBackground}
+              hoverColor={colors.accentColor}
+            />
           </div>
         </AddressWrapper>
         <AddressWrapper>

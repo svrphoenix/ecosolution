@@ -20,16 +20,13 @@ import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
 import { UnderLine } from '../common/Underline/Underline.styled';
 import { colors } from '../../constants/theme';
 import Button from '../common/Button/Button';
+import { ScrollToElement } from '../../utils';
 
-const FaqSection = ({ contactUs, id }) => {
+const FaqSection = ({ refs, id }) => {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
 
   const handleSelected = id => {
     setSelectedQuestion(state => (state === id ? undefined : id));
-  };
-
-  const handleClick = () => {
-    contactUs.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -64,7 +61,7 @@ const FaqSection = ({ contactUs, id }) => {
         <PositionWrapper>
           <MoreQuestion>Didn&apos;t find the answer to your question? </MoreQuestion>
           <Button
-            handleClick={handleClick}
+            handleClick={() => ScrollToElement('ref', refs)}
             caption="Contact Us"
             icon={
               <Icon name={'arrow-down'} width={14} height={14} fill={colors.accentBackground} />
@@ -78,7 +75,7 @@ const FaqSection = ({ contactUs, id }) => {
 
 FaqSection.propTypes = {
   id: PropTypes.string,
-  contactUs: PropTypes.any,
+  refs: PropTypes.any,
 };
 
 export default FaqSection;

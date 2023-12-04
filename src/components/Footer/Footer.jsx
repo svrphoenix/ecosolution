@@ -24,7 +24,7 @@ const Footer = () => {
             <ScrollToTop />
           </BtnWrapper>
         </AdditionWrapper>
-        <Socials gap="8px" mainColor={colors.accentBackground} />
+        <Socials gap="8px" mainColor={colors.accentBackground} hoverColor={colors.accentColor} />
       </Wrapper>
       <Wrapper>
         <AddressWrapper>

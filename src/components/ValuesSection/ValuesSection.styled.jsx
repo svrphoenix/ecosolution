@@ -4,9 +4,6 @@ import { device } from '../../constants/media';
 import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
 
 export const ValuesSectionStyled = styled.section`
-  /* display: flex;
-  flex-direction: column; */
-  /* gap: 24px; */
   padding-top: 110px;
 `;
 

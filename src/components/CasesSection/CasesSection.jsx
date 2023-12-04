@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { colors } from '../../constants/theme';
 import {
   ActiveSlide,
@@ -26,7 +26,7 @@ import {
 import { SLIDES } from '../../constants/content';
 import Icon from '../common/Icon/Icon';
 
-const CasesSection = ({ id }) => {
+const CasesSection = forwardRef(function ContactsSection(props, ref) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [nextSlide, setNextSlide] = useState(1);
   const [touchPosition, setTouchPosition] = useState(null);
@@ -75,7 +75,7 @@ const CasesSection = ({ id }) => {
   };
 
   return (
-    <CasesSectionStyled id={id}>
+    <CasesSectionStyled id={props.id} ref={ref}>
       <Wrapper>
         <CasesTitle>Successful cases of our company</CasesTitle>
         <VerticalLine />
@@ -130,7 +130,7 @@ const CasesSection = ({ id }) => {
       </SlideList>
     </CasesSectionStyled>
   );
-};
+});
 
 CasesSection.propTypes = {
   id: PropTypes.string,

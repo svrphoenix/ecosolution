@@ -17,8 +17,9 @@ import {
   MainTitle,
   Wrapper,
 } from './MainSection.styled';
+import { ScrollToElement } from '../../utils';
 
-const MainSection = ({ id }) => {
+const MainSection = ({ id, refs }) => {
   return (
     <MainSectionStyled id={id}>
       <Wrapper>
@@ -29,6 +30,7 @@ const MainSection = ({ id }) => {
             power generation using energy wind, sun, water, biomass
           </Text>
           <Button
+            handleClick={() => ScrollToElement('ref', refs)}
             caption="Learn more"
             icon={
               <Icon name={'arrow-right'} width={16} height={16} stroke={colors.accentBackground} />
@@ -71,6 +73,7 @@ const MainSection = ({ id }) => {
 
 MainSection.propTypes = {
   id: PropTypes.string,
+  refs: PropTypes.any,
 };
 
 export default MainSection;

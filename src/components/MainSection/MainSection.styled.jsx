@@ -5,14 +5,9 @@ import { Copyright } from '../common/Contacts/Contact.styled';
 
 export const MainSectionStyled = styled.section`
   padding-top: 110px;
-  /* padding-bottom: 30px; */
   display: flex;
   flex-direction: column;
   gap: 24px;
-
-  /* @media ${device.tablet} {
-    padding-bottom: 70px;
-  } */
 `;
 
 export const MainTitle = styled.h1`

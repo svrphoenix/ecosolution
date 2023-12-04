@@ -5,15 +5,6 @@ import { device } from '../../constants/media';
 
 export const ElectricitySectionStyled = styled.section`
   padding-top: 110px;
-  /* padding-bottom: 36px;
-
-  @media ${device.tablet} {
-    padding-bottom: 100px;
-  }
-
-  @media ${device.desktop} {
-    padding-bottom: 120px;
-  } */
 `;
 
 export const ElectricityTitle = styled(SectionTitle)`

@@ -5,7 +5,6 @@ export const StyledFooter = styled.footer`
   padding-bottom: 24px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: space-between;
   gap: 24px;
   position: relative;

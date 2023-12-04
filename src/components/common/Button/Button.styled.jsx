@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 import { colors } from '../../../constants/theme';
 
 export const ButtonStyled = styled.button`
-  /* margin: 0 auto; */
   display: block;
   padding: 4px 4px 4px 16px;
   border: 1px solid ${colors.accentColor};

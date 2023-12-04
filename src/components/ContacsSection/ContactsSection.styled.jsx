@@ -40,7 +40,6 @@ export const Wrapper = styled.div`
 
   @media ${device.tablet} {
     flex-direction: row;
-    /* justify-content: space-between; */
   }
 `;
 
@@ -69,7 +68,7 @@ export const Contact = styled.a`
   line-height: normal;
   letter-spacing: -0.8px;
 
-  &:hover {
-    color: ${colors.accentColor};
+  &:hover > svg {
+    stroke: ${colors.accentColor};
   }
 `;

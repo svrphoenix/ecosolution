@@ -13,7 +13,6 @@ export const StyledForm = styled(Form)`
 `;
 
 export const FieldWrapper = styled.div`
-  /* padding-top: 30px; */
   display: flex;
   flex-direction: column;
   gap: 8px;

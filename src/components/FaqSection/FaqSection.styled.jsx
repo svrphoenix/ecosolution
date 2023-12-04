@@ -3,7 +3,6 @@ import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
 export const FaqSectionStyled = styled.section`
-  /* padding-bottom: 36px; */
   padding-top: 110px;
 `;
 

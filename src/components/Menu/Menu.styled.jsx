@@ -30,7 +30,6 @@ export const MenuWrapper = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 
   background-color: rgba(23, 61, 51, 0.75);
   border-radius: 25px;

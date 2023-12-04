@@ -5,6 +5,7 @@ import Icon from '../common/Icon/Icon';
 import { MENU_ITEMS } from '../../constants/content';
 import Socials from '../common/Socials/Socials';
 import { colors } from '../../constants/theme';
+import { ScrollToElement } from '../../utils';
 
 const Menu = ({ handleMenuClose }) => {
   useEffect(() => {
@@ -27,8 +28,7 @@ const Menu = ({ handleMenuClose }) => {
   };
 
   const handleMenuClick = anchor => {
-    const element = document.getElementById(anchor);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    ScrollToElement('id', anchor);
     handleMenuClose();
   };
 

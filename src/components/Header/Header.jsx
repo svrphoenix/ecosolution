@@ -4,13 +4,16 @@ import { useEffect, useRef, useState } from 'react';
 import Logo from '../common/Logo/Logo';
 import { BtnWrapper, StyledHeader } from './Header.styled';
 import MenuButton from '../MenuButton/MenuButton';
-// import Menu from '../Menu/Menu';
 import InTouchBtn from '../InTouchBtn/InTouchBtn';
 import Icon from '../common/Icon/Icon';
 import { colors } from '../../constants/theme';
+import { ScrollToElement } from '../../utils';
+import useMenuToggle from '../../hooks/useMenuToggle';
+import Menu from '../Menu/Menu';
 
-const Header = ({ contactUs, handleMenuOpen }) => {
+const Header = ({ refs }) => {
   const [bgColor, setBgColor] = useState(false);
+  const [isMenuOpen, onMenuToogle] = useMenuToggle();
   const ref = useRef();
 
   useEffect(() => {
@@ -28,18 +31,14 @@ const Header = ({ contactUs, handleMenuOpen }) => {
     return () => window.removeEventListener('scroll', handleWindowScroll);
   }, []);
 
-  const handleClick = () => {
-    contactUs.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <>
       <StyledHeader ref={ref} style={{ backgroundColor: bgColor }}>
         <Logo />
         <BtnWrapper>
-          <MenuButton handleMenuOpen={handleMenuOpen} />
+          <MenuButton handleMenuOpen={onMenuToogle} />
           <InTouchBtn
-            handleClick={handleClick}
+            handleClick={() => ScrollToElement('ref', refs)}
             caption="Get in touch"
             icon={
               <Icon name={'arrow-down'} width={14} height={14} fill={colors.accentBackground} />
@@ -47,14 +46,13 @@ const Header = ({ contactUs, handleMenuOpen }) => {
           />
         </BtnWrapper>
       </StyledHeader>
-      {/* {isMenuOpen && <Menu handleMenuClose={handleMenuToogle} />} */}
+      {isMenuOpen && <Menu handleMenuClose={onMenuToogle} />}
     </>
   );
 };
 
 Header.propTypes = {
-  handleMenuOpen: PropTypes.func,
-  contactUs: PropTypes.any,
+  refs: PropTypes.any,
 };
 
 export default Header;

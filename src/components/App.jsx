@@ -8,28 +8,24 @@ import Header from './Header/Header';
 import MainSection from './MainSection/MainSection';
 import ValuesSection from './ValuesSection/ValuesSection';
 import ContactsSection from './ContacsSection/ContactsSection';
-import Menu from './Menu/Menu';
-import useMenuToggle from '../hooks/useMenuToggle';
 import { MENU_ITEMS } from '../constants/content';
 
 const App = () => {
-  const [isMenuOpen, onMenuToogle] = useMenuToggle();
   const contactUs = useRef(null);
-  // const mainRef = useRef(null);
+  const cases = useRef(null);
 
   return (
     <>
-      <Header handleMenuOpen={onMenuToogle} contactUs={contactUs} />
+      <Header refs={contactUs} />
       <main>
-        <MainSection id={MENU_ITEMS[0].anchor} />
+        <MainSection id={MENU_ITEMS[0].anchor} refs={cases} />
         <ValuesSection id={MENU_ITEMS[1].anchor} />
         <ElectricitySection id={MENU_ITEMS[2].anchor} />
-        <CasesSection id={MENU_ITEMS[3].anchor} />
-        <FaqSection id={MENU_ITEMS[4].anchor} contactUs={contactUs} />
+        <CasesSection id={MENU_ITEMS[3].anchor} ref={cases} />
+        <FaqSection id={MENU_ITEMS[4].anchor} refs={contactUs} />
         <ContactsSection id={MENU_ITEMS[6].anchor} ref={contactUs} />
       </main>
       <Footer />
-      {isMenuOpen && <Menu handleMenuClose={onMenuToogle} />}
       <GlobalStyle />
     </>
   );

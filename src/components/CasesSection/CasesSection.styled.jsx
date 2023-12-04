@@ -5,7 +5,6 @@ import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
 import { device } from '../../constants/media';
 
 export const CasesSectionStyled = styled.section`
-  /* padding-bottom: 36px; */
   padding-top: 110px;
 `;
 
@@ -98,28 +97,25 @@ export const ArrowBtn = styled.button`
 
 export const SlideList = styled.ul`
   margin-top: 20px;
-  /* margin-bottom: 20px; */
   display: flex;
-  /* transition: opacity 1s ease; */
 
   @media ${device.tablet} {
     margin-top: 38px;
-    /* margin-bottom: 38px; */
     gap: 24px;
   }
 
   @media ${device.desktop} {
     margin-top: 120px;
-    /* margin-bottom: 120px; */
+    margin-bottom: 120px;
     gap: 48px;
   }
 `;
 
 export const Slide = styled.li`
   display: ${props => (props.$active ? 'block' : 'none')};
-  transition: opacity 1s ease;
   width: 100%;
   height: 318px;
+  transition: opacity 1s ease;
 
   @media ${device.tablet} {
     display: ${props => (props.$next ? 'block' : 'none')};
@@ -143,7 +139,6 @@ export const CaseWrapper = styled.div`
 
 export const Caption = styled.h3`
   color: ${colors.accentBackground};
-  /* width: 175px; */
 
   text-align: justify;
   font-size: 18px;
@@ -179,7 +174,6 @@ export const CaptionWrapper = styled(TextWrapper)`
   display: flex;
   justify-content: space-between;
   gap: 60px;
-  /* margin-bottom: 20px; */
 `;
 
 export const CasesUnderline = styled(UnderLine)`

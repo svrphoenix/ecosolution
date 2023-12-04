@@ -6,7 +6,6 @@ import Icon from '../common/Icon/Icon';
 const ScrollToTop = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
-  // доробити - коли малювати кнопку
   useEffect(() => {
     const handleWindowScroll = () => {
       if (window.scrollY > 100) {
