@@ -275,7 +275,7 @@ Error generating stack: `+o.message+`
   @media ${R.desktop} {
     font-size: 48px;
   }
-`,Fm=T.forwardRef(function(t,n){return m.jsxs(K1,{id:t.id,ref:n,children:[m.jsx(Y1,{children:"Electricity we produced for all time"}),m.jsx(Z1,{}),m.jsxs(q1,{children:["1.134.147.814",m.jsx(X1,{children:"kWh"})]})]})});Fm.propTypes={id:ae.string};const J1=$.section`
+`,Fm=T.forwardRef(function(t,n){const[r,i]=T.useState(1134147814e-3),o=l=>{const s=l.toFixed(3).split(".");return s[0]=s[0].replace(/\B(?=(\d{3})+(?!\d))/g,"."),s.join(",")};return T.useEffect(()=>{const l=setInterval(()=>{i(s=>s+1.248)},5e3);return()=>clearInterval(l)},[]),m.jsxs(K1,{id:t.id,ref:n,children:[m.jsx(Y1,{children:"Electricity we produced for all time"}),m.jsx(Z1,{}),m.jsxs(q1,{children:[o(r),m.jsx(X1,{children:"kWh"})]})]})});Fm.propTypes={id:ae.string};const J1=$.section`
   padding-top: 110px;
 `,ex=$.div`
   display: flex;
