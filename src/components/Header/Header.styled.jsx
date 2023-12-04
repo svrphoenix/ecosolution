@@ -16,16 +16,15 @@ export const StyledHeader = styled.header`
   position: fixed;
   z-index: 100;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
   @media ${device.tablet} {
-    padding-left: 30px;
-    padding-right: 30px;
+    width: 708px;
   }
 
   @media ${device.desktop} {
-    padding-left: 100px;
-    padding-right: 100px;
+    width: 1080px;
   }
 `;
 
