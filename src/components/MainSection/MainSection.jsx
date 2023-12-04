@@ -18,10 +18,13 @@ import {
   Wrapper,
 } from './MainSection.styled';
 import { ScrollToElement } from '../../utils';
+import { useRefsContext } from '../../hooks/refsContext';
+import { forwardRef } from 'react';
 
-const MainSection = ({ id, refs }) => {
+const MainSection = forwardRef(function MainSection(props, ref) {
+  const { cases } = useRefsContext();
   return (
-    <MainSectionStyled id={id}>
+    <MainSectionStyled id={props.id} ref={ref}>
       <Wrapper>
         <MainTitle>RENEWABLE ENERGY For any task</MainTitle>
         <AdditionWrapper>
@@ -30,7 +33,7 @@ const MainSection = ({ id, refs }) => {
             power generation using energy wind, sun, water, biomass
           </Text>
           <Button
-            handleClick={() => ScrollToElement('ref', refs)}
+            handleClick={() => ScrollToElement('ref', cases)}
             caption="Learn more"
             icon={
               <Icon name={'arrow-right'} width={16} height={16} stroke={colors.accentBackground} />
@@ -69,11 +72,10 @@ const MainSection = ({ id, refs }) => {
       </MainImgWrapper>
     </MainSectionStyled>
   );
-};
+});
 
 MainSection.propTypes = {
   id: PropTypes.string,
-  refs: PropTypes.any,
 };
 
 export default MainSection;

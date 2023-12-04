@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import {
   FaqSectionStyled,
@@ -21,8 +21,10 @@ import { UnderLine } from '../common/Underline/Underline.styled';
 import { colors } from '../../constants/theme';
 import Button from '../common/Button/Button';
 import { ScrollToElement } from '../../utils';
+import { useRefsContext } from '../../hooks/refsContext';
 
-const FaqSection = ({ refs, id }) => {
+const FaqSection = forwardRef(function FaqSection(props, ref) {
+  const { contactUs } = useRefsContext();
   const [selectedQuestion, setSelectedQuestion] = useState(0);
 
   const handleSelected = id => {
@@ -30,7 +32,7 @@ const FaqSection = ({ refs, id }) => {
   };
 
   return (
-    <FaqSectionStyled id={id}>
+    <FaqSectionStyled id={props.id} ref={ref}>
       <Wrapper>
         <SectionTitle>Frequently Asked Questions</SectionTitle>
         <AdditionWrapper>
@@ -61,7 +63,7 @@ const FaqSection = ({ refs, id }) => {
         <PositionWrapper>
           <MoreQuestion>Didn&apos;t find the answer to your question? </MoreQuestion>
           <Button
-            handleClick={() => ScrollToElement('ref', refs)}
+            handleClick={() => ScrollToElement('ref', contactUs)}
             caption="Contact Us"
             icon={
               <Icon name={'arrow-down'} width={14} height={14} fill={colors.accentBackground} />
@@ -71,11 +73,10 @@ const FaqSection = ({ refs, id }) => {
       </Wrapper>
     </FaqSectionStyled>
   );
-};
+});
 
 FaqSection.propTypes = {
   id: PropTypes.string,
-  refs: PropTypes.any,
 };
 
 export default FaqSection;

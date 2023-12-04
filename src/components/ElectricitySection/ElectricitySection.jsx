@@ -7,10 +7,11 @@ import {
   ElectricityTitle,
   VerticalLine,
 } from './ElectricitySection.styled';
+import { forwardRef } from 'react';
 
-const ElectricitySection = ({ id }) => {
+const ElectricitySection = forwardRef(function ElectricitySection(props, ref) {
   return (
-    <ElectricitySectionStyled id={id}>
+    <ElectricitySectionStyled id={props.id} ref={ref}>
       <ElectricityTitle>Electricity we produced for all time</ElectricityTitle>
       <VerticalLine />
       <Counter>
@@ -18,7 +19,7 @@ const ElectricitySection = ({ id }) => {
       </Counter>
     </ElectricitySectionStyled>
   );
-};
+});
 
 ElectricitySection.propTypes = {
   id: PropTypes.string,

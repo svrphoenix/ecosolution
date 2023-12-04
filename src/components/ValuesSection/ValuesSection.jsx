@@ -19,10 +19,11 @@ import {
   VerticalLine,
   Wrapper,
 } from './ValuesSection.styled';
+import { forwardRef } from 'react';
 
-const ValuesSection = ({ id }) => {
+const ValuesSection = forwardRef(function ValuesSection(props, ref) {
   return (
-    <ValuesSectionStyled id={id}>
+    <ValuesSectionStyled id={props.id} ref={ref}>
       <Wrapper>
         <ValuesTitle>Main values of our company</ValuesTitle>
         <VerticalLine />
@@ -90,7 +91,7 @@ const ValuesSection = ({ id }) => {
       </ValuesWrapper>
     </ValuesSectionStyled>
   );
-};
+});
 
 ValuesSection.propTypes = {
   id: PropTypes.string,

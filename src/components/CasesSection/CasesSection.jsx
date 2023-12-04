@@ -26,7 +26,7 @@ import {
 import { SLIDES } from '../../constants/content';
 import Icon from '../common/Icon/Icon';
 
-const CasesSection = forwardRef(function ContactsSection(props, ref) {
+const CasesSection = forwardRef(function CasesSection(props, ref) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [nextSlide, setNextSlide] = useState(1);
   const [touchPosition, setTouchPosition] = useState(null);
