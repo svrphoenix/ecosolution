@@ -92,7 +92,9 @@ h1,h2,h3,h4,h5,h6,p {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: inherit;
+  display: inline-block;
+  /* color: inherit; */
+
 }
 
 ul,
@@ -109,10 +111,11 @@ img{
 }
 
 button {
+  cursor: pointer;
+  display: inline-block;
   padding: 0;
   border: none;
   background-color: transparent;
-  cursor: pointer;
   font-family: inherit;
 }
 

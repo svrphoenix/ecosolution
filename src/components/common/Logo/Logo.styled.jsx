@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { colors } from '../../../constants/theme';
 
-export const LogoWrapper = styled.a`
+export const LogoLink = styled.a`
   display: flex;
   align-items: center;
 `;
