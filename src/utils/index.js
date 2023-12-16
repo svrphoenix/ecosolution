@@ -23,7 +23,8 @@ export const numberWithCommas = number => {
   return numberParts.join(',');
 };
 
-export const createMenuItems = sections =>
-  Object.values(sections)
-    .map(section => section.menu)
-    .filter(menu => menu !== undefined);
+export const createMenuItems = (sections, refs) =>
+  Object.entries(sections)
+    .map(([key, { menu }]) => ({ menu, ref: refs[key] }))
+    .filter(item => item.menu !== undefined);
+

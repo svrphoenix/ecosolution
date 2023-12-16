@@ -5,7 +5,7 @@ import Icon from '../common/Icon/Icon';
 import Socials from '../common/Socials/Socials';
 import { colors } from '../../constants/theme';
 import { sections } from '../../assets/content/main.json';
-import { scrollToElement } from '../../utils';
+import { createMenuItems, scrollToElement } from '../../utils';
 import { useRefsContext } from '../../hooks/refsContext';
 
 const Menu = ({ handleMenuClose }) => {
@@ -33,15 +33,9 @@ const Menu = ({ handleMenuClose }) => {
     handleMenuClose();
   };
 
-  // const menuItems = createMenuItems(sections);
-  // eslint-disable-next-line no-unused-vars
-  const { contacts, cases, main, values, electricity, faq } = useRefsContext();
+  const refs = useRefsContext();
+  const menuItems = createMenuItems(sections, refs);
 
-  const menuRefsArray = Object.entries(sections)
-    .map(([key, { menu }]) => ({ menu, ref: eval(key) }))
-    .filter(item => item.menu !== undefined);
-
-  console.log(menuRefsArray);
   return (
     <Backdrop onClick={onBackdropClick}>
       <MenuWrapper>
@@ -52,7 +46,7 @@ const Menu = ({ handleMenuClose }) => {
         <UnderLine />
         <nav>
           <MenuList>
-            {menuRefsArray.map((item, idx) => (
+            {menuItems.map((item, idx) => (
               <li key={idx}>
                 <MenuItemLink onClick={() => handleMenuClick(item.ref)}>
                   {item.menu}
