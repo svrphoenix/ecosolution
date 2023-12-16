@@ -5,7 +5,7 @@ const Button = ({ handleClick, type = 'button', caption, icon: Icon }) => {
   return (
     <ButtonStyled type={type} onClick={handleClick}>
       {caption}
-      <IconWrapper>{Icon}</IconWrapper>
+      <IconWrapper aria-hidden="true">{Icon}</IconWrapper>
     </ButtonStyled>
   );
 };

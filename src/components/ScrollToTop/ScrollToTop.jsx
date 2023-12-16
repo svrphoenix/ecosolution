@@ -29,7 +29,7 @@ const ScrollToTop = () => {
     <>
       {showTopBtn && (
         <ScrollToTopBtn onClick={goToTop}>
-          <Icon name={'arrow-up'} width={16} height={16} stroke={colors.accentBackground} />
+          <Icon name={'arrow-up'} width={16} height={16} stroke={colors.mainColor} />
         </ScrollToTopBtn>
       )}
     </>

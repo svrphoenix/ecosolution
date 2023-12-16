@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
-import { Copyright } from '../common/Contacts/Contact.styled';
+import { Copyright } from '../../components/common/Contacts/Contact.styled';
 
 export const MainSectionStyled = styled.section`
   padding-top: 110px;
@@ -11,7 +11,7 @@ export const MainSectionStyled = styled.section`
 `;
 
 export const MainTitle = styled.h1`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   font-family: Oswald;
   font-weight: 400;
@@ -104,4 +104,10 @@ export const MainImgWrapper = styled.div`
 export const Img = styled.img`
   margin: 0 auto;
   width: 100%;
+`;
+
+export const StyledIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: ${colors.mainColor};
 `;

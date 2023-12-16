@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../../constants/theme';
 
 const textStyles = `
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
   font-size: 16px;
   line-height: normal;
   letter-spacing: -0.64px;

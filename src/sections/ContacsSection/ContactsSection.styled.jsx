@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
@@ -23,14 +23,11 @@ export const ContactsTitle = styled(SectionTitle)`
   text-align: center;
 `;
 
-export const AddressWrapper = styled.address`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  @media ${device.tablet} {
-    width: 50%;
-  }
+export const StyledSvg = styled.svg`
+  width: 24px;
+  height: 24px;
+  fill: transparent;
+  stroke: ${colors.mainColor};
 `;
 
 export const Wrapper = styled.div`
@@ -43,19 +40,25 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const Address = styled.address`
+  @media ${device.tablet} {
+    width: 50%;
+  }
+`;
+
+export const AddressList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
 export const ContactTitle = styled.p`
   margin-bottom: 8px;
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   font-size: 16px;
   line-height: normal;
   letter-spacing: -0.64px;
-`;
-
-export const PhoneWrapper = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 `;
 
 export const Contact = styled.a`
@@ -63,7 +66,7 @@ export const Contact = styled.a`
   align-items: center;
   gap: 8px;
 
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
   font-size: 20px;
   line-height: normal;
   letter-spacing: -0.8px;
@@ -71,4 +74,10 @@ export const Contact = styled.a`
   &:hover > svg {
     stroke: ${colors.accentColor};
   }
+`;
+
+export const PhoneWrapper = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 `;

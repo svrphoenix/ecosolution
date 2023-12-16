@@ -7,7 +7,7 @@ import MenuButton from '../MenuButton/MenuButton';
 import InTouchBtn from '../InTouchBtn/InTouchBtn';
 import Icon from '../common/Icon/Icon';
 import { colors } from '../../constants/theme';
-import { ScrollToElement } from '../../utils';
+import { scrollToElement } from '../../utils';
 import useMenuToggle from '../../hooks/useMenuToggle';
 import Menu from '../Menu/Menu';
 
@@ -38,11 +38,9 @@ const Header = ({ refs }) => {
         <BtnWrapper>
           <MenuButton handleMenuOpen={onMenuToogle} />
           <InTouchBtn
-            handleClick={() => ScrollToElement('ref', refs)}
+            handleClick={() => scrollToElement('ref', refs)}
             caption="Get in touch"
-            icon={
-              <Icon name={'arrow-down'} width={14} height={14} fill={colors.accentBackground} />
-            }
+            icon={<Icon name={'arrow-down'} width={14} height={14} fill={colors.mainColor} />}
           />
         </BtnWrapper>
       </StyledHeader>

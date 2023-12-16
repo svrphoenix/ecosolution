@@ -81,14 +81,7 @@ const ContactsForm = () => {
             <Button
               type="submit"
               caption="Send"
-              icon={
-                <Icon
-                  name={'arrow-right'}
-                  width={16}
-                  height={16}
-                  stroke={colors.accentBackground}
-                />
-              }
+              icon={<Icon name={'arrow-right'} width={16} height={16} stroke={colors.mainColor} />}
             />
           </ButtonWrapper>
         </StyledForm>

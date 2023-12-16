@@ -4,7 +4,7 @@ import { device } from '../../../constants/media';
 
 export const SectionTitle = styled.h2`
   margin-bottom: 24px;
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   font-family: Oswald;
   font-weight: 400;

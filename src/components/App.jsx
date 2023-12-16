@@ -1,35 +1,38 @@
 import { useRef } from 'react';
-import CasesSection from './CasesSection/CasesSection';
-import ElectricitySection from './ElectricitySection/ElectricitySection';
-import FaqSection from './FaqSection/FaqSection';
+
+import Header from './Header/Header';
+import MainSection from '../sections/MainSection/MainSection';
+import ValuesSection from '../sections/ValuesSection/ValuesSection';
+import ElectricitySection from '../sections/ElectricitySection/ElectricitySection';
+import CasesSection from '../sections/CasesSection/CasesSection';
+import FaqSection from '../sections/FaqSection/FaqSection';
+import ContactsSection from '../sections/ContacsSection/ContactsSection';
 import Footer from './Footer/Footer';
 import GlobalStyle from './GlobalStyle';
-import Header from './Header/Header';
-import MainSection from './MainSection/MainSection';
-import ValuesSection from './ValuesSection/ValuesSection';
-import ContactsSection from './ContacsSection/ContactsSection';
-import { MENU_ITEMS } from '../constants/content';
+
 import { RefsContext } from '../hooks/refsContext';
+// import { MENU_ITEMS } from '../constants/content';
+import { sections } from '../assets/content/main.json';
 
 const App = () => {
-  const contactUs = useRef(null);
+  const contacts = useRef(null);
   const main = useRef(null);
   const cases = useRef(null);
   const values = useRef(null);
   const electricity = useRef(null);
   const faq = useRef(null);
-  const sectionRefs = { contactUs, cases, main, values, electricity, faq };
+  const sectionRefs = { contacts, cases, main, values, electricity, faq };
 
   return (
     <RefsContext.Provider value={sectionRefs}>
-      <Header refs={contactUs} />
+      <Header refs={contacts} />
       <main>
-        <MainSection id={MENU_ITEMS[0].anchor} ref={main} />
-        <ValuesSection id={MENU_ITEMS[1].anchor} ref={values} />
-        <ElectricitySection id={MENU_ITEMS[2].anchor} refs={electricity} />
-        <CasesSection id={MENU_ITEMS[3].anchor} ref={cases} />
-        <FaqSection id={MENU_ITEMS[4].anchor} ref={faq} />
-        <ContactsSection id={MENU_ITEMS[6].anchor} ref={contactUs} />
+        <MainSection sectionId={sections.main.id} ref={main} />
+        <ValuesSection sectionId={sections.values.id} ref={values} />
+        <ElectricitySection sectionId={sections.electricity.id} refs={electricity} />
+        <CasesSection sectionId={sections.cases.id} ref={cases} />
+        <FaqSection sectionId={sections.faq.id} ref={faq} />
+        <ContactsSection sectionId={sections.contacts.id} ref={contacts} />
       </main>
       <Footer />
       <GlobalStyle />

@@ -12,7 +12,7 @@ export const ButtonStyled = styled.button`
   justify-content: center;
   gap: 12px;
 
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
   background-color: transparent;
 
   font-size: 16px;
@@ -24,7 +24,7 @@ export const ButtonStyled = styled.button`
 
   &:hover {
     color: ${colors.accentColor};
-    background-color: ${colors.accentBackground};
+    background-color: ${colors.mainColor};
   }
 `;
 

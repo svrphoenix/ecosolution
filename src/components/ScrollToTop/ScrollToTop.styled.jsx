@@ -15,7 +15,7 @@ export const ScrollToTopBtn = styled.button`
 
   &:focus,
   &:hover {
-    background-color: ${colors.accentBackground};
+    background-color: ${colors.mainColor};
   }
 
   &:hover > svg,

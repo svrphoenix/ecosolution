@@ -4,14 +4,29 @@ export const MENU_ITEMS = [
   { id: 2, value: 'Service', anchor: 'service' },
   { id: 3, value: 'Cases', anchor: 'cases' },
   { id: 4, value: 'FAQ', anchor: 'faq' },
-  { id: 5, value: 'Customers', anchor: 'customers' },
-  { id: 6, value: 'Contact Us', anchor: 'contacts' },
+  { id: 5, value: 'Contact Us', anchor: 'contacts' },
 ];
 
 export const SOCIALS = [
   { id: 0, value: 'Facebook', iconName: 'facebook' },
   { id: 1, value: 'Instagram', iconName: 'instagram' },
 ];
+
+export const CONTACTS = {
+  phone: {
+    title: 'Phone',
+    values: ['38 (098) 12 34 567', '38 (093) 12 34 567'],
+  },
+  address: {
+    title: 'Address',
+    value: '79005, Ukraine, Lvivstreet. Shota Rustaveli, 7',
+  },
+  email: {
+    title: 'Email',
+    value: 'office@ecosolution.com',
+    url: 'https://www.google.com.ua/maps/search/79005,+Ukraine,+Lvivstreet.+Shota+Rustaveli,+7/@49.8313557,24.0323843,17z/data=!3m1!4b1?entry=ttu',
+  },
+};
 
 export const ADDRESS = '79005, Ukraine, Lvivstreet. Shota Rustaveli, 7';
 

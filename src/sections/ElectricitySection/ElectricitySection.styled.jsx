@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
@@ -55,7 +55,7 @@ export const Counter = styled.p`
 export const CounterUnit = styled.span`
   display: inline-block;
   margin-left: 8px;
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   text-align: center;
   vertical-align: middle;

@@ -24,7 +24,8 @@ import {
   Wrapper,
 } from './CasesSection.styled';
 import { SLIDES } from '../../constants/content';
-import Icon from '../common/Icon/Icon';
+import { sections, cases } from '../../assets/content/main.json';
+import Icon from '../../components/common/Icon/Icon';
 
 const CasesSection = forwardRef(function CasesSection(props, ref) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,9 +76,9 @@ const CasesSection = forwardRef(function CasesSection(props, ref) {
   };
 
   return (
-    <CasesSectionStyled id={props.id} ref={ref}>
+    <CasesSectionStyled id={props.sectionId} ref={ref}>
       <Wrapper>
-        <CasesTitle>Successful cases of our company</CasesTitle>
+        <CasesTitle>{sections.cases.title}</CasesTitle>
         <VerticalLine />
         <PaginationWrapper>
           <Pagination>
@@ -86,17 +87,17 @@ const CasesSection = forwardRef(function CasesSection(props, ref) {
           </Pagination>
           <ArrowsWrapper>
             <ArrowBtn onClick={() => changeSlide(-1)}>
-              <Icon name={'arrow-left'} width={36} height={36} stroke={colors.accentBackground} />
+              <Icon name={'arrow-left'} width={36} height={36} stroke={colors.mainColor} />
             </ArrowBtn>
             <ArrowBtn onClick={() => changeSlide(1)}>
-              <Icon name={'arrow-right'} width={36} height={36} stroke={colors.accentBackground} />
+              <Icon name={'arrow-right'} width={36} height={36} stroke={colors.mainColor} />
             </ArrowBtn>
           </ArrowsWrapper>
         </PaginationWrapper>
       </Wrapper>
 
       <SlideList>
-        {SLIDES.map(({ id, img, caption, description, date }) => (
+        {cases.slides.map(({ id, img, caption, description, date }) => (
           <Slide
             key={id}
             $active={id === currentSlide}
@@ -109,12 +110,7 @@ const CasesSection = forwardRef(function CasesSection(props, ref) {
               <CaptionWrapper>
                 <Caption>{caption}</Caption>
                 <GoToBtn>
-                  <Icon
-                    name={'arrow-right-up'}
-                    width={28}
-                    height={28}
-                    stroke={colors.accentBackground}
-                  />
+                  <Icon name={'arrow-right-up'} width={28} height={28} stroke={colors.mainColor} />
                 </GoToBtn>
               </CaptionWrapper>
               <div>
@@ -133,7 +129,7 @@ const CasesSection = forwardRef(function CasesSection(props, ref) {
 });
 
 CasesSection.propTypes = {
-  id: PropTypes.string,
+  sectionId: PropTypes.string,
 };
 
 export default CasesSection;

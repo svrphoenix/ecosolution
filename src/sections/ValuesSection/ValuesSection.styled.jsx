@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
-import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
 
 export const ValuesSectionStyled = styled.section`
   padding-top: 110px;
@@ -133,7 +133,7 @@ export const CaptionWrapper = styled.div`
 `;
 
 export const Caption = styled.h3`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   font-family: Oswald;
   font-size: 16px;
@@ -144,7 +144,7 @@ export const Caption = styled.h3`
 
 export const Description = styled.p`
   margin-top: 12px;
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   text-align: justify;
   font-size: 14px;

@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Backdrop, CloseBtn, MenuItemLink, MenuList, MenuWrapper, UnderLine } from './Menu.styled';
 import Icon from '../common/Icon/Icon';
-import { MENU_ITEMS } from '../../constants/content';
 import Socials from '../common/Socials/Socials';
 import { colors } from '../../constants/theme';
-import { ScrollToElement } from '../../utils';
+import { sections } from '../../assets/content/main.json';
+import { scrollToElement } from '../../utils';
+import { useRefsContext } from '../../hooks/refsContext';
 
 const Menu = ({ handleMenuClose }) => {
   useEffect(() => {
@@ -28,10 +29,19 @@ const Menu = ({ handleMenuClose }) => {
   };
 
   const handleMenuClick = anchor => {
-    ScrollToElement('id', anchor);
+    scrollToElement('ref', anchor);
     handleMenuClose();
   };
 
+  // const menuItems = createMenuItems(sections);
+  // eslint-disable-next-line no-unused-vars
+  const { contacts, cases, main, values, electricity, faq } = useRefsContext();
+
+  const menuRefsArray = Object.entries(sections)
+    .map(([key, { menu }]) => ({ menu, ref: eval(key) }))
+    .filter(item => item.menu !== undefined);
+
+  console.log(menuRefsArray);
   return (
     <Backdrop onClick={onBackdropClick}>
       <MenuWrapper>
@@ -42,10 +52,10 @@ const Menu = ({ handleMenuClose }) => {
         <UnderLine />
         <nav>
           <MenuList>
-            {MENU_ITEMS.map(item => (
-              <li key={item.id}>
-                <MenuItemLink onClick={() => handleMenuClick(item.anchor)}>
-                  {item.value}
+            {menuRefsArray.map((item, idx) => (
+              <li key={idx}>
+                <MenuItemLink onClick={() => handleMenuClick(item.ref)}>
+                  {item.menu}
                   <Icon name={'arrow-right-up'} width={16} height={16} />
                 </MenuItemLink>
               </li>

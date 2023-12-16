@@ -88,7 +88,7 @@ export const StyledSvg = styled.svg`
 export const Question = styled.span`
   margin-left: 8px;
 
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
   text-align: justify;
   font-size: 18px;
   line-height: normal;
@@ -107,7 +107,7 @@ export const Question = styled.span`
 export const Answer = styled.p`
   padding-left: 24px;
 
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
   font-size: 14px;
   text-align: justify;
   line-height: normal;
@@ -140,7 +140,7 @@ export const PositionWrapper = styled.div`
 `;
 
 export const MoreQuestion = styled.p`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   text-align: center;
   font-size: 18px;

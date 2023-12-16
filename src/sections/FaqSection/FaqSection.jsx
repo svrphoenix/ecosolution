@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { forwardRef, useState } from 'react';
 
-import icons from '../../assets/icons/sprite.svg';
 import {
   FaqSectionStyled,
   MoreQuestion,
@@ -17,14 +16,14 @@ import {
   StyledSvg,
 } from './FaqSection.styled';
 
-import { FAQS } from '../../constants/content';
-import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
 import { colors } from '../../constants/theme';
-import Button from '../common/Button/Button';
-import { ScrollToElement } from '../../utils';
+import Button from '../../components/common/Button/Button';
+import { scrollToElement } from '../../utils';
 import { useRefsContext } from '../../hooks/refsContext';
-import Svg from '../common/Svg.jsx/Svg';
-import Icon from '../common/Icon/Icon';
+import Svg from '../../components/common/Svg.jsx/Svg';
+import Icon from '../../components/common/Icon/Icon';
+import { sections, faq } from '../../assets/content/main.json';
 
 const FaqSection = forwardRef(function FaqSection(props, ref) {
   const { contactUs } = useRefsContext();
@@ -35,12 +34,12 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
   };
 
   return (
-    <FaqSectionStyled id={props.id} ref={ref}>
+    <FaqSectionStyled id={props.sectionId} ref={ref}>
       <Wrapper>
-        <SectionTitle>Frequently Asked Questions</SectionTitle>
+        <SectionTitle>{sections.faq.title}</SectionTitle>
         <AdditionWrapper>
           <Questions>
-            {FAQS.map(({ id, question, answer }) => (
+            {faq.questions.map(({ id, question, answer }) => (
               <QuestionItem key={id}>
                 <QuestionBtn
                   type="button"
@@ -52,18 +51,15 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
                   <IconWrapper aria-hidden="true">
                     <Svg
                       icon={StyledSvg}
-                      sprite={icons}
                       name={selectedQuestion === id ? 'minus' : 'plus'}
-                      stroke={
-                        selectedQuestion === id ? colors.accentBackground : colors.accentColor
-                      }
+                      stroke={selectedQuestion === id ? colors.mainColor : colors.accentColor}
                     />
                     {/* {selectedQuestion === id ? (
                       <Icon
                         name={'minus'}
                         width={16}
                         height={16}
-                        stroke={colors.accentBackground}
+                        stroke={colors.mainColor}
                       />
                     ) : (
                       <Icon name={'plus'} width={16} height={16} stroke={colors.accentColor} />
@@ -84,13 +80,11 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
           </Questions>
         </AdditionWrapper>
         <PositionWrapper>
-          <MoreQuestion>Didn&apos;t find the answer to your question? </MoreQuestion>
+          <MoreQuestion>{faq.moreTitle}</MoreQuestion>
           <Button
-            handleClick={() => ScrollToElement('ref', contactUs)}
+            handleClick={() => scrollToElement('ref', contactUs)}
             caption="Contact Us"
-            icon={
-              <Icon name={'arrow-down'} width={14} height={14} fill={colors.accentBackground} />
-            }
+            icon={<Icon name={'arrow-down'} width={14} height={14} fill={colors.mainColor} />}
           />
         </PositionWrapper>
       </Wrapper>
@@ -99,7 +93,7 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
 });
 
 FaqSection.propTypes = {
-  id: PropTypes.string,
+  sectionId: PropTypes.string,
 };
 
 export default FaqSection;

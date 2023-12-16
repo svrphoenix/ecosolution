@@ -15,7 +15,7 @@ export const InTouchBtnStyled = styled.button`
     justify-content: center;
     gap: 12px;
 
-    color: ${colors.accentBackground};
+    color: ${colors.mainColor};
     background-color: ${colors.accentColor};
 
     font-size: 16px;
@@ -27,12 +27,12 @@ export const InTouchBtnStyled = styled.button`
 
     &:hover {
       color: ${colors.accentColor};
-      background-color: ${colors.accentBackground};
+      background-color: ${colors.mainColor};
     }
 
     &:hover > svg {
       fill: ${colors.accentColor};
-      stroke: ${colors.accentBackground};
+      stroke: ${colors.mainColor};
     }
   }
 `;

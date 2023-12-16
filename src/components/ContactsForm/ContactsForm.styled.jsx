@@ -21,7 +21,7 @@ export const FieldWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
   font-size: 16px;
   line-height: normal;
   letter-spacing: -0.64px;
@@ -32,7 +32,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled(Field)`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   font-size: 18px;
   line-height: normal;

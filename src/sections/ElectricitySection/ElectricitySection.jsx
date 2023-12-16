@@ -8,15 +8,11 @@ import {
   VerticalLine,
 } from './ElectricitySection.styled';
 import { forwardRef, useEffect, useState } from 'react';
+import { sections, electricity } from '../../assets/content/main.json';
+import { numberWithCommas } from '../../utils';
 
 const ElectricitySection = forwardRef(function ElectricitySection(props, ref) {
   const [counter, setCounter] = useState(1134147.814);
-
-  const numberWithCommas = number => {
-    const numberParts = number.toFixed(3).split('.');
-    numberParts[0] = numberParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    return numberParts.join(',');
-  };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -28,11 +24,11 @@ const ElectricitySection = forwardRef(function ElectricitySection(props, ref) {
 
   return (
     <ElectricitySectionStyled id={props.id} ref={ref}>
-      <ElectricityTitle>Electricity we produced for all time</ElectricityTitle>
+      <ElectricityTitle>{sections.electricity.title}</ElectricityTitle>
       <VerticalLine />
       <Counter>
         {numberWithCommas(counter)}
-        <CounterUnit>kWh</CounterUnit>
+        <CounterUnit>{electricity.unit}</CounterUnit>
       </Counter>
     </ElectricitySectionStyled>
   );

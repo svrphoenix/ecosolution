@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
+
 import { ADDRESS, EMAIL } from '../../constants/content';
 import { colors } from '../../constants/theme';
-import Button from '../common/Button/Button';
-import { Address, Email } from '../common/Contacts/Contact.styled';
-import Icon from '../common/Icon/Icon';
-import { Text } from '../common/Text/Text.styled';
-import { UnderLine } from '../common/Underline/Underline.styled';
 import {
   AdditionWrapper,
   ContactsWrapper,
@@ -17,27 +14,28 @@ import {
   MainTitle,
   Wrapper,
 } from './MainSection.styled';
-import { ScrollToElement } from '../../utils';
+import { scrollToElement } from '../../utils';
 import { useRefsContext } from '../../hooks/refsContext';
-import { forwardRef } from 'react';
+
+import { sections, main } from '../../assets/content/main.json';
+import Button from '../../components/common/Button/Button';
+import { Address, Email } from '../../components/common/Contacts/Contact.styled';
+import Icon from '../../components/common/Icon/Icon';
+import { UnderLine } from '../../components/common/Underline/Underline.styled';
+import { Text } from '../../components/common/Text/Text.styled';
 
 const MainSection = forwardRef(function MainSection(props, ref) {
   const { cases } = useRefsContext();
   return (
-    <MainSectionStyled id={props.id} ref={ref}>
+    <MainSectionStyled id={props.sectionId} ref={ref}>
       <Wrapper>
-        <MainTitle>RENEWABLE ENERGY For any task</MainTitle>
+        <MainTitle>{sections.main.title}</MainTitle>
         <AdditionWrapper>
-          <Text>
-            Development and implementation of renewable non-polluting energy sources, generating
-            power generation using energy wind, sun, water, biomass
-          </Text>
+          <Text>{main.text}</Text>
           <Button
-            handleClick={() => ScrollToElement('ref', cases)}
+            handleClick={() => scrollToElement('ref', cases)}
             caption="Learn more"
-            icon={
-              <Icon name={'arrow-right'} width={16} height={16} stroke={colors.accentBackground} />
-            }
+            icon={<Icon name={'arrow-right'} width={16} height={16} stroke={colors.mainColor} />}
           />
         </AdditionWrapper>
       </Wrapper>
@@ -75,7 +73,7 @@ const MainSection = forwardRef(function MainSection(props, ref) {
 });
 
 MainSection.propTypes = {
-  id: PropTypes.string,
+  sectionId: PropTypes.string,
 };
 
 export default MainSection;

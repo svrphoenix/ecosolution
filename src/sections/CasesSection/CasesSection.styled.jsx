@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
-import { UnderLine } from '../common/Underline/Underline.styled';
-import { SectionTitle } from '../common/SectionTitle/SectionTitle.styled';
+import { UnderLine } from '../../components/common/Underline/Underline.styled';
+import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
 import { device } from '../../constants/media';
 
 export const CasesSectionStyled = styled.section`
@@ -69,7 +69,7 @@ export const Pagination = styled.p`
 `;
 
 export const ActiveSlide = styled.span`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 `;
 
 export const ArrowsWrapper = styled.div`
@@ -79,7 +79,7 @@ export const ArrowsWrapper = styled.div`
 
 export const ArrowBtn = styled.button`
   padding: 15px;
-  border: 1px solid ${colors.accentBackground};
+  border: 1px solid ${colors.mainColor};
   border-radius: 50%;
   background-color: transparent;
   display: flex;
@@ -138,7 +138,7 @@ export const CaseWrapper = styled.div`
 `;
 
 export const Caption = styled.h3`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   text-align: justify;
   font-size: 18px;
@@ -157,7 +157,7 @@ export const GoToBtn = styled.button`
   background-color: ${colors.accentColor};
 
   &:hover {
-    background-color: ${colors.accentBackground};
+    background-color: ${colors.mainColor};
   }
 
   &:hover > svg {
@@ -181,7 +181,7 @@ export const CasesUnderline = styled(UnderLine)`
 `;
 
 export const Description = styled.p`
-  color: ${colors.accentBackground};
+  color: ${colors.mainColor};
 
   text-align: justify;
   font-size: 12px;

@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
+import icons from '../../../assets/icons/sprite.svg';
 
-const Svg = ({ icon: StyledSvg, sprite, name, stroke, fill }) => {
+const Svg = props => {
+  const { icon: StyledSvg, sprite = icons, name, ...other } = props;
   return (
-    <StyledSvg stroke={stroke} fill={fill}>
+    <StyledSvg {...other}>
       <use href={`${sprite}#${name}`} />
     </StyledSvg>
   );
@@ -10,10 +12,8 @@ const Svg = ({ icon: StyledSvg, sprite, name, stroke, fill }) => {
 
 Svg.propTypes = {
   icon: PropTypes.elementType.isRequired,
-  sprite: PropTypes.string.isRequired,
+  sprite: PropTypes.string,
   name: PropTypes.string.isRequired,
-  stroke: PropTypes.string,
-  fill: PropTypes.string,
 };
 
 export default Svg;
