@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Backdrop, CloseBtn, MenuItemLink, MenuList, MenuWrapper, UnderLine } from './Menu.styled';
 import Icon from '../common/Icon/Icon';
@@ -35,6 +35,38 @@ const Menu = ({ handleMenuClose }) => {
 
   const refs = useRefsContext();
   const menuItems = createMenuItems(sections, refs);
+  const [activeItem, setActiveItem] = useState(0);
+
+  const observer = useRef(
+    new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = menuItems.findIndex(item => item.ref.current === entry.target);
+            if (index !== -1) {
+              setActiveItem(index);
+            }
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      }
+    )
+  );
+
+  useEffect(() => {
+    const curObserver = observer.current;
+    menuItems.forEach(item => {
+      observer.current.observe(item.ref.current);
+    });
+
+    return () => {
+      curObserver.disconnect();
+    };
+  }, [menuItems]);
 
   return (
     <Backdrop onClick={onBackdropClick}>
@@ -48,7 +80,10 @@ const Menu = ({ handleMenuClose }) => {
           <MenuList>
             {menuItems.map((item, idx) => (
               <li key={idx}>
-                <MenuItemLink onClick={() => handleMenuClick(item.ref)}>
+                <MenuItemLink
+                  $isActive={idx === activeItem}
+                  onClick={() => handleMenuClick(item.ref)}
+                >
                   {item.menu}
                   <Icon name={'arrow-right-up'} width={16} height={16} />
                 </MenuItemLink>

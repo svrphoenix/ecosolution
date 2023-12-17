@@ -89,7 +89,7 @@ export const MenuItemLink = styled.a`
   font-family: Fira Sans;
   font-size: 24px;
   letter-spacing: -0.96px;
-  color: rgba(255, 255, 255, 0.25);
+  color: ${props => (props.$isActive ? colors.accentColor : '#ffffff3f')};
 
   & > svg {
     stroke: currentColor;

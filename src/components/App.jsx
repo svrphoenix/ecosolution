@@ -11,7 +11,6 @@ import Footer from './Footer/Footer';
 import GlobalStyle from './GlobalStyle';
 
 import { RefsContext } from '../hooks/refsContext';
-// import { MENU_ITEMS } from '../constants/content';
 import { sections } from '../assets/content/main.json';
 
 const App = () => {
