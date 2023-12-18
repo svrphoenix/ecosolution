@@ -15,7 +15,6 @@ const Menu = ({ handleMenuClose }) => {
         handleMenuClose();
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -29,13 +28,14 @@ const Menu = ({ handleMenuClose }) => {
   };
 
   const handleMenuClick = anchor => {
-    scrollToElement('ref', anchor);
+    const offset = parseInt(document.body.style.paddingTop);
+    scrollToElement('ref', anchor, offset);
     handleMenuClose();
   };
 
   const refs = useRefsContext();
   const menuItems = createMenuItems(sections, refs);
-  const [activeItem, setActiveItem] = useState(0);
+  const [activeItem, setActiveItem] = useState();
 
   const observer = useRef(
     new IntersectionObserver(
@@ -81,8 +81,12 @@ const Menu = ({ handleMenuClose }) => {
             {menuItems.map((item, idx) => (
               <li key={idx}>
                 <MenuItemLink
+                  href={`#${item.id}`}
                   $isActive={idx === activeItem}
-                  onClick={() => handleMenuClick(item.ref)}
+                  onClick={evt => {
+                    evt.preventDefault();
+                    handleMenuClick(item.ref);
+                  }}
                 >
                   {item.menu}
                   <Icon name={'arrow-right-up'} width={16} height={16} />

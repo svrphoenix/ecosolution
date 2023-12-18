@@ -11,6 +11,7 @@ import Button from '../common/Button/Button';
 import Icon from '../common/Icon/Icon';
 import { colors } from '../../constants/theme';
 import { ContactSchema } from './validation';
+import toast from 'react-hot-toast';
 
 const ContactsForm = () => {
   return (
@@ -23,7 +24,12 @@ const ContactsForm = () => {
       }}
       validationSchema={ContactSchema}
       onSubmit={(values, actions) => {
-        window.alert('Data sended!');
+        toast.success('Data sended successfully!', {
+          style: {
+            color: colors.mainColor,
+            backgroundColor: '#dcefd8',
+          },
+        });
         actions.resetForm();
       }}
     >

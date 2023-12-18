@@ -1,6 +1,6 @@
 import { ADDRESS, EMAIL } from '../../constants/content';
 import { colors } from '../../constants/theme';
-import ScrollToTop from '../ScrollToTop/ScrollToTop';
+import ScrollToTop from '../ScrollToMain/ScrollToMain';
 import { Address, Copyright, Email } from '../common/Contacts/Contact.styled';
 import Logo from '../common/Logo/Logo';
 import Socials from '../common/Socials/Socials';

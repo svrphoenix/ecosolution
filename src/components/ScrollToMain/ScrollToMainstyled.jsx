@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
 
-export const ScrollToTopBtn = styled.button`
+export const ScrollToTopBtn = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;

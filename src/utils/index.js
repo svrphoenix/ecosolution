@@ -1,16 +1,23 @@
-export const scrollToElement = (type, ref) => {
+export const scrollToElement = (type, ref, offset = 0) => {
   let element = undefined;
   switch (type) {
     case 'id':
       element = document.getElementById(ref);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      // element?.scrollIntoView({ behavior: 'smooth' });
       break;
     case 'ref':
-      ref.current?.scrollIntoView({ behavior: 'smooth' });
+      // ref.current?.scrollIntoView({ behavior: 'smooth' });
+      element = ref.current;
       break;
   }
+  if (element) {
+    const sectionTop = ref.current.offsetTop - offset;
+    window.scrollTo({
+      top: sectionTop,
+      behavior: 'smooth',
+    });
+  }
 };
-
 export const phoneNormalize = number =>
   number
     .split('')
@@ -25,6 +32,5 @@ export const numberWithCommas = number => {
 
 export const createMenuItems = (sections, refs) =>
   Object.entries(sections)
-    .map(([key, { menu }]) => ({ menu, ref: refs[key] }))
+    .map(([key, { menu, id }]) => ({ menu, id, ref: refs[key] }))
     .filter(item => item.menu !== undefined);
-

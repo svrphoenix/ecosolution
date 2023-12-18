@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 
 import Logo from '../common/Logo/Logo';
-import { BtnWrapper, StyledHeader } from './Header.styled';
+import { BtnWrapper, HeaderWrapper, StyledHeader } from './Header.styled';
 import MenuButton from '../MenuButton/MenuButton';
 import InTouchBtn from '../InTouchBtn/InTouchBtn';
 import Icon from '../common/Icon/Icon';
@@ -22,7 +22,8 @@ const Header = ({ refs }) => {
 
     const handleWindowScroll = () => {
       if (window.scrollY > 0) {
-        setBgColor('rgba(255,255,255,.7)');
+        // setBgColor('rgba(255,255,255,.7)');
+        setBgColor('#ffffff');
       } else {
         setBgColor('#f3f5fa');
       }
@@ -33,16 +34,18 @@ const Header = ({ refs }) => {
 
   return (
     <>
-      <StyledHeader ref={ref} style={{ backgroundColor: bgColor }}>
-        <Logo />
-        <BtnWrapper>
-          <MenuButton handleMenuOpen={onMenuToogle} />
-          <InTouchBtn
-            handleClick={() => scrollToElement('ref', refs)}
-            caption="Get in touch"
-            icon={<Icon name={'arrow-down'} width={14} height={14} fill={colors.mainColor} />}
-          />
-        </BtnWrapper>
+      <StyledHeader ref={ref} $bgColor={bgColor}>
+        <HeaderWrapper>
+          <Logo />
+          <BtnWrapper>
+            <MenuButton handleMenuOpen={onMenuToogle} />
+            <InTouchBtn
+              handleClick={() => scrollToElement('ref', refs)}
+              caption="Get in touch"
+              icon={<Icon name={'arrow-down'} width={14} height={14} fill={colors.mainColor} />}
+            />
+          </BtnWrapper>
+        </HeaderWrapper>
       </StyledHeader>
       {isMenuOpen && <Menu handleMenuClose={onMenuToogle} />}
     </>

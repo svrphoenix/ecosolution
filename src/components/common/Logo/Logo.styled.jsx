@@ -2,8 +2,13 @@ import { styled } from 'styled-components';
 import { colors } from '../../../constants/theme';
 
 export const LogoLink = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
+
+  &:hover > .LogoMainText,
+  &:focus > .LogoMainText {
+    color: ${colors.accentColor};
+  }
 `;
 
 export const LogoMainText = styled.p`
@@ -12,9 +17,6 @@ export const LogoMainText = styled.p`
   font-family: 'Fontspring';
   font-size: 33px;
   letter-spacing: -1.32px;
-  &:hover {
-    color: ${colors.accentColor};
-  }
 `;
 
 export const LogoSloganText = styled.p`

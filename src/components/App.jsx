@@ -12,6 +12,8 @@ import GlobalStyle from './GlobalStyle';
 
 import { RefsContext } from '../hooks/refsContext';
 import { sections } from '../assets/content/main.json';
+import { Toaster } from 'react-hot-toast';
+import Main from './Main/Main';
 
 const App = () => {
   const contacts = useRef(null);
@@ -25,15 +27,16 @@ const App = () => {
   return (
     <RefsContext.Provider value={sectionRefs}>
       <Header refs={contacts} />
-      <main>
+      <Main>
         <MainSection sectionId={sections.main.id} ref={main} />
         <ValuesSection sectionId={sections.values.id} ref={values} />
         <ElectricitySection sectionId={sections.electricity.id} refs={electricity} />
         <CasesSection sectionId={sections.cases.id} ref={cases} />
         <FaqSection sectionId={sections.faq.id} ref={faq} />
         <ContactsSection sectionId={sections.contacts.id} ref={contacts} />
-      </main>
+      </Main>
       <Footer />
+      <Toaster />
       <GlobalStyle />
     </RefsContext.Provider>
   );
