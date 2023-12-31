@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 import { forwardRef, useState } from 'react';
-import { colors } from '../../constants/theme';
 import {
   ActiveSlide,
   ArrowBtn,
@@ -25,9 +24,8 @@ import {
 } from './CasesSection.styled';
 import { SLIDES } from '../../constants/content';
 import { sections, cases } from '../../assets/content/main.json';
-import Icon from '../../components/common/Icon/Icon';
 
-const CasesSection = forwardRef(function CasesSection(props, ref) {
+const CasesSection = forwardRef(function CasesSection(_, ref) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [nextSlide, setNextSlide] = useState(1);
   const [touchPosition, setTouchPosition] = useState(null);
@@ -76,7 +74,7 @@ const CasesSection = forwardRef(function CasesSection(props, ref) {
   };
 
   return (
-    <CasesSectionStyled id={props.sectionId} ref={ref}>
+    <CasesSectionStyled id={sections.cases.id} ref={ref}>
       <Wrapper>
         <CasesTitle>{sections.cases.title}</CasesTitle>
         <VerticalLine />
@@ -87,10 +85,10 @@ const CasesSection = forwardRef(function CasesSection(props, ref) {
           </Pagination>
           <ArrowsWrapper>
             <ArrowBtn onClick={() => changeSlide(-1)}>
-              <Icon name={'arrow-left'} width={36} height={36} stroke={colors.mainColor} />
+              {/* <Icon name={'arrow-left'} width={36} height={36} stroke={colors.mainColor} /> */}
             </ArrowBtn>
             <ArrowBtn onClick={() => changeSlide(1)}>
-              <Icon name={'arrow-right'} width={36} height={36} stroke={colors.mainColor} />
+              {/* <Icon name={'arrow-right'} width={36} height={36} stroke={colors.mainColor} /> */}
             </ArrowBtn>
           </ArrowsWrapper>
         </PaginationWrapper>
@@ -110,7 +108,7 @@ const CasesSection = forwardRef(function CasesSection(props, ref) {
               <CaptionWrapper>
                 <Caption>{caption}</Caption>
                 <GoToBtn>
-                  <Icon name={'arrow-right-up'} width={28} height={28} stroke={colors.mainColor} />
+                  {/* <Icon name={'arrow-right-up'} width={28} height={28} stroke={colors.mainColor} /> */}
                 </GoToBtn>
               </CaptionWrapper>
               <div>

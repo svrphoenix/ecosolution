@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
   transition: background-color 0.5s;
 `;
 
-export const HeaderWrapper = styled.div`
+export const Navigation = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,3 +44,4 @@ export const BtnWrapper = styled.div`
   display: flex;
   gap: 12px;
 `;
+

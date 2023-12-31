@@ -16,17 +16,13 @@ import {
   StyledSvg,
 } from './FaqSection.styled';
 
-import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { colors } from '../../constants/theme';
-import Button from '../../components/common/Button/Button';
-import { scrollToElement } from '../../utils';
-import { useRefsContext } from '../../hooks/refsContext';
-import Svg from '../../components/common/Svg.jsx/Svg';
+import { sections, faq, buttonCaptions } from '../../assets/content/main.json';
+import InTouchLink from '../../components/InTouchLink/InTouchLink';
 import Icon from '../../components/common/Icon/Icon';
-import { sections, faq } from '../../assets/content/main.json';
 
 const FaqSection = forwardRef(function FaqSection(props, ref) {
-  const { contactUs } = useRefsContext();
   const [selectedQuestion, setSelectedQuestion] = useState(0);
 
   const handleSelected = id => {
@@ -49,21 +45,11 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
                   onClick={() => handleSelected(id)}
                 >
                   <IconWrapper aria-hidden="true">
-                    <Svg
-                      icon={StyledSvg}
+                    <Icon
+                      svgStyled={StyledSvg}
                       name={selectedQuestion === id ? 'minus' : 'plus'}
                       stroke={selectedQuestion === id ? colors.mainColor : colors.accentColor}
                     />
-                    {/* {selectedQuestion === id ? (
-                      <Icon
-                        name={'minus'}
-                        width={16}
-                        height={16}
-                        stroke={colors.mainColor}
-                      />
-                    ) : (
-                      <Icon name={'plus'} width={16} height={16} stroke={colors.accentColor} />
-                    )} */}
                   </IconWrapper>
                   <Question>{question}</Question>
                 </QuestionBtn>
@@ -81,11 +67,7 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
         </AdditionWrapper>
         <PositionWrapper>
           <MoreQuestion>{faq.moreTitle}</MoreQuestion>
-          <Button
-            handleClick={() => scrollToElement('ref', contactUs)}
-            caption="Contact Us"
-            icon={<Icon name={'arrow-down'} width={14} height={14} fill={colors.mainColor} />}
-          />
+          <InTouchLink caption={buttonCaptions.contactUs} />
         </PositionWrapper>
       </Wrapper>
     </FaqSectionStyled>

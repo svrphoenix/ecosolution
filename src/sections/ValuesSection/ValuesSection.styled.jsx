@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
-import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 
 export const ValuesSectionStyled = styled.section`
   padding-top: 110px;

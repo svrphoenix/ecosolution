@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { colors } from '../../constants/theme';
+import { colors, fonts } from '../../constants/theme';
 import { device } from '../../constants/media';
-import { Copyright } from '../../components/common/Contacts/Contact.styled';
+import { Copyright } from '../../components/common/styled/Contact.styled';
 
 export const MainSectionStyled = styled.section`
   padding-top: 110px;
@@ -13,7 +13,7 @@ export const MainSectionStyled = styled.section`
 export const MainTitle = styled.h1`
   color: ${colors.mainColor};
 
-  font-family: Oswald;
+  font-family: ${fonts.title}, sans-serif;
   font-weight: 400;
   font-size: 36px;
   line-height: 1;
@@ -64,6 +64,17 @@ export const AdditionWrapper = styled.div`
 `;
 
 export const ContactsWrapper = styled.div`
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 24px;
+    background-color: ${colors.accentColor};
+  }
+`;
+
+export const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -104,10 +115,4 @@ export const MainImgWrapper = styled.div`
 export const Img = styled.img`
   margin: 0 auto;
   width: 100%;
-`;
-
-export const StyledIcon = styled.svg`
-  width: 16px;
-  height: 16px;
-  stroke: ${colors.mainColor};
 `;

@@ -1,5 +1,6 @@
 import 'modern-normalize';
 import { createGlobalStyle } from 'styled-components';
+import { colors, fonts } from '../constants/theme';
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -53,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @font-face {
-    font-family: 'Fontspring';
+    font-family: ${fonts.logoMain};
     src: local('Fontspring Regular'), local('Fontspring-Regular'),
       url('./fonts/fontspring/Fontspring-DEMO-allroundgothic-thick.woff2') format('woff2');
     font-weight: 400;
@@ -61,11 +62,11 @@ const GlobalStyle = createGlobalStyle`
     } 
 
     @font-face {
-    font-family: 'CA Saygon Text';
+    font-family: ${fonts.logoAdd};
     src: local('CA Saygon Text Regular'), local('CA-Saygon-Text-Regular'),
       url('./fonts/casaygontext/CASaygonText-Regular.woff2') format('woff2'),
       url('./fonts/casaygontext/CASaygonText-Regular.woff') format('woff'),
-        url('./fonts/casaygontext/CASaygonText-Regular.ttf') format('truetype');
+      url('./fonts/casaygontext/CASaygonText-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     }
@@ -78,9 +79,12 @@ const GlobalStyle = createGlobalStyle`
   
 }
 
+html{scroll-behavior:smooth}
+
 body {
-  font-family: Fira Sans, sans-serif;
-  background-color: #F3F5FA;
+  font-family: ${fonts.main}, sans-serif;
+  color:${colors.mainColor};
+  background-color: ${colors.bodyBackground};
 }
 
 h1,h2,h3,h4,h5,h6,p {

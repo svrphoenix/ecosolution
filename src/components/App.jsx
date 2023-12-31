@@ -1,6 +1,8 @@
 import { useRef } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 import Header from './Header/Header';
+import Main from './Main/Main';
 import MainSection from '../sections/MainSection/MainSection';
 import ValuesSection from '../sections/ValuesSection/ValuesSection';
 import ElectricitySection from '../sections/ElectricitySection/ElectricitySection';
@@ -12,8 +14,6 @@ import GlobalStyle from './GlobalStyle';
 
 import { RefsContext } from '../hooks/refsContext';
 import { sections } from '../assets/content/main.json';
-import { Toaster } from 'react-hot-toast';
-import Main from './Main/Main';
 
 const App = () => {
   const contacts = useRef(null);
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <RefsContext.Provider value={sectionRefs}>
-      <Header refs={contacts} />
+      <Header />
       <Main>
         <MainSection sectionId={sections.main.id} ref={main} />
         <ValuesSection sectionId={sections.values.id} ref={values} />

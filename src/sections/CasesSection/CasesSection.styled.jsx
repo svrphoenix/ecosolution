@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/theme';
 import { UnderLine } from '../../components/common/Underline/Underline.styled';
-import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { device } from '../../constants/media';
 
 export const CasesSectionStyled = styled.section`

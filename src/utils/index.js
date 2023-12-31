@@ -32,5 +32,5 @@ export const numberWithCommas = number => {
 
 export const createMenuItems = (sections, refs) =>
   Object.entries(sections)
-    .map(([key, { menu, id }]) => ({ menu, id, ref: refs[key] }))
+    .map(([key, { menu }]) => ({ menu, ref: refs[key] }))
     .filter(item => item.menu !== undefined);

@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
 import icons from '../../../assets/icons/sprite.svg';
+import { DefaultSvg } from './Icon.styled';
 
-const Icon = ({ name, width, height, stroke, fill = 'transparent' }) => {
+const Icon = props => {
+  const { svgStyled: StyledSvg = DefaultSvg, sprite = icons, name, ...other } = props;
   return (
-    <svg width={width} height={height} stroke={stroke} fill={fill}>
-      <use href={`${icons}#${name}`} />
-    </svg>
+    <StyledSvg {...other}>
+      <use href={`${sprite}#${name}`} />
+    </StyledSvg>
   );
 };
 
 Icon.propTypes = {
+  svgStyled: PropTypes.elementType,
+  sprite: PropTypes.string,
   name: PropTypes.string.isRequired,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  stroke: PropTypes.string,
-  fill: PropTypes.string,
 };
 
 export default Icon;

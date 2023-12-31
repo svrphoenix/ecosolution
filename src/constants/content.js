@@ -1,12 +1,3 @@
-export const MENU_ITEMS = [
-  { id: 0, value: 'Main', anchor: 'main' },
-  { id: 1, value: 'About', anchor: 'about' },
-  { id: 2, value: 'Service', anchor: 'service' },
-  { id: 3, value: 'Cases', anchor: 'cases' },
-  { id: 4, value: 'FAQ', anchor: 'faq' },
-  { id: 5, value: 'Contact Us', anchor: 'contacts' },
-];
-
 export const SOCIALS = [
   { id: 0, value: 'Facebook', iconName: 'facebook' },
   { id: 1, value: 'Instagram', iconName: 'instagram' },

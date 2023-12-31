@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SectionTitle } from '../../components/common/SectionTitle/SectionTitle.styled';
+import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 

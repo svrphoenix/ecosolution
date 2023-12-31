@@ -127,7 +127,18 @@
         "question": "How does EcoSolution engage with local communities and support a just transition to renewable energy?",
         "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolorem ex. Assumenda blanditiis enim nulla magnam dolorem odio aut iure excepturi accusantium, eaque, quasi error voluptatem consectetur provident neque. Nisi?"
       }
-    ]
+    ],
+    "moreTitle": "Didn't find the answer to your question? "
   },
-  "moreTitle": "Didn&apos;t find the answer to your question? "
+  "buttonCaptions": {
+    "close": "close",
+    "inTouch": "Get in touch",
+    "learnMore": "Learn more",
+    "contactUs": "Contact Us"
+  },
+  "socials": [
+    { "id": 0, "tag": "Facebook", "link": "#", "iconName": "facebook" },
+    { "id": 1, "tag": "Instagram", "link": "#", "iconName": "instagram" }
+  ],
+  "copyright": "ecosolution © 2023"
 }

@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { device } from '../../constants/media';
 import { colors } from '../../constants/theme';
+import { DefaultSvg } from '../common/Icon/Icon.styled';
 
 export const Backdrop = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ export const Backdrop = styled.div`
   left: 0;
   z-index: 999;
 
-  background-color: rgba(23, 61, 51, 0.25);
+  background-color: ${colors.backdropColor};
   backdrop-filter: blur(2px);
 
   @media ${device.tablet} {
@@ -31,7 +32,7 @@ export const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  background-color: rgba(23, 61, 51, 0.75);
+  background-color: ${colors.menuColor};
   border-radius: 25px;
 
   position: absolute;
@@ -49,17 +50,26 @@ export const MenuWrapper = styled.div`
   }
 `;
 
+export const BtnWrapper = styled.div`
+  margin-bottom: 24px;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: ${colors.whiteColor};
+  }
+`;
+
 export const CloseBtn = styled.button`
-  display: flex;
+  margin-bottom: 8px;
+  display: inline-flex;
   gap: 4px;
 
   font-size: 16px;
   letter-spacing: -0.64px;
 
   color: ${colors.whiteColor};
-  & > svg {
-    stroke: currentColor;
-  }
 
   &:hover,
   &:focus {
@@ -67,36 +77,30 @@ export const CloseBtn = styled.button`
   }
 `;
 
-export const UnderLine = styled.div`
-  margin-top: 6px;
-  width: 100%;
-  height: 1px;
-  background-color: ${colors.whiteColor};
+export const StyledCloseSvg = styled(DefaultSvg)`
+  width: 20px;
+  height: 20px;
 `;
 
 export const MenuList = styled.ul`
-  margin-top: 22px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
 
 export const MenuItemLink = styled.a`
-  display: flex;
+  display: inline-flex;
   gap: 8px;
   align-items: baseline;
 
-  font-family: Fira Sans;
   font-size: 24px;
   letter-spacing: -0.96px;
-  color: ${props => (props.$isActive ? colors.accentColor : '#ffffff3f')};
-
-  & > svg {
-    stroke: currentColor;
-  }
+  color: ${props => (props.$isActive ? colors.accentColor : colors.menuLinkColor)};
 
   &:hover,
   &:focus {
     color: ${colors.whiteColor};
   }
 `;
+

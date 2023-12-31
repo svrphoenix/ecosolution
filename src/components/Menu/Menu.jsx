@@ -1,36 +1,51 @@
 import { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Backdrop, CloseBtn, MenuItemLink, MenuList, MenuWrapper, UnderLine } from './Menu.styled';
-import Icon from '../common/Icon/Icon';
+
 import Socials from '../common/Socials/Socials';
+import MenuButton from '../MenuButton/MenuButton';
+import Icon from '../common/Icon/Icon';
+import { buttonCaptions } from '../../assets/content/main.json';
 import { colors } from '../../constants/theme';
 import { sections } from '../../assets/content/main.json';
 import { createMenuItems, scrollToElement } from '../../utils';
 import { useRefsContext } from '../../hooks/refsContext';
+import { useMenuToggle } from '../../hooks/useMenuToggle';
+import {
+  Backdrop,
+  BtnWrapper,
+  CloseBtn,
+  MenuItemLink,
+  MenuList,
+  MenuWrapper,
+  StyledCloseSvg,
+} from './Menu.styled';
 
-const Menu = ({ handleMenuClose }) => {
+const Menu = () => {
+  const [isMenuOpen, onMenuToogle] = useMenuToggle();
+
   useEffect(() => {
     const handleKeyDown = ({ code }) => {
-      if (code === 'Escape') {
-        handleMenuClose();
+      if (code === 'Escape' && isMenuOpen) {
+        onMenuToogle();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleMenuClose]);
+  }, [isMenuOpen, onMenuToogle]);
 
   const onBackdropClick = ({ target, currentTarget }) => {
     if (target === currentTarget) {
-      handleMenuClose();
+      onMenuToogle();
     }
   };
 
-  const handleMenuClick = anchor => {
+  const handleMenuClick = (evt, ref) => {
+    evt.preventDefault();
+    window.location.replace(`${window.location.pathname}#${ref.current.id}`);
     const offset = parseInt(document.body.style.paddingTop);
-    scrollToElement('ref', anchor, offset);
-    handleMenuClose();
+    scrollToElement('ref', ref, offset);
+    onMenuToogle();
   };
 
   const refs = useRefsContext();
@@ -42,7 +57,7 @@ const Menu = ({ handleMenuClose }) => {
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const index = menuItems.findIndex(item => item.ref.current === entry.target);
+            const index = menuItems.findIndex(({ ref }) => ref.current === entry.target);
             if (index !== -1) {
               setActiveItem(index);
             }
@@ -59,8 +74,8 @@ const Menu = ({ handleMenuClose }) => {
 
   useEffect(() => {
     const curObserver = observer.current;
-    menuItems.forEach(item => {
-      observer.current.observe(item.ref.current);
+    menuItems.forEach(({ ref }) => {
+      observer.current.observe(ref.current);
     });
 
     return () => {
@@ -69,38 +84,38 @@ const Menu = ({ handleMenuClose }) => {
   }, [menuItems]);
 
   return (
-    <Backdrop onClick={onBackdropClick}>
-      <MenuWrapper>
-        <CloseBtn onClick={handleMenuClose}>
-          <Icon name={'close'} width={20} height={20} />
-          close
-        </CloseBtn>
-        <UnderLine />
-        <nav>
-          <MenuList>
-            {menuItems.map((item, idx) => (
-              <li key={idx}>
-                <MenuItemLink
-                  href={`#${item.id}`}
-                  $isActive={idx === activeItem}
-                  onClick={evt => {
-                    evt.preventDefault();
-                    handleMenuClick(item.ref);
-                  }}
-                >
-                  {item.menu}
-                  <Icon name={'arrow-right-up'} width={16} height={16} />
-                </MenuItemLink>
-              </li>
-            ))}
-          </MenuList>
-        </nav>
-        <Socials gap="8px" mainColor={colors.whiteColor} hoverColor={colors.accentColor} />
-      </MenuWrapper>
-    </Backdrop>
+    <div>
+      <MenuButton handleMenuOpen={onMenuToogle} isMenuOpen={isMenuOpen} />
+      {isMenuOpen && (
+        <Backdrop onClick={onBackdropClick}>
+          <MenuWrapper>
+            <BtnWrapper>
+              <CloseBtn type="button" onClick={onMenuToogle}>
+                <Icon svgStyled={StyledCloseSvg} name="close" aria-hidden="true" />
+                {buttonCaptions.close}
+              </CloseBtn>
+            </BtnWrapper>
+            <MenuList role="menu">
+              {menuItems.map(({ ref, menu }, idx) => (
+                <li key={idx}>
+                  <MenuItemLink
+                    href={`#${ref.current.id}`}
+                    role="menuitem"
+                    $isActive={idx === activeItem}
+                    onClick={evt => handleMenuClick(evt, ref)}
+                  >
+                    {menu}
+                    <Icon name="arrow-right-up" aria-hidden="true" />
+                  </MenuItemLink>
+                </li>
+              ))}
+            </MenuList>
+            <Socials gap="8px" mainColor={colors.whiteColor} hoverColor={colors.accentColor} />
+          </MenuWrapper>
+        </Backdrop>
+      )}
+    </div>
   );
 };
-
-Menu.propTypes = { handleMenuClose: PropTypes.func.isRequired };
 
 export default Menu;

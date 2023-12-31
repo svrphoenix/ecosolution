@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { colors } from '../../constants/theme';
-import Icon from '../../components/common/Icon/Icon';
+// import { colors } from '../../constants/theme';
+// import Icon from '../../components/common/IconOld/IconOld';
 import { UnderLine } from '../../components/common/Underline/Underline.styled';
-import { Text } from '../../components/common/Text/Text.styled';
+import { Text } from '../../components/common/styled/Text.styled';
 import {
   AdditionWrapper,
   Caption,
@@ -36,7 +36,7 @@ const ValuesSection = forwardRef(function ValuesSection(props, ref) {
           {values.items.map(item => (
             <ValueItem key={item.id}>
               <CaptionWrapper>
-                <Icon name={item.iconName} stroke={colors.mainColor} width={16} height={16} />
+                {/* <Icon name={item.iconName} stroke={colors.mainColor} width={16} height={16} /> */}
                 <Caption>{item.caption}</Caption>
               </CaptionWrapper>
               <UnderLine />

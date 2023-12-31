@@ -1,7 +1,7 @@
 import { ADDRESS, EMAIL } from '../../constants/content';
 import { colors } from '../../constants/theme';
-import ScrollToTop from '../ScrollToMain/ScrollToMain';
-import { Address, Copyright, Email } from '../common/Contacts/Contact.styled';
+// import ScrollToTop from '../ScrollToMain/ScrollToMain';
+import { Address, Copyright, Email } from '../common/styled/Contact.styled';
 import Logo from '../common/Logo/Logo';
 import Socials from '../common/Socials/Socials';
 import { UnderLine } from '../common/Underline/Underline.styled';
@@ -12,6 +12,7 @@ import {
   StyledFooter,
   Wrapper,
 } from './Footer.styled';
+import ScrollToMain from '../ScrollToMain/ScrollToMain';
 
 const Footer = () => {
   return (
@@ -21,7 +22,7 @@ const Footer = () => {
         <AdditionWrapper>
           <Logo />
           <BtnWrapper>
-            <ScrollToTop />
+            <ScrollToMain />
           </BtnWrapper>
         </AdditionWrapper>
         <Socials gap="8px" mainColor={colors.mainColor} hoverColor={colors.accentColor} />

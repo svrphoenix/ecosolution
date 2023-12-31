@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useMenuToggle = () => {
+export const useMenuToggle = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const onMenuToogle = () => {
@@ -10,5 +10,3 @@ const useMenuToggle = () => {
 
   return [isMenuOpen, onMenuToogle];
 };
-
-export default useMenuToggle;

@@ -1,15 +1,23 @@
 import PropTypes from 'prop-types';
+
 import Icon from '../Icon/Icon';
-import { SocialsLink, SocialsList } from './Socials.styled';
-import { SOCIALS } from '../../../constants/content';
+import { SocialsLink, SocialsList, StyledSvg } from './Socials.styled';
+import { socials } from '../../../assets/content/main.json';
 
 const Socials = ({ gap, mainColor, hoverColor }) => {
   return (
     <SocialsList $gap={gap}>
-      {SOCIALS.map(item => (
-        <li key={item.id}>
-          <SocialsLink $mainColor={mainColor} $hoverColor={hoverColor}>
-            <Icon name={item.iconName} width={24} height={24} />
+      {socials.map(({ id, tag, link, iconName }) => (
+        <li key={id}>
+          <SocialsLink
+            href={link}
+            target="blank"
+            rel="noopener noreferrer nofollow"
+            aria-label={tag}
+            $mainColor={mainColor}
+            $hoverColor={hoverColor}
+          >
+            <Icon svgStyled={StyledSvg} name={iconName} aria-hidden="true" />
           </SocialsLink>
         </li>
       ))}

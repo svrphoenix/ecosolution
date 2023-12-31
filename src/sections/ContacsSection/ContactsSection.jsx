@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 import Socials from '../../components/common/Socials/Socials';
-import ContactsForm from '../../components/ContactsForm/ContactsForm';
-import Svg from '../../components/common/Svg.jsx/Svg';
+// import ContactsForm from '../../components/ContactsForm/ContactsForm';
+import Svg from '../../components/common/Icon/Icon';
 import {
   Address,
   AddressList,
@@ -60,7 +60,7 @@ const ContactsSection = forwardRef(function ContactsSection(props, ref) {
             </div>
           </AddressList>
         </Address>
-        <ContactsForm />
+        {/* <ContactsForm /> */}
       </Wrapper>
     </ContactsSectionStyled>
   );

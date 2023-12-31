@@ -8,7 +8,7 @@ import {
   StyledForm,
 } from './ContactsForm.styled';
 import Button from '../common/Button/Button';
-import Icon from '../common/Icon/Icon';
+import Icon from '../common/IconOld/IconOld';
 import { colors } from '../../constants/theme';
 import { ContactSchema } from './validation';
 import toast from 'react-hot-toast';

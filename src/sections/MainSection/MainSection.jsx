@@ -1,51 +1,40 @@
-import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
-import { ADDRESS, EMAIL } from '../../constants/content';
-import { colors } from '../../constants/theme';
+import LearnMoreLink from '../../components/LearnMoreLink/LearnMoreLink';
+import { sections, contacts, copyright, main } from '../../assets/content/main.json';
+import { Address, Email } from '../../components/common/styled/Contact.styled';
+import { Text } from '../../components/common/styled/Text.styled';
 import {
   AdditionWrapper,
   ContactsWrapper,
   CopyrightMain,
   EmailWrapper,
   Img,
+  InnerWrapper,
   MainImgWrapper,
   MainSectionStyled,
   MainTitle,
   Wrapper,
 } from './MainSection.styled';
-import { scrollToElement } from '../../utils';
-import { useRefsContext } from '../../hooks/refsContext';
 
-import { sections, main } from '../../assets/content/main.json';
-import Button from '../../components/common/Button/Button';
-import { Address, Email } from '../../components/common/Contacts/Contact.styled';
-import Icon from '../../components/common/Icon/Icon';
-import { UnderLine } from '../../components/common/Underline/Underline.styled';
-import { Text } from '../../components/common/Text/Text.styled';
-
-const MainSection = forwardRef(function MainSection(props, ref) {
-  const { cases } = useRefsContext();
+const MainSection = forwardRef(function MainSection(_, ref) {
   return (
-    <MainSectionStyled id={props.sectionId} ref={ref}>
+    <MainSectionStyled id={sections.main.id} ref={ref}>
       <Wrapper>
         <MainTitle>{sections.main.title}</MainTitle>
         <AdditionWrapper>
           <Text>{main.text}</Text>
-          <Button
-            handleClick={() => scrollToElement('ref', cases)}
-            caption="Learn more"
-            icon={<Icon name={'arrow-right'} width={16} height={16} stroke={colors.mainColor} />}
-          />
+          <LearnMoreLink />
         </AdditionWrapper>
       </Wrapper>
-      <UnderLine />
       <ContactsWrapper>
-        <Address>{ADDRESS}</Address>
-        <EmailWrapper>
-          <Email href={`mailto:${EMAIL}`}>{EMAIL}</Email>
-          <CopyrightMain>ecosolution © 2023</CopyrightMain>
-        </EmailWrapper>
+        <InnerWrapper>
+          <Address>{contacts.address.value}</Address>
+          <EmailWrapper>
+            <Email href={`mailto:${contacts.email.value}`}>{contacts.email.value}</Email>
+            <CopyrightMain>{copyright}</CopyrightMain>
+          </EmailWrapper>
+        </InnerWrapper>
       </ContactsWrapper>
       <MainImgWrapper>
         <picture>
@@ -71,9 +60,5 @@ const MainSection = forwardRef(function MainSection(props, ref) {
     </MainSectionStyled>
   );
 });
-
-MainSection.propTypes = {
-  sectionId: PropTypes.string,
-};
 
 export default MainSection;

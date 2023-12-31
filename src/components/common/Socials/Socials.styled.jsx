@@ -1,4 +1,6 @@
 import { styled } from 'styled-components';
+import { effects } from '../../../constants/theme';
+import { DefaultSvg } from '../Icon/Icon.styled';
 
 export const SocialsList = styled.ul`
   margin-top: auto;
@@ -8,13 +10,15 @@ export const SocialsList = styled.ul`
 
 export const SocialsLink = styled.a`
   color: ${props => props.$mainColor};
-
-  & > svg {
-    stroke: currentColor;
-  }
+  transition: ${effects.hoverColorTransition};
 
   &:hover,
   &:focus {
     color: ${props => props.$hoverColor};
   }
+`;
+
+export const StyledSvg = styled(DefaultSvg)`
+  width: 24px;
+  height: 24px;
 `;

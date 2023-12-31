@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
-import Icon from '../common/Icon/Icon';
+
 import { StyledButton } from './MenuButton.styled';
 
-const MenuButton = ({ handleMenuOpen }) => {
+const MenuButton = ({ handleMenuOpen, isMenuOpen }) => {
   return (
-    <StyledButton onClick={handleMenuOpen}>
-      <Icon name={'menu'} width={16} height={16} stroke={'#292D32'} />
-    </StyledButton>
+    <StyledButton
+      onClick={handleMenuOpen}
+      aria-expanded={isMenuOpen}
+      aria-label="menu-button"
+      iconSettings={{ name: 'menu' }}
+    />
   );
 };
 
 MenuButton.propTypes = {
   handleMenuOpen: PropTypes.func.isRequired,
+  isMenuOpen: PropTypes.bool.isRequired,
 };
 
 export default MenuButton;
