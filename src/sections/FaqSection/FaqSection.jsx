@@ -1,8 +1,6 @@
-import PropTypes from 'prop-types';
 import { forwardRef, useState } from 'react';
 
 import {
-  FaqSectionStyled,
   MoreQuestion,
   Questions,
   Question,
@@ -21,8 +19,9 @@ import { colors } from '../../constants/theme';
 import { sections, faq, buttonCaptions } from '../../assets/content/main.json';
 import InTouchLink from '../../components/InTouchLink/InTouchLink';
 import Icon from '../../components/common/Icon/Icon';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
 
-const FaqSection = forwardRef(function FaqSection(props, ref) {
+const FaqSection = forwardRef(function FaqSection(_, ref) {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
 
   const handleSelected = id => {
@@ -30,7 +29,7 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
   };
 
   return (
-    <FaqSectionStyled id={props.sectionId} ref={ref}>
+    <SectionStyled id={sections.faq.id} ref={ref}>
       <Wrapper>
         <SectionTitle>{sections.faq.title}</SectionTitle>
         <AdditionWrapper>
@@ -70,12 +69,8 @@ const FaqSection = forwardRef(function FaqSection(props, ref) {
           <InTouchLink caption={buttonCaptions.contactUs} />
         </PositionWrapper>
       </Wrapper>
-    </FaqSectionStyled>
+    </SectionStyled>
   );
 });
-
-FaqSection.propTypes = {
-  sectionId: PropTypes.string,
-};
 
 export default FaqSection;

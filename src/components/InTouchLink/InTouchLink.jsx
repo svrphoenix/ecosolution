@@ -6,12 +6,13 @@ import { sections } from '../../assets/content/main.json';
 import { InTouchStyled, InTouchSvg } from './InTouchLink.styled';
 
 const InTouchLink = ({ caption }) => {
-  const { contacts: contactsRef } = useRefsContext();
+  const { contacts: contactsRef, header } = useRefsContext();
+  const offset = header.current ? parseFloat(header.current.getBoundingClientRect().height) : 0;
 
   const handleClick = evt => {
     evt.preventDefault();
-    window.location.replace(`${window.location.pathname}#${sections.contacts.id}`);
-    const offset = parseInt(document.body.style.paddingTop);
+    // window.location.replace(`${window.location.pathname}#${sections.contacts.id}`);
+    // const offset = parseFloat(document.body.style.paddingTop);
     scrollToElement('ref', contactsRef, offset);
   };
 

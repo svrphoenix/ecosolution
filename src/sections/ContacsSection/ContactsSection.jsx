@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 import Socials from '../../components/common/Socials/Socials';
@@ -20,9 +19,9 @@ import { colors } from '../../constants/theme';
 import { sections, contacts } from '../../assets/content/main.json';
 import { phoneNormalize } from '../../utils';
 
-const ContactsSection = forwardRef(function ContactsSection(props, ref) {
+const ContactsSection = forwardRef(function ContactsSection(_, ref) {
   return (
-    <ContactsSectionStyled id={props.sectionId} ref={ref}>
+    <ContactsSectionStyled id={sections.contacts.id} ref={ref}>
       <ContactsTitle>{sections.contacts.title}</ContactsTitle>
       <Wrapper>
         <Address>
@@ -65,9 +64,5 @@ const ContactsSection = forwardRef(function ContactsSection(props, ref) {
     </ContactsSectionStyled>
   );
 });
-
-ContactsSection.propTypes = {
-  sectionId: PropTypes.string,
-};
 
 export default ContactsSection;

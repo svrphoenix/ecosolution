@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import { StyledMainWrapper } from './Main.styled';
 
-const Main = ({ children }) => {
+const Main = ({ offset, children }) => {
   return (
-    <main>
+    <main style={{ paddingTop: offset }}>
       <StyledMainWrapper>{children}</StyledMainWrapper>
     </main>
   );
 };
 
 Main.propTypes = {
+  offset: PropTypes.number.isRequired,
   children: PropTypes.node.isRequired,
 };
 

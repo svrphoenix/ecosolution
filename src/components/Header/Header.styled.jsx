@@ -19,7 +19,7 @@ export const Navigation = styled.nav`
   align-items: center;
   justify-content: space-between;
 
-  padding: 36px 20px;
+  padding: ${props => `${props.$vertPadding} 20px`};
   gap: 11px;
 
   width: 100%;
@@ -31,12 +31,12 @@ export const Navigation = styled.nav`
 
   @media ${device.tablet} {
     max-width: 768px;
-    padding: 36px 30px;
+    padding: ${props => `${props.$vertPadding} 30px`};
   }
 
   @media ${device.desktop} {
     max-width: 1280px;
-    padding: 24px 20px;
+    padding: ${props => `${props.$vertPadding} 20px`};
   }
 `;
 
@@ -44,4 +44,3 @@ export const BtnWrapper = styled.div`
   display: flex;
   gap: 12px;
 `;
-

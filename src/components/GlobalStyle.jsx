@@ -92,14 +92,6 @@ h1,h2,h3,h4,h5,h6,p {
   padding: 0;
 }
 
-a {
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  /* color: inherit; */
-
-}
-
 ul,
 ol {
   margin: 0;
@@ -113,13 +105,30 @@ img{
   height: auto;
 }
 
-button {
+a, button {
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   padding: 0;
   border: none;
   background-color: transparent;
+
+  &:focus,
+  &:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+}
+
+button {
   font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+address {
+  font-style: normal;
 }
 
 #root {

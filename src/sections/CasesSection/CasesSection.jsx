@@ -8,7 +8,6 @@ import {
   Caption,
   CaptionWrapper,
   CaseWrapper,
-  CasesSectionStyled,
   CasesTitle,
   CasesUnderline,
   Description,
@@ -24,6 +23,8 @@ import {
 } from './CasesSection.styled';
 import { SLIDES } from '../../constants/content';
 import { sections, cases } from '../../assets/content/main.json';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
+// import Icon from '../../components/common/IconOld/IconOld';
 
 const CasesSection = forwardRef(function CasesSection(_, ref) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -74,7 +75,7 @@ const CasesSection = forwardRef(function CasesSection(_, ref) {
   };
 
   return (
-    <CasesSectionStyled id={sections.cases.id} ref={ref}>
+    <SectionStyled id={sections.cases.id} ref={ref}>
       <Wrapper>
         <CasesTitle>{sections.cases.title}</CasesTitle>
         <VerticalLine />
@@ -94,7 +95,7 @@ const CasesSection = forwardRef(function CasesSection(_, ref) {
         </PaginationWrapper>
       </Wrapper>
 
-      <SlideList>
+      {/* <SlideList>
         {cases.slides.map(({ id, img, caption, description, date }) => (
           <Slide
             key={id}
@@ -108,7 +109,7 @@ const CasesSection = forwardRef(function CasesSection(_, ref) {
               <CaptionWrapper>
                 <Caption>{caption}</Caption>
                 <GoToBtn>
-                  {/* <Icon name={'arrow-right-up'} width={28} height={28} stroke={colors.mainColor} /> */}
+                  <Icon name={'arrow-right-up'} width={28} height={28} stroke={colors.mainColor} />
                 </GoToBtn>
               </CaptionWrapper>
               <div>
@@ -121,8 +122,8 @@ const CasesSection = forwardRef(function CasesSection(_, ref) {
             </CaseWrapper>
           </Slide>
         ))}
-      </SlideList>
-    </CasesSectionStyled>
+      </SlideList> */}
+    </SectionStyled>
   );
 });
 

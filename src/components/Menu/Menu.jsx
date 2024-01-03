@@ -21,6 +21,12 @@ import {
 
 const Menu = () => {
   const [isMenuOpen, onMenuToogle] = useMenuToggle();
+  const refs = useRefsContext();
+  const menuItems = createMenuItems(sections, refs);
+  const [activeItem, setActiveItem] = useState();
+  const offset = refs.header.current
+    ? parseFloat(refs.header.current.getBoundingClientRect().height)
+    : 0;
 
   useEffect(() => {
     const handleKeyDown = ({ code }) => {
@@ -42,15 +48,10 @@ const Menu = () => {
 
   const handleMenuClick = (evt, ref) => {
     evt.preventDefault();
-    window.location.replace(`${window.location.pathname}#${ref.current.id}`);
-    const offset = parseInt(document.body.style.paddingTop);
+    // window.location.replace(`${window.location.pathname}#${ref.current.id}`);
     scrollToElement('ref', ref, offset);
     onMenuToogle();
   };
-
-  const refs = useRefsContext();
-  const menuItems = createMenuItems(sections, refs);
-  const [activeItem, setActiveItem] = useState();
 
   const observer = useRef(
     new IntersectionObserver(

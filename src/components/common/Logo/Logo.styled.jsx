@@ -5,6 +5,8 @@ import { colors, fonts, effects } from '../../../constants/theme';
 export const LogoLink = styled.a`
   display: inline-flex;
   align-items: center;
+  height: 40px;
+  flex-shrink: 0;
 `;
 
 export const StyledSvg = styled.svg`

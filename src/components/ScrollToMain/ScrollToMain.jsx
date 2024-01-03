@@ -4,12 +4,13 @@ import { useRefsContext } from '../../hooks/refsContext';
 import { sections } from '../../assets/content/main.json';
 
 const ScrollToMain = () => {
-  const { main: mainRef } = useRefsContext();
+  const { header, main: mainRef } = useRefsContext();
+  const offset = header.current ? parseFloat(header.current.getBoundingClientRect().height) : 0;
 
   const handleClick = evt => {
     evt.preventDefault();
-    window.location.replace(`${window.location.pathname}#${sections.main.id}`);
-    const offset = parseInt(document.body.style.paddingTop);
+    // window.location.replace(`${window.location.pathname}#${sections.main.id}`);
+    // const offset = parseFloat(document.body.style.paddingTop);
     scrollToElement('ref', mainRef, offset);
   };
 

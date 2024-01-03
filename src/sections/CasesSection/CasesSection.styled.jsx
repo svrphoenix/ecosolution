@@ -4,9 +4,9 @@ import { UnderLine } from '../../components/common/Underline/Underline.styled';
 import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { device } from '../../constants/media';
 
-export const CasesSectionStyled = styled.section`
-  padding-top: 110px;
-`;
+// export const CasesSectionStyled = styled.section`
+//   padding-top: 36px;
+// `;
 
 export const Wrapper = styled.div`
   display: flex;

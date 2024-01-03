@@ -1,23 +1,26 @@
-export const scrollToElement = (type, ref, offset = 0) => {
-  let element = undefined;
+export const scrollToElement = (type, refOrId, offset = 0) => {
+  let element;
   switch (type) {
     case 'id':
-      element = document.getElementById(ref);
-      // element?.scrollIntoView({ behavior: 'smooth' });
+      element = document.getElementById(refOrId);
       break;
     case 'ref':
-      // ref.current?.scrollIntoView({ behavior: 'smooth' });
-      element = ref.current;
+      element = refOrId?.current;
       break;
   }
+
   if (element) {
-    const sectionTop = ref.current.offsetTop - offset;
+    window.history.pushState('', '', `#${element.id}`);
+    // window.location.replace(`${window.location.pathname}#${id}`);
+    const top = element.offsetTop - offset;
     window.scrollTo({
-      top: sectionTop,
+      top,
       behavior: 'smooth',
     });
-  }
+    return true;
+  } else return false;
 };
+
 export const phoneNormalize = number =>
   number
     .split('')

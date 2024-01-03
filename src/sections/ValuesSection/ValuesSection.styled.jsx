@@ -1,38 +1,49 @@
 import styled from 'styled-components';
-import { colors } from '../../constants/theme';
+import { colors, fonts } from '../../constants/theme';
 import { device } from '../../constants/media';
 import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
-
-export const ValuesSectionStyled = styled.section`
-  padding-top: 110px;
-`;
+import { DefaultSvg } from '../../components/common/Icon/Icon.styled';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 24px;
 
   @media ${device.tablet} {
     flex-direction: row;
     justify-content: space-between;
     position: relative;
+
+    &::after {
+      @media ${device.tablet} {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        left: 50%;
+        background-color: ${colors.accentColor};
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    }
   }
 `;
 
 export const AdditionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 24px;
 
   @media ${device.tablet} {
-    padding-left: 10px;
     align-items: flex-start;
-    width: 50%;
+    flex-basis: 50%;
     justify-content: space-between;
   }
 
   @media ${device.desktop} {
-    width: 40%;
+    flex-basis: 40%;
   }
 `;
 
@@ -50,32 +61,21 @@ export const ValuesTitle = styled(SectionTitle)`
   }
 `;
 
-export const VerticalLine = styled.div`
-  display: none;
-
-  @media ${device.tablet} {
-    display: block;
-    width: 1px;
-    height: 100%;
-    left: 50%;
-    background-color: ${colors.accentColor};
-    position: absolute;
-  }
-`;
 export const ValuesWrapper = styled.div`
   position: relative;
 `;
 
 export const ImgWrapper = styled.div`
   display: none;
-  position: absolute;
-  width: calc(50% - 12px);
 
   @media ${device.tablet} {
+    position: absolute;
     display: flex;
+    width: calc(50% - 12px);
     height: 198px;
   }
   @media ${device.desktop} {
+    width: calc(50% - 22px);
     height: 340px;
   }
 `;
@@ -93,6 +93,10 @@ export const ValuesList = styled.ul`
 
   @media ${device.tablet} {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media ${device.desktop} {
+    grid-gap: 44px;
   }
 `;
 
@@ -122,11 +126,34 @@ export const ValueItem = styled.li`
 
   @media ${device.desktop} {
     height: 340px;
+    padding: 48px 24px;
   }
 `;
 
 export const CaptionWrapper = styled.div`
-  margin-bottom: 33px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+
+  @media ${device.tablet} {
+    gap: 51px;
+  }
+
+  @media ${device.desktop} {
+    margin-bottom: 24px;
+    gap: 94px;
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: ${colors.accentColor};
+  }
+`;
+
+export const InnerWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -135,19 +162,34 @@ export const CaptionWrapper = styled.div`
 export const Caption = styled.h3`
   color: ${colors.mainColor};
 
-  font-family: Oswald;
+  font-family: ${fonts.title};
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
   text-transform: uppercase;
+
+  @media ${device.desktop} {
+    font-size: 32px;
+  }
 `;
 
 export const Description = styled.p`
-  margin-top: 12px;
   color: ${colors.mainColor};
 
   text-align: justify;
   font-size: 14px;
   line-height: normal;
   letter-spacing: -0.56px;
+
+  @media ${device.desktop} {
+    font-size: 16px;
+    letter-spacing: -0.64px;
+  }
+`;
+
+export const ValuesSvg = styled(DefaultSvg)`
+  @media ${device.desktop} {
+    height: 24px;
+    width: 24px;
+  }
 `;

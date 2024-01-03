@@ -2,9 +2,9 @@ import { styled } from 'styled-components';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
-export const FaqSectionStyled = styled.section`
-  padding-top: 110px;
-`;
+// export const FaqSectionStyled = styled.section`
+//   padding-top: 36px;
+// `;
 
 export const Wrapper = styled.div`
   display: flex;

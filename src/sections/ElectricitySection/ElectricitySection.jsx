@@ -1,17 +1,15 @@
-import PropTypes from 'prop-types';
-
 import {
   Counter,
   CounterUnit,
   ElectricitySectionStyled,
   ElectricityTitle,
-  VerticalLine,
+  Wrapper,
 } from './ElectricitySection.styled';
 import { forwardRef, useEffect, useState } from 'react';
 import { sections, electricity } from '../../assets/content/main.json';
 import { numberWithCommas } from '../../utils';
 
-const ElectricitySection = forwardRef(function ElectricitySection(props, ref) {
+const ElectricitySection = forwardRef(function ElectricitySection(_, ref) {
   const [counter, setCounter] = useState(1134147.814);
 
   useEffect(() => {
@@ -23,9 +21,10 @@ const ElectricitySection = forwardRef(function ElectricitySection(props, ref) {
   }, []);
 
   return (
-    <ElectricitySectionStyled id={props.id} ref={ref}>
-      <ElectricityTitle>{sections.electricity.title}</ElectricityTitle>
-      <VerticalLine />
+    <ElectricitySectionStyled id={sections.electricity.id} ref={ref}>
+      <Wrapper>
+        <ElectricityTitle>{sections.electricity.title}</ElectricityTitle>
+      </Wrapper>
       <Counter>
         {numberWithCommas(counter)}
         <CounterUnit>{electricity.unit}</CounterUnit>
@@ -33,9 +32,5 @@ const ElectricitySection = forwardRef(function ElectricitySection(props, ref) {
     </ElectricitySectionStyled>
   );
 });
-
-ElectricitySection.propTypes = {
-  id: PropTypes.string,
-};
 
 export default ElectricitySection;

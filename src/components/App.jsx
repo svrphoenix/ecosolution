@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 
 import Header from './Header/Header';
@@ -11,29 +11,33 @@ import FaqSection from '../sections/FaqSection/FaqSection';
 import ContactsSection from '../sections/ContacsSection/ContactsSection';
 import Footer from './Footer/Footer';
 import GlobalStyle from './GlobalStyle';
-
 import { RefsContext } from '../hooks/refsContext';
-import { sections } from '../assets/content/main.json';
 
 const App = () => {
+  const header = useRef(null);
   const contacts = useRef(null);
   const main = useRef(null);
   const cases = useRef(null);
   const values = useRef(null);
   const electricity = useRef(null);
   const faq = useRef(null);
-  const sectionRefs = { contacts, cases, main, values, electricity, faq };
+  const sectionRefs = { header, contacts, cases, main, values, electricity, faq };
+  const [offset, setOffset] = useState(0);
+
+  const changeHeaderHeight = () => {
+    setOffset(parseFloat(header.current.getBoundingClientRect().height));
+  };
 
   return (
     <RefsContext.Provider value={sectionRefs}>
-      <Header />
-      <Main>
-        <MainSection sectionId={sections.main.id} ref={main} />
-        <ValuesSection sectionId={sections.values.id} ref={values} />
-        <ElectricitySection sectionId={sections.electricity.id} refs={electricity} />
-        <CasesSection sectionId={sections.cases.id} ref={cases} />
-        <FaqSection sectionId={sections.faq.id} ref={faq} />
-        <ContactsSection sectionId={sections.contacts.id} ref={contacts} />
+      <Header ref={header} action={changeHeaderHeight} />
+      <Main offset={offset}>
+        <MainSection ref={main} />
+        <ValuesSection ref={values} />
+        <ElectricitySection refs={electricity} />
+        <CasesSection ref={cases} />
+        <FaqSection ref={faq} />
+        <ContactsSection ref={contacts} />
       </Main>
       <Footer />
       <Toaster />

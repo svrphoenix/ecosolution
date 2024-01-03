@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
 
-export const ContactsSectionStyled = styled.section`
-  padding-top: 110px;
-
+export const ContactsSectionStyled = styled(SectionStyled)`
   padding-bottom: 36px;
 
   @media ${device.tablet} {
@@ -62,7 +61,7 @@ export const ContactTitle = styled.p`
 `;
 
 export const Contact = styled.a`
-  display: flex;
+  /* display: flex; */
   align-items: center;
   gap: 8px;
 

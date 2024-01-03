@@ -2,12 +2,21 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../constants/theme';
 import { device } from '../../constants/media';
 import { Copyright } from '../../components/common/styled/Contact.styled';
+import { Text } from '../../components/common/styled/Text.styled';
 
 export const MainSectionStyled = styled.section`
   padding-top: 110px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media ${device.tablet} {
+    padding-top: 128px;
+  }
+
+  @media ${device.desktop} {
+    padding-top: 176px;
+  }
 `;
 
 export const MainTitle = styled.h1`
@@ -34,6 +43,13 @@ export const MainTitle = styled.h1`
   }
 `;
 
+export const MainText = styled(Text)`
+  @media ${device.desktop} {
+    padding-right: 96px;
+    text-align: justify;
+  }
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   gap: 24px;
@@ -48,18 +64,16 @@ export const Wrapper = styled.div`
 export const AdditionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 24px;
 
   @media ${device.tablet} {
-    padding-left: 10px;
+    flex-basis: 50%;
     align-items: flex-start;
-    width: 50%;
     justify-content: space-between;
   }
 
   @media ${device.desktop} {
-    width: 40%;
+    flex-basis: 40%;
   }
 `;
 
@@ -88,14 +102,9 @@ export const InnerWrapper = styled.div`
 
 export const EmailWrapper = styled.div`
   @media ${device.tablet} {
-    padding-left: 10px;
     display: flex;
     justify-content: space-between;
-    width: 50%;
-  }
-
-  @media ${device.desktop} {
-    width: 40%;
+    gap: 24px;
   }
 `;
 
@@ -115,4 +124,12 @@ export const MainImgWrapper = styled.div`
 export const Img = styled.img`
   margin: 0 auto;
   width: 100%;
+`;
+
+export const BtnWrapper = styled.div`
+  margin: 0 auto;
+
+  @media ${device.tablet} {
+    margin: 0;
+  }
 `;

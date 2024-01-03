@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import { forwardRef, useEffect, useState } from 'react';
 
 import Menu from '../Menu/Menu';
 import Logo from '../common/Logo/Logo';
@@ -7,14 +8,11 @@ import { buttonCaptions } from '../../assets/content/main.json';
 import { colors } from '../../constants/theme';
 import { BtnWrapper, Navigation, StyledHeader } from './Header.styled';
 
-const Header = () => {
-  const [bgColor, setBgColor] = useState(false);
-  const ref = useRef();
+const Header = forwardRef(function CasesSection(props, ref) {
+  const [bgColor, setBgColor] = useState(colors.bodyBackground);
+  const [vertPadding, setVertPadding] = useState('36px');
 
   useEffect(() => {
-    const height = ref.current.getBoundingClientRect().height;
-    document.body.style.paddingTop = `${height}px`;
-
     const handleWindowScroll = () => {
       if (window.scrollY > 0) {
         setBgColor(colors.whiteColor);
@@ -26,9 +24,23 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleWindowScroll);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1280) {
+        setVertPadding('24px');
+      } else {
+        setVertPadding('36px');
+      }
+    };
+    props.action();
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [props, vertPadding]);
+
   return (
     <StyledHeader ref={ref} $bgColor={bgColor}>
-      <Navigation>
+      <Navigation $vertPadding={vertPadding}>
         <Logo />
         <BtnWrapper>
           <Menu />
@@ -37,6 +49,10 @@ const Header = () => {
       </Navigation>
     </StyledHeader>
   );
+});
+
+Header.propTypes = {
+  action: PropTypes.func.isRequired,
 };
 
 export default Header;

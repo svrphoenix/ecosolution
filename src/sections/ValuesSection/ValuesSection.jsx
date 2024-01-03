@@ -1,7 +1,3 @@
-import PropTypes from 'prop-types';
-// import { colors } from '../../constants/theme';
-// import Icon from '../../components/common/IconOld/IconOld';
-import { UnderLine } from '../../components/common/Underline/Underline.styled';
 import { Text } from '../../components/common/styled/Text.styled';
 import {
   AdditionWrapper,
@@ -10,37 +6,41 @@ import {
   Description,
   Img,
   ImgWrapper,
+  InnerWrapper,
   ValueItem,
   ValuesList,
-  ValuesSectionStyled,
+  ValuesSvg,
   ValuesTitle,
   ValuesWrapper,
-  VerticalLine,
   Wrapper,
 } from './ValuesSection.styled';
 import { forwardRef } from 'react';
 import { sections, values } from '../../assets/content/main.json';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
+import Icon from '../../components/common/Icon/Icon';
 
-const ValuesSection = forwardRef(function ValuesSection(props, ref) {
+const ValuesSection = forwardRef(function ValuesSection(_, ref) {
   return (
-    <ValuesSectionStyled id={props.sectionId} ref={ref}>
+    <SectionStyled id={sections.values.id} ref={ref}>
       <Wrapper>
-        <ValuesTitle>{sections.values.title}</ValuesTitle>
-        <VerticalLine />
+        <AdditionWrapper>
+          <ValuesTitle>{sections.values.title}</ValuesTitle>
+        </AdditionWrapper>
         <AdditionWrapper>
           <Text>{values.text}</Text>
         </AdditionWrapper>
       </Wrapper>
       <ValuesWrapper>
         <ValuesList>
-          {values.items.map(item => (
-            <ValueItem key={item.id}>
+          {values.items.map(({ id, iconName, caption, descrition }) => (
+            <ValueItem key={id}>
               <CaptionWrapper>
-                {/* <Icon name={item.iconName} stroke={colors.mainColor} width={16} height={16} /> */}
-                <Caption>{item.caption}</Caption>
+                <InnerWrapper>
+                  <Icon name={iconName} svgStyled={ValuesSvg} />
+                  <Caption>{caption}</Caption>
+                </InnerWrapper>
               </CaptionWrapper>
-              <UnderLine />
-              <Description>{item.descrition}</Description>
+              <Description>{descrition}</Description>
             </ValueItem>
           ))}
         </ValuesList>
@@ -79,12 +79,8 @@ const ValuesSection = forwardRef(function ValuesSection(props, ref) {
           </picture>
         </ImgWrapper>
       </ValuesWrapper>
-    </ValuesSectionStyled>
+    </SectionStyled>
   );
 });
-
-ValuesSection.propTypes = {
-  sectionId: PropTypes.string,
-};
 
 export default ValuesSection;

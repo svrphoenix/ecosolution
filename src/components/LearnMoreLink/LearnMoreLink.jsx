@@ -4,12 +4,11 @@ import { sections, buttonCaptions } from '../../assets/content/main.json';
 import { LearnMoreStyled, LearnMoreSvg, LinkIconContainer } from './LearnMoreLink.styled';
 
 const LearnMoreLink = () => {
-  const { cases: casesRef } = useRefsContext();
+  const { header, cases: casesRef } = useRefsContext();
+  const offset = header.current ? parseFloat(header.current.getBoundingClientRect().height) : 0;
 
   const handleClick = evt => {
     evt.preventDefault();
-    window.location.replace(`${window.location.pathname}#${sections.cases.id}`);
-    const offset = parseInt(document.body.style.paddingTop);
     scrollToElement('ref', casesRef, offset);
   };
 
