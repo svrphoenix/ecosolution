@@ -6,7 +6,7 @@ import {
   Question,
   Answer,
   Wrapper,
-  AdditionWrapper,
+  // AdditionWrapper,
   PositionWrapper,
   IconWrapper,
   QuestionBtn,
@@ -20,6 +20,7 @@ import { sections, faq, buttonCaptions } from '../../assets/content/main.json';
 import InTouchLink from '../../components/InTouchLink/InTouchLink';
 import Icon from '../../components/common/Icon/Icon';
 import { SectionStyled } from '../../components/common/styled/Section.styled';
+import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
 
 const FaqSection = forwardRef(function FaqSection(_, ref) {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
@@ -31,8 +32,10 @@ const FaqSection = forwardRef(function FaqSection(_, ref) {
   return (
     <SectionStyled id={sections.faq.id} ref={ref}>
       <Wrapper>
-        <SectionTitle>{sections.faq.title}</SectionTitle>
         <AdditionWrapper>
+          <SectionTitle>{sections.faq.title}</SectionTitle>
+        </AdditionWrapper>
+        <AdditionWrapper style={{ flexBasis: '50%' }}>
           <Questions>
             {faq.questions.map(({ id, question, answer }) => (
               <QuestionItem key={id}>
@@ -66,7 +69,7 @@ const FaqSection = forwardRef(function FaqSection(_, ref) {
         </AdditionWrapper>
         <PositionWrapper>
           <MoreQuestion>{faq.moreTitle}</MoreQuestion>
-          <InTouchLink caption={buttonCaptions.contactUs} />
+          <InTouchLink caption={buttonCaptions.contactUs} mobileVisible={true} />
         </PositionWrapper>
       </Wrapper>
     </SectionStyled>

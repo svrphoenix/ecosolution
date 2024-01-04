@@ -44,7 +44,7 @@ const Header = forwardRef(function CasesSection(props, ref) {
         <Logo />
         <BtnWrapper>
           <Menu />
-          <InTouchLink caption={buttonCaptions.inTouch} />
+          <InTouchLink caption={buttonCaptions.inTouch} mobileVisible={false} />
         </BtnWrapper>
       </Navigation>
     </StyledHeader>

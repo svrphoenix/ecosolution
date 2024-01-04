@@ -8,6 +8,11 @@ export const colors = {
   backdropColor: '#173d333f',
   menuColor: '#173d33bf',
   menuLinkColor: '#ffffff3f',
+  paginationColor: '#173d333f',
+  slideBackground: '#eaedf1',
+  formBackground: '#eaedf1',
+  error: '#d28b8b',
+  placeholder: '#bdbdbd',
 };
 
 export const effects = {

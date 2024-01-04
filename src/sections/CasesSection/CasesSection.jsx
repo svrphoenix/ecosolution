@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import {
   ActiveSlide,
   ArrowBtn,
@@ -9,43 +9,64 @@ import {
   CaptionWrapper,
   CaseWrapper,
   CasesTitle,
-  CasesUnderline,
+  CasesWrapper,
   Description,
+  DescriptionWrapper,
   GoToBtn,
+  GoToSvg,
   Img,
+  ImgWrapper,
   Pagination,
+  PaginationSvg,
   PaginationWrapper,
   Slide,
   SlideList,
   TextWrapper,
-  VerticalLine,
-  Wrapper,
 } from './CasesSection.styled';
-import { SLIDES } from '../../constants/content';
 import { sections, cases } from '../../assets/content/main.json';
+import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
 import { SectionStyled } from '../../components/common/styled/Section.styled';
-// import Icon from '../../components/common/IconOld/IconOld';
 
 const CasesSection = forwardRef(function CasesSection(_, ref) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [nextSlide, setNextSlide] = useState(1);
+  const [visibleSlides, setVisibleSlides] = useState([]);
   const [touchPosition, setTouchPosition] = useState(null);
 
-  const changeSlide = (direction = 1) => {
-    let slideNumber = 0;
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setVisibleSlides([0, 1]);
+      } else {
+        setVisibleSlides([0]);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    if (currentSlide + direction < 0) {
-      slideNumber = SLIDES.length - 1;
-    } else {
-      slideNumber = (currentSlide + direction) % SLIDES.length;
+  const changeSlide = (direction = 1) => {
+    if (direction === -1) {
+      setVisibleSlides(prev => {
+        const first = prev[0] === 0 ? cases.slides.length - 1 : prev[0] - 1;
+        if (prev.length === 2) {
+          const second = prev[1] === 0 ? cases.slides.length - 1 : prev[1] - 1;
+          return [first, second];
+        } else {
+          return [first];
+        }
+      });
     }
 
-    setCurrentSlide(slideNumber);
-
-    if (slideNumber === SLIDES.length - 1) {
-      setNextSlide(0);
-    } else {
-      setNextSlide(slideNumber + 1);
+    if (direction === 1) {
+      setVisibleSlides(prev => {
+        const first = prev[0] === cases.slides.length - 1 ? 0 : prev[0] + 1;
+        if (prev.length === 2) {
+          const second = prev[1] === cases.slides.length - 1 ? 0 : prev[1] + 1;
+          return [first, second];
+        } else {
+          return [first];
+        }
+      });
     }
   };
 
@@ -76,53 +97,55 @@ const CasesSection = forwardRef(function CasesSection(_, ref) {
 
   return (
     <SectionStyled id={sections.cases.id} ref={ref}>
-      <Wrapper>
-        <CasesTitle>{sections.cases.title}</CasesTitle>
-        <VerticalLine />
-        <PaginationWrapper>
-          <Pagination>
-            <ActiveSlide>{String(currentSlide + 1).padStart(2, '0')}</ActiveSlide>
-            {` / ${String(SLIDES.length).padStart(2, '0')}`}
-          </Pagination>
-          <ArrowsWrapper>
-            <ArrowBtn onClick={() => changeSlide(-1)}>
-              {/* <Icon name={'arrow-left'} width={36} height={36} stroke={colors.mainColor} /> */}
-            </ArrowBtn>
-            <ArrowBtn onClick={() => changeSlide(1)}>
-              {/* <Icon name={'arrow-right'} width={36} height={36} stroke={colors.mainColor} /> */}
-            </ArrowBtn>
-          </ArrowsWrapper>
-        </PaginationWrapper>
-      </Wrapper>
-
-      {/* <SlideList>
-        {cases.slides.map(({ id, img, caption, description, date }) => (
-          <Slide
-            key={id}
-            $active={id === currentSlide}
-            $next={id === currentSlide || id === nextSlide}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-          >
-            <Img src={img} alt={caption} />
+      <CasesWrapper>
+        <AdditionWrapper>
+          <CasesTitle>{sections.cases.title}</CasesTitle>
+        </AdditionWrapper>
+        <AdditionWrapper>
+          <PaginationWrapper>
+            <Pagination>
+              <ActiveSlide>{String(visibleSlides[0] + 1).padStart(2, '0')}</ActiveSlide>
+              {` / ${String(cases.slides.length).padStart(2, '0')}`}
+            </Pagination>
+            <ArrowsWrapper>
+              <ArrowBtn
+                aria-label="arrow left button"
+                onClick={() => changeSlide(-1)}
+                iconSettings={{ name: 'arrow-left', svgStyled: PaginationSvg }}
+              />
+              <ArrowBtn
+                aria-label="arrow right button"
+                onClick={() => changeSlide(1)}
+                iconSettings={{ name: 'arrow-right', svgStyled: PaginationSvg }}
+              />
+            </ArrowsWrapper>
+          </PaginationWrapper>
+        </AdditionWrapper>
+      </CasesWrapper>
+      <SlideList>
+        {visibleSlides.map(idx => (
+          <Slide key={idx} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+            <ImgWrapper>
+              <Img src={cases.slides[idx].img} alt={cases.slides[idx].caption} />
+            </ImgWrapper>
             <CaseWrapper>
               <CaptionWrapper>
-                <Caption>{caption}</Caption>
-                <GoToBtn>
-                  <Icon name={'arrow-right-up'} width={28} height={28} stroke={colors.mainColor} />
-                </GoToBtn>
+                <Caption>{cases.slides[idx].caption}</Caption>
+                <GoToBtn
+                  aria-label="GoTo button"
+                  iconSettings={{ name: 'arrow-right-up', svgStyled: GoToSvg }}
+                />
               </CaptionWrapper>
-              <div>
-                <CasesUnderline />
+              <DescriptionWrapper>
                 <TextWrapper>
-                  <Description>{description}</Description>
-                  <Description>{date}</Description>
+                  <Description>{cases.slides[idx].description}</Description>
+                  <Description>{cases.slides[idx].date}</Description>
                 </TextWrapper>
-              </div>
+              </DescriptionWrapper>
             </CaseWrapper>
           </Slide>
         ))}
-      </SlideList> */}
+      </SlideList>
     </SectionStyled>
   );
 });

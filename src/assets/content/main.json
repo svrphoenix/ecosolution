@@ -8,7 +8,7 @@
     },
     "cases": { "id": "cases", "title": "Successful cases of our company", "menu": "Cases" },
     "faq": { "id": "faq", "title": "Frequently Asked Questions", "menu": "FAQ" },
-    "contacts": { "id": "contacts", "title": "Contacts", "menu": "Contacts" }
+    "contacts": { "id": "contacts", "title": "Contact Us", "menu": "Contact Us" }
   },
   "contacts": {
     "phone": {
@@ -134,7 +134,8 @@
     "close": "close",
     "inTouch": "Get in touch",
     "learnMore": "Learn more",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "send": "Send"
   },
   "socials": [
     { "id": 0, "tag": "Facebook", "link": "#", "iconName": "facebook" },

@@ -2,13 +2,8 @@ import { styled } from 'styled-components';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
-// export const FaqSectionStyled = styled.section`
-//   padding-top: 36px;
-// `;
-
 export const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   gap: 24px;
 
@@ -19,12 +14,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const AdditionWrapper = styled.div`
-  @media ${device.tablet} {
-    width: 50%;
-  }
-`;
-
 export const Questions = styled.ul`
   display: flex;
   flex-direction: column;
@@ -32,6 +21,7 @@ export const Questions = styled.ul`
 
   @media ${device.desktop} {
     gap: 24px;
+    padding-right: 24px;
   }
 `;
 
@@ -64,13 +54,6 @@ export const IconWrapper = styled.span`
   align-items: center;
 
   background-color: transparent;
-
-  /* @media ${device.tablet} {
-    & > svg {
-      width: 28px;
-      height: 28px;
-    }
-  } */
 `;
 
 export const StyledSvg = styled.svg`
@@ -113,6 +96,18 @@ export const Answer = styled.p`
   line-height: normal;
   letter-spacing: -0.56px;
 
+  animation-name: fade;
+  animation-duration: 1.7s;
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @media ${device.tablet} {
     padding-left: 44px;
   }
@@ -129,13 +124,13 @@ export const PositionWrapper = styled.div`
   gap: 12px;
 
   @media ${device.tablet} {
-    width: 320px;
+    width: 50%;
     position: absolute;
     bottom: 0;
   }
 
   @media ${device.desktop} {
-    width: 398px;
+    width: 40%;
   }
 `;
 

@@ -1,6 +1,6 @@
 import { Text } from '../../components/common/styled/Text.styled';
 import {
-  AdditionWrapper,
+  // AdditionWrapper,
   Caption,
   CaptionWrapper,
   Description,
@@ -8,28 +8,29 @@ import {
   ImgWrapper,
   InnerWrapper,
   ValueItem,
+  ValuesHeaderWrapper,
   ValuesList,
   ValuesSvg,
   ValuesTitle,
   ValuesWrapper,
-  Wrapper,
 } from './ValuesSection.styled';
 import { forwardRef } from 'react';
 import { sections, values } from '../../assets/content/main.json';
 import { SectionStyled } from '../../components/common/styled/Section.styled';
 import Icon from '../../components/common/Icon/Icon';
+import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
 
 const ValuesSection = forwardRef(function ValuesSection(_, ref) {
   return (
     <SectionStyled id={sections.values.id} ref={ref}>
-      <Wrapper>
+      <ValuesHeaderWrapper>
         <AdditionWrapper>
           <ValuesTitle>{sections.values.title}</ValuesTitle>
         </AdditionWrapper>
         <AdditionWrapper>
           <Text>{values.text}</Text>
         </AdditionWrapper>
-      </Wrapper>
+      </ValuesHeaderWrapper>
       <ValuesWrapper>
         <ValuesList>
           {values.items.map(({ id, iconName, caption, descrition }) => (

@@ -3,57 +3,23 @@ import { colors, fonts } from '../../constants/theme';
 import { device } from '../../constants/media';
 import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { DefaultSvg } from '../../components/common/Icon/Icon.styled';
+import { Wrapper } from '../../components/common/styled/Wrapper.styled';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  @media ${device.tablet} {
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-
-    &::after {
-      @media ${device.tablet} {
-        content: '';
-        display: block;
-        width: 1px;
-        height: 100%;
-        left: 50%;
-        background-color: ${colors.accentColor};
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%);
-      }
-    }
-  }
-`;
-
-export const AdditionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+export const ValuesHeaderWrapper = styled(Wrapper)`
+  margin-bottom: 36px;
 
   @media ${device.tablet} {
-    align-items: flex-start;
-    flex-basis: 50%;
-    justify-content: space-between;
+    margin-bottom: 100px;
   }
 
   @media ${device.desktop} {
-    flex-basis: 40%;
+    margin-bottom: 122px;
   }
 `;
 
 export const ValuesTitle = styled(SectionTitle)`
   @media ${device.tablet} {
     width: 280px;
-  }
-
-  @media ${device.tablet} {
-    margin-bottom: 0;
   }
 
   @media ${device.desktop} {

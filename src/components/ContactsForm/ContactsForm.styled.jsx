@@ -4,11 +4,11 @@ import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
 export const StyledForm = styled(Form)`
-  width: auto;
+  width: 100%;
   padding: 36px 12px;
   display: flex;
   flex-direction: column;
-  background-color: #eaedf1;
+  background-color: ${colors.formBackground};
   gap: 28px;
 `;
 
@@ -47,12 +47,12 @@ export const Input = styled(Field)`
   }
 
   &::placeholder {
-    color: #bdbdbd;
+    color: ${colors.placeholder};
   }
 `;
 
 export const Error = styled(ErrorMessage)`
-  color: #d28b8b;
+  color: ${colors.error};
   font-size: 12px;
   line-height: normal;
   letter-spacing: -0.48px;
@@ -62,7 +62,7 @@ export const Error = styled(ErrorMessage)`
 `;
 
 export const ButtonWrapper = styled.div`
-  margin: 0 auto;
+  margin-left: auto;
   @media ${device.tablet} {
     margin-left: auto;
     margin-right: 0;

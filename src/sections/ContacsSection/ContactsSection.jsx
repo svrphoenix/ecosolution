@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 import Socials from '../../components/common/Socials/Socials';
-// import ContactsForm from '../../components/ContactsForm/ContactsForm';
+import ContactsForm from '../../components/ContactsForm/ContactsForm';
 import Svg from '../../components/common/Icon/Icon';
 import {
   Address,
@@ -32,7 +32,7 @@ const ContactsSection = forwardRef(function ContactsSection(_, ref) {
                 {contacts.phone.values.map((item, idx) => (
                   <li key={idx}>
                     <Contact href={`tel:+${phoneNormalize(item)}`}>
-                      <Svg aria-hidden="true" icon={StyledSvg} name={'phone'} />
+                      <Svg aria-hidden="true" svgStyled={StyledSvg} name="phone" />
                       {item}
                     </Contact>
                   </li>
@@ -42,14 +42,14 @@ const ContactsSection = forwardRef(function ContactsSection(_, ref) {
             <li>
               <ContactTitle>{`${contacts.email.title}:`}</ContactTitle>
               <Contact href={`mailto:${contacts.email.value}`}>
-                <Svg aria-hidden="true" icon={StyledSvg} name={'mail'} />
+                <Svg aria-hidden="true" svgStyled={StyledSvg} name="mail" />
                 {contacts.email.value}
               </Contact>
             </li>
             <li>
               <ContactTitle>{`${contacts.address.title}:`}</ContactTitle>
               <Contact href={contacts.address.url} target="_blank" rel="noopener noreferrer">
-                <Svg aria-hidden="true" icon={StyledSvg} name={'map'} />
+                <Svg aria-hidden="true" svgStyled={StyledSvg} name="map" />
                 {contacts.address.value}
               </Contact>
             </li>
@@ -59,7 +59,7 @@ const ContactsSection = forwardRef(function ContactsSection(_, ref) {
             </div>
           </AddressList>
         </Address>
-        {/* <ContactsForm /> */}
+        <ContactsForm />
       </Wrapper>
     </ContactsSectionStyled>
   );

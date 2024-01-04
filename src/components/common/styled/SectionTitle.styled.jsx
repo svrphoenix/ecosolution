@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { colors } from '../../../constants/theme';
+
+import { colors, fonts } from '../../../constants/theme';
 import { device } from '../../../constants/media';
 
 export const SectionTitle = styled.h2`
-  margin-bottom: 24px;
   color: ${colors.mainColor};
 
-  font-family: Oswald;
+  font-family: ${fonts.title};
   font-weight: 400;
   font-size: 28px;
   line-height: 1;

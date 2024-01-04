@@ -1,67 +1,43 @@
 import styled from 'styled-components';
-import { colors } from '../../constants/theme';
-import { UnderLine } from '../../components/common/Underline/Underline.styled';
+
+import LinkButton from '../../components/common/LinkButton/LinkButton';
+import { Wrapper } from '../../components/common/styled/Wrapper.styled';
 import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
+import { DefaultSvg } from '../../components/common/Icon/Icon.styled';
+import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
 
-// export const CasesSectionStyled = styled.section`
-//   padding-top: 36px;
-// `;
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const CasesWrapper = styled(Wrapper)`
+  margin-bottom: 20px;
 
   @media ${device.tablet} {
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
+    margin-bottom: 32px;
+  }
+
+  @media ${device.desktop} {
+    margin-bottom: 120px;
   }
 `;
 
 export const CasesTitle = styled(SectionTitle)`
   width: 264px;
 
-  @media ${device.tablet} {
-    margin-bottom: 0;
-  }
-
   @media ${device.desktop} {
     width: 398px;
   }
 `;
 
-export const VerticalLine = styled.div`
-  display: none;
-
-  @media ${device.tablet} {
-    display: block;
-    width: 1px;
-    height: 100%;
-    left: 50%;
-    background-color: ${colors.accentColor};
-    position: absolute;
-  }
-`;
-
 export const PaginationWrapper = styled.div`
   display: flex;
+  width: 100%;
+  height: 100%;
   align-items: flex-end;
   justify-content: space-between;
-
-  @media ${device.tablet} {
-    padding-left: 10px;
-    align-items: flex-end;
-    width: 50%;
-  }
-
-  @media ${device.desktop} {
-    width: 40%;
-  }
 `;
 
 export const Pagination = styled.p`
-  color: rgba(23, 61, 51, 0.25);
+  cursor: default;
+  color: ${colors.paginationColor};
   font-size: 28px;
   font-weight: 300;
   line-height: normal;
@@ -73,95 +49,98 @@ export const ActiveSlide = styled.span`
 `;
 
 export const ArrowsWrapper = styled.div`
+  align-self: flex-start;
   display: flex;
   gap: 12px;
 `;
 
-export const ArrowBtn = styled.button`
-  padding: 15px;
-  border: 1px solid ${colors.mainColor};
+export const ArrowBtn = styled(LinkButton)`
+  width: 66px;
+  height: 66px;
+  border-color: ${colors.mainColor};
   border-radius: 50%;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  &:hover {
-    border-color: #97d28b;
+  &:hover,
+  &:focus {
+    border-color: ${colors.accentColor};
+    color: ${colors.accentColor};
+    background-color: transparent;
   }
-
-  &:hover > svg {
-    stroke: #97d28b;
-  }
+`;
+export const PaginationSvg = styled(DefaultSvg)`
+  width: 36px;
+  height: 36px;
 `;
 
 export const SlideList = styled.ul`
-  margin-top: 20px;
+  overflow: hidden;
   display: flex;
 
   @media ${device.tablet} {
-    margin-top: 38px;
     gap: 24px;
   }
 
   @media ${device.desktop} {
-    margin-top: 120px;
-    margin-bottom: 120px;
     gap: 48px;
   }
 `;
 
 export const Slide = styled.li`
-  display: ${props => (props.$active ? 'block' : 'none')};
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 318px;
-  transition: opacity 1s ease;
+
+  animation-name: fade;
+  animation-duration: 1.7s;
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   @media ${device.tablet} {
-    display: ${props => (props.$next ? 'block' : 'none')};
+    width: 50%;
+  }
+`;
+
+export const ImgWrapper = styled.div`
+  width: 100%;
+  height: 168px;
+
+  @media ${device.mobile} {
+    height: 210px;
+  }
+
+  @media ${device.desktop} {
+    height: 296px;
   }
 `;
 
 export const Img = styled.img`
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 export const CaseWrapper = styled.div`
   width: 100%;
-  height: 144px;
+  height: 150px;
+  overflow: auto;
   padding: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
-  background-color: #eaedf1;
-`;
+  background-color: ${colors.slideBackground};
 
-export const Caption = styled.h3`
-  color: ${colors.mainColor};
-
-  text-align: justify;
-  font-size: 18px;
-  line-height: normal;
-  letter-spacing: -0.72px;
-`;
-
-export const GoToBtn = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  padding: 16px;
-  border-radius: 50%;
-  background-color: ${colors.accentColor};
-
-  &:hover {
-    background-color: ${colors.mainColor};
+  @media ${device.tablet} {
+    height: 154px;
   }
 
-  &:hover > svg {
-    stroke: ${colors.accentColor};
+  @media ${device.desktop} {
+    height: 210px;
+    padding: 36px 48px;
   }
 `;
 
@@ -171,13 +150,69 @@ export const TextWrapper = styled.div`
 `;
 
 export const CaptionWrapper = styled(TextWrapper)`
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
+  margin-bottom: 24px;
+  height: 100%;
+  gap: 56px;
+  align-items: center;
+
+  @media ${device.desktop} {
+    margin-bottom: 24px;
+    gap: 84px;
+  }
 `;
 
-export const CasesUnderline = styled(UnderLine)`
-  margin-bottom: 12px;
+export const Caption = styled.h3`
+  color: ${colors.mainColor};
+
+  text-align: justify;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+
+  @media ${device.tablet} {
+    font-size: 20px;
+    letter-spacing: -0.8px;
+  }
+
+  @media ${device.desktop} {
+    font-size: 24px;
+    letter-spacing: -0.96px;
+  }
+`;
+
+export const GoToBtn = styled(LinkButton)`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: ${colors.mainColor};
+  background-color: ${colors.accentColor};
+
+  &:hover,
+  &:focus {
+    background-color: ${colors.accentColor};
+    background-color: ${colors.mainColor};
+  }
+`;
+
+export const GoToSvg = styled(DefaultSvg)`
+  width: 28px;
+  height: 28px;
+`;
+
+export const DescriptionWrapper = styled.div`
+  &::before {
+    content: '';
+    margin-bottom: 12px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: ${colors.accentColor};
+
+    @media ${device.desktop} {
+      margin-bottom: 24px;
+    }
+  }
 `;
 
 export const Description = styled.p`
@@ -188,4 +223,14 @@ export const Description = styled.p`
   line-height: normal;
   letter-spacing: -0.48px;
   text-align: justify;
+
+  @media ${device.tablet} {
+    font-size: 14px;
+    letter-spacing: -0.56px;
+  }
+
+  @media ${device.desktop} {
+    font-size: 16px;
+    letter-spacing: -0.64px;
+  }
 `;

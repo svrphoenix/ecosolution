@@ -7,33 +7,37 @@ import {
   Label,
   StyledForm,
 } from './ContactsForm.styled';
-import Button from '../common/Button/Button';
-import Icon from '../common/IconOld/IconOld';
 import { colors } from '../../constants/theme';
 import { ContactSchema } from './validation';
 import toast from 'react-hot-toast';
+import SendButton from '../SendButton/SendButton';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { INITIAL_VALUES, LOCAL_STORAGE_KEY } from '../../constants/contacts';
 
 const ContactsForm = () => {
+  const [initialValues, handleUpdateForm] = useLocalStorage({
+    key: LOCAL_STORAGE_KEY,
+    value: INITIAL_VALUES,
+  });
+  console.log(initialValues);
+
   return (
     <Formik
-      initialValues={{
-        userName: '',
-        email: '',
-        phone: '',
-        message: '',
-      }}
+      enableReinitialize
+      initialValues={initialValues}
       validationSchema={ContactSchema}
       onSubmit={(values, actions) => {
         toast.success('Data sended successfully!', {
           style: {
             color: colors.mainColor,
-            backgroundColor: '#dcefd8',
+            backgroundColor: colors.menuIconBackground,
           },
         });
+        handleUpdateForm(INITIAL_VALUES);
         actions.resetForm();
       }}
     >
-      {({ errors, touched }) => (
+      {({ values, errors, touched }) => (
         <StyledForm>
           <FieldWrapper>
             <Label htmlFor="userName">* Full name:</Label>
@@ -43,6 +47,7 @@ const ContactsForm = () => {
               placeholder="John Rosie"
               required
               $validate={errors.userName && touched.userName}
+              onBlur={() => handleUpdateForm(values)}
             />
             <Error name="userName" component="div" />
           </FieldWrapper>
@@ -55,6 +60,7 @@ const ContactsForm = () => {
               type="email"
               required
               $validate={errors.email && touched.email}
+              onBlur={() => handleUpdateForm(values)}
             />
             <Error name="email" component="div" />
           </FieldWrapper>
@@ -67,6 +73,7 @@ const ContactsForm = () => {
               type="phone"
               required
               $validate={errors.phone && touched.phone}
+              onBlur={() => handleUpdateForm(values)}
             />
             <Error name="phone" component="div" />
           </FieldWrapper>
@@ -81,14 +88,11 @@ const ContactsForm = () => {
               cols="30"
               rows="10"
               placeholder="Your message"
+              onBlur={() => handleUpdateForm(values)}
             />
           </FieldWrapper>
           <ButtonWrapper>
-            <Button
-              type="submit"
-              caption="Send"
-              icon={<Icon name={'arrow-right'} width={16} height={16} stroke={colors.mainColor} />}
-            />
+            <SendButton />
           </ButtonWrapper>
         </StyledForm>
       )}

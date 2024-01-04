@@ -5,7 +5,7 @@ import { useRefsContext } from '../../hooks/refsContext';
 import { sections } from '../../assets/content/main.json';
 import { InTouchStyled, InTouchSvg } from './InTouchLink.styled';
 
-const InTouchLink = ({ caption }) => {
+const InTouchLink = ({ caption, mobileVisible }) => {
   const { contacts: contactsRef, header } = useRefsContext();
   const offset = header.current ? parseFloat(header.current.getBoundingClientRect().height) : 0;
 
@@ -23,12 +23,14 @@ const InTouchLink = ({ caption }) => {
       href={`#${sections.contacts.id}`}
       aria-label={`link to ${sections.contacts.id}`}
       iconSettings={{ name: 'arrow-down', svgStyled: InTouchSvg }}
+      $mobileVisible={mobileVisible}
     />
   );
 };
 
 InTouchLink.propTypes = {
   caption: PropTypes.string.isRequired,
+  mobileVisible: PropTypes.bool.isRequired,
 };
 
 export default InTouchLink;
