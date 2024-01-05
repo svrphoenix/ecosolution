@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
-import { effects } from '../../../constants/theme';
+
 import { DefaultSvg } from '../Icon/Icon.styled';
+import { effects } from '../../../constants/theme';
 
 export const SocialsList = styled.ul`
   margin-top: auto;

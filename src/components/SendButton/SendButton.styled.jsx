@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-import { colors } from '../../constants/theme';
+
+
 import LinkButton from '../common/LinkButton/LinkButton';
 import { DefaultIconContainer } from '../common/LinkButton/LinkButton.styled';
 import { DefaultSvg } from '../common/Icon/Icon.styled';
+import { colors } from '../../constants/theme';
 
 export const SendButtonStyled = styled(LinkButton)`
   padding: 4px 4px 4px 16px;

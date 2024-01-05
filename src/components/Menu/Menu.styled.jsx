@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
+
+import { DefaultSvg } from '../common/Icon/Icon.styled';
 import { device } from '../../constants/media';
 import { colors } from '../../constants/theme';
-import { DefaultSvg } from '../common/Icon/Icon.styled';
 
 export const Backdrop = styled.div`
   display: flex;
@@ -103,4 +104,3 @@ export const MenuItemLink = styled.a`
     color: ${colors.whiteColor};
   }
 `;
-

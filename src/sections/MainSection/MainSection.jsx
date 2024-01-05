@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { sections, contacts, copyright, main } from '../../assets/content/main.json';
+import LearnMoreLink from '../../components/LearnMoreLink/LearnMoreLink';
 import { Address, Email } from '../../components/common/styled/Contact.styled';
 import {
   AdditionWrapper,
@@ -16,7 +16,7 @@ import {
   MainTitle,
   Wrapper,
 } from './MainSection.styled';
-import LearnMoreLink from '../../components/LearnMoreLink/LearnMoreLink';
+import { sections, contacts, copyright, main } from '../../assets/content/main.json';
 
 const MainSection = forwardRef(function MainSection(_, ref) {
   return (

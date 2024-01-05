@@ -1,3 +1,5 @@
+import { forwardRef, useEffect, useState } from 'react';
+
 import {
   Counter,
   CounterUnit,
@@ -5,7 +7,6 @@ import {
   ElectricityTitle,
   Wrapper,
 } from './ElectricitySection.styled';
-import { forwardRef, useEffect, useState } from 'react';
 import { sections, electricity } from '../../assets/content/main.json';
 import { numberWithCommas } from '../../utils';
 

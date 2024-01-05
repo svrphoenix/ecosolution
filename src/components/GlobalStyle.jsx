@@ -5,7 +5,7 @@ import { colors, fonts } from '../constants/theme';
 const GlobalStyle = createGlobalStyle`
 :root {
   @font-face {
-    font-family: 'Fira Sans';
+    font-family: ${fonts.main};
     src: local('Fira Sans Light'), local('Fira-Sans-Light'),
       url('./fonts/firasans/FiraSans-Light.woff2') format('woff2');
     font-weight: 300;
@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
   @font-face {
-    font-family: 'Fira Sans';
+    font-family: ${fonts.main};
     src: local('Fira Sans Regular'), local('Fira-Sans-Regular'),
       url('./fonts/firasans/FiraSans-Regular.woff2') format('woff2');
     font-weight: 400;
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
   @font-face {
-    font-family: 'Fira Sans';
+    font-family: ${fonts.main};
     src: local('Fira Sans Medium'), local('Fira-Sans-Medium'),
       url('./fonts/firasans/FiraSans-Medium.woff2') format('woff2');
     font-weight: 500;
@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
   @font-face {
-    font-family: 'Oswald';
+    font-family: ${fonts.title};
     src: local('Oswald Regular'), local('Oswald-Regular'),
       url('./fonts/oswald/Oswald-Regular.woff2') format('woff2');
     font-weight: 400;
@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
   @font-face {
-    font-family: 'Oswald';
+    font-family: ${fonts.title};
     src: local('Oswald Medium'), local('Oswald-Medium'),
       url('./fonts/oswald/Oswald-Medium.woff2') format('woff2');
     font-weight: 500;
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 
 
   @font-face {
-    font-family: 'Oswald';
+    font-family: ${fonts.title};
     src: local('Oswald Bold'), local('Oswald-Bold'),
       url('./fonts/oswald/Oswald-Bold.woff2') format('woff2');
     font-weight: 700;

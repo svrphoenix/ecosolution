@@ -3,12 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import Socials from '../common/Socials/Socials';
 import MenuButton from '../MenuButton/MenuButton';
 import Icon from '../common/Icon/Icon';
-import { buttonCaptions } from '../../assets/content/main.json';
-import { colors } from '../../constants/theme';
-import { sections } from '../../assets/content/main.json';
-import { createMenuItems, scrollToElement } from '../../utils';
-import { useRefsContext } from '../../hooks/refsContext';
-import { useMenuToggle } from '../../hooks/useMenuToggle';
 import {
   Backdrop,
   BtnWrapper,
@@ -18,6 +12,12 @@ import {
   MenuWrapper,
   StyledCloseSvg,
 } from './Menu.styled';
+import { buttonCaptions } from '../../assets/content/main.json';
+import { colors } from '../../constants/theme';
+import { sections } from '../../assets/content/main.json';
+import { createMenuItems, scrollToElement } from '../../utils';
+import { useRefsContext } from '../../hooks/refsContext';
+import { useMenuToggle } from '../../hooks/useMenuToggle';
 
 const Menu = () => {
   const [isMenuOpen, onMenuToogle] = useMenuToggle();
@@ -48,7 +48,6 @@ const Menu = () => {
 
   const handleMenuClick = (evt, ref) => {
     evt.preventDefault();
-    // window.location.replace(`${window.location.pathname}#${ref.current.id}`);
     scrollToElement('ref', ref, offset);
     onMenuToogle();
   };
@@ -68,7 +67,7 @@ const Menu = () => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5,
+        threshold: 0.3,
       }
     )
   );

@@ -9,8 +9,6 @@ const ScrollToMain = () => {
 
   const handleClick = evt => {
     evt.preventDefault();
-    // window.location.replace(`${window.location.pathname}#${sections.main.id}`);
-    // const offset = parseFloat(document.body.style.paddingTop);
     scrollToElement('ref', mainRef, offset);
   };
 

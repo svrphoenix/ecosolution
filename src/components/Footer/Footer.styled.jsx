@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
+
+import { AdditionWrapper } from '../common/styled/AdditionWrapper.styled';
 import { device } from '../../constants/media';
 import { colors } from '../../constants/theme';
-// import { Address } from '../common/styled/Contact.styled';
-import { AdditionWrapper } from '../common/styled/AdditionWrapper.styled';
 
 export const StyledFooter = styled.footer`
   width: 100%;
@@ -11,7 +11,6 @@ export const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* gap: 24px; */
 
   &::before {
     content: '';
@@ -36,7 +35,6 @@ export const StyledFooter = styled.footer`
   @media ${device.tablet} {
     max-width: 768px;
     padding: 0 30px 40px 30px;
-    /* gap: 40px; */
   }
 
   @media ${device.desktop} {
@@ -78,17 +76,11 @@ export const BtnWrapper = styled.div`
 `;
 
 export const EmailWrapper = styled(AdditionWrapper)`
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
   flex-direction: column;
   gap: 16px;
   text-align: center;
-  /* flex-basis: 50%; */
 
   @media ${device.tablet} {
     flex-direction: row;
-    /* justify-content: flex-start; */
-    /* justify-content: space-between; */
   }
 `;

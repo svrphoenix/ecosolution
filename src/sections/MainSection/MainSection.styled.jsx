@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { colors, fonts } from '../../constants/theme';
-import { device } from '../../constants/media';
+
 import { Copyright } from '../../components/common/styled/Contact.styled';
 import { Text } from '../../components/common/styled/Text.styled';
+import { colors, fonts } from '../../constants/theme';
+import { device } from '../../constants/media';
 
 export const MainSectionStyled = styled.section`
   padding-top: 110px;

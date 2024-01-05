@@ -1,6 +1,8 @@
 # Ecosolution Landing Page
 
-This project is the Ecosolution landing page.
+This project is the Ecosolution landing page. !
+
+[Ecosolution](/public/images/screenshot.jpg)
 
 ## Contents of site
 

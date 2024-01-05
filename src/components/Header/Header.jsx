@@ -5,8 +5,8 @@ import Menu from '../Menu/Menu';
 import Logo from '../common/Logo/Logo';
 import InTouchLink from '../InTouchLink/InTouchLink';
 import { buttonCaptions } from '../../assets/content/main.json';
-import { colors } from '../../constants/theme';
 import { BtnWrapper, Navigation, StyledHeader } from './Header.styled';
+import { colors } from '../../constants/theme';
 
 const Header = forwardRef(function CasesSection(props, ref) {
   const [bgColor, setBgColor] = useState(colors.bodyBackground);

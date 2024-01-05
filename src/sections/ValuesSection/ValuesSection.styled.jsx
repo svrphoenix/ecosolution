@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { colors, fonts } from '../../constants/theme';
-import { device } from '../../constants/media';
+
 import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { DefaultSvg } from '../../components/common/Icon/Icon.styled';
 import { Wrapper } from '../../components/common/styled/Wrapper.styled';
+import { colors, fonts } from '../../constants/theme';
+import { device } from '../../constants/media';
 
 export const ValuesHeaderWrapper = styled(Wrapper)`
   margin-bottom: 36px;

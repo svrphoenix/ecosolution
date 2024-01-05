@@ -1,8 +1,8 @@
 import { css, styled } from 'styled-components';
+
 import { colors, effects } from '../../../constants/theme';
 
 const shared = css`
-  /* display: inline-flex; */
   align-items: center;
   justify-content: center;
   flex-shrink: 0;

@@ -14,7 +14,6 @@ import {
   StyledSvg,
   Wrapper,
 } from './ContactsSection.styled';
-
 import { colors } from '../../constants/theme';
 import { sections, contacts } from '../../assets/content/main.json';
 import { phoneNormalize } from '../../utils';

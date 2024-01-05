@@ -11,7 +11,6 @@ export const scrollToElement = (type, refOrId, offset = 0) => {
 
   if (element) {
     window.history.pushState('', '', `#${element.id}`);
-    // window.location.replace(`${window.location.pathname}#${id}`);
     const top = element.offsetTop - offset;
     window.scrollTo({
       top,
@@ -37,3 +36,9 @@ export const createMenuItems = (sections, refs) =>
   Object.entries(sections)
     .map(([key, { menu }]) => ({ menu, ref: refs[key] }))
     .filter(item => item.menu !== undefined);
+
+export const Mapper = obj => {
+  const mapperObject = {};
+  Object.keys(obj).forEach(item => (mapperObject[item] = item));
+  return mapperObject;
+};

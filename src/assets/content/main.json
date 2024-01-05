@@ -141,5 +141,11 @@
     { "id": 0, "tag": "Facebook", "link": "#", "iconName": "facebook" },
     { "id": 1, "tag": "Instagram", "link": "#", "iconName": "instagram" }
   ],
-  "copyright": "ecosolution © 2023"
+  "copyright": "ecosolution © 2023",
+  "form": {
+    "userName": { "label": "* Full name:", "placeholder": "John Rosie" },
+    "email": { "label": "* E-mail:", "placeholder": "johnrosie@gmail.com" },
+    "phone": { "label": "* Phone:", "placeholder": "380961234567" },
+    "message": { "label": "Message:", "placeholder": "Your message" }
+  }
 }

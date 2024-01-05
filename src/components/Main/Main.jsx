@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import { StyledMainWrapper } from './Main.styled';
 
 const Main = ({ offset, children }) => {

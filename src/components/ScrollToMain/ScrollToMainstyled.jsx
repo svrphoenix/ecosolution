@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { colors } from '../../constants/theme';
+
 import LinkButton from '../common/LinkButton/LinkButton';
 import { DefaultSvg } from '../common/Icon/Icon.styled';
+import { colors } from '../../constants/theme';
 
 export const ScrollToMainBtn = styled(LinkButton)`
   display: flex;

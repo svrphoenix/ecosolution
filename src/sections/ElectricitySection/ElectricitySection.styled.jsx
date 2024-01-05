@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+
 import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
 import { colors, fonts } from '../../constants/theme';
 import { device } from '../../constants/media';
-import { SectionStyled } from '../../components/common/styled/Section.styled';
 
 export const ElectricitySectionStyled = styled(SectionStyled)`
   padding-bottom: 16px;

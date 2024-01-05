@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { ButtonStyled, DefaultIconContainer, LinkStyled } from './LinkButton.styled';
+
 import Icon from '../Icon/Icon';
+import { ButtonStyled, DefaultIconContainer, LinkStyled } from './LinkButton.styled';
 
 const LinkButton = ({
   handleClick,

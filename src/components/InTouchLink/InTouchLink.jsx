@@ -11,8 +11,6 @@ const InTouchLink = ({ caption, mobileVisible }) => {
 
   const handleClick = evt => {
     evt.preventDefault();
-    // window.location.replace(`${window.location.pathname}#${sections.contacts.id}`);
-    // const offset = parseFloat(document.body.style.paddingTop);
     scrollToElement('ref', contactsRef, offset);
   };
 

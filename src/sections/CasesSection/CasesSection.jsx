@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-
 import { forwardRef, useEffect, useState } from 'react';
+
+import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
 import {
   ActiveSlide,
   ArrowBtn,
@@ -24,8 +26,6 @@ import {
   TextWrapper,
 } from './CasesSection.styled';
 import { sections, cases } from '../../assets/content/main.json';
-import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
-import { SectionStyled } from '../../components/common/styled/Section.styled';
 
 const CasesSection = forwardRef(function CasesSection(_, ref) {
   const [visibleSlides, setVisibleSlides] = useState([]);
@@ -72,7 +72,6 @@ const CasesSection = forwardRef(function CasesSection(_, ref) {
 
   const handleTouchStart = e => {
     const touchDown = e.touches[0].clientX;
-
     setTouchPosition(touchDown);
   };
 

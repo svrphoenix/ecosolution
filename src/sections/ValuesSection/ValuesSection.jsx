@@ -1,6 +1,10 @@
+import { forwardRef } from 'react';
+
+import Icon from '../../components/common/Icon/Icon';
 import { Text } from '../../components/common/styled/Text.styled';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
+import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
 import {
-  // AdditionWrapper,
   Caption,
   CaptionWrapper,
   Description,
@@ -14,11 +18,7 @@ import {
   ValuesTitle,
   ValuesWrapper,
 } from './ValuesSection.styled';
-import { forwardRef } from 'react';
 import { sections, values } from '../../assets/content/main.json';
-import { SectionStyled } from '../../components/common/styled/Section.styled';
-import Icon from '../../components/common/Icon/Icon';
-import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
 
 const ValuesSection = forwardRef(function ValuesSection(_, ref) {
   return (

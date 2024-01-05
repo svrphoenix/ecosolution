@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+
 import { Field, Form, ErrorMessage } from 'formik';
 import { colors } from '../../constants/theme';
 import { device } from '../../constants/media';
@@ -39,7 +40,7 @@ export const Input = styled(Field)`
   letter-spacing: -0.72px;
   background-color: transparent;
   border-color: transparent;
-  border-bottom-color: ${({ $validate }) => ($validate ? '#d28b8b' : colors.accentColor)};
+  border-bottom-color: ${({ $validate }) => ($validate ? colors.error : colors.accentColor)};
 
   &:focus {
     outline: none;

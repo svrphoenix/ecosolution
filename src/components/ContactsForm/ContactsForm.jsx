@@ -1,4 +1,7 @@
 import { Formik } from 'formik';
+import toast from 'react-hot-toast';
+
+import SendButton from '../SendButton/SendButton';
 import {
   ButtonWrapper,
   Error,
@@ -9,16 +12,25 @@ import {
 } from './ContactsForm.styled';
 import { colors } from '../../constants/theme';
 import { ContactSchema } from './validation';
-import toast from 'react-hot-toast';
-import SendButton from '../SendButton/SendButton';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { INITIAL_VALUES, LOCAL_STORAGE_KEY } from '../../constants/contacts';
+import { Mapper } from '../../utils';
+import { form } from '../../assets/content/main.json';
 
 const ContactsForm = () => {
   const [initialValues, handleUpdateForm] = useLocalStorage({
     key: LOCAL_STORAGE_KEY,
     value: INITIAL_VALUES,
   });
+
+  const valuesMap = Mapper(INITIAL_VALUES);
+
+  const handleBlurCustom = (event, field, { handleBlur, values, errors, touched }) => {
+    handleBlur(event);
+    if (!errors[field] && touched[field]) {
+      handleUpdateForm(values);
+    }
+  };
 
   return (
     <Formik
@@ -36,58 +48,58 @@ const ContactsForm = () => {
         actions.resetForm();
       }}
     >
-      {({ values, errors, touched }) => (
+      {formik => (
         <StyledForm>
           <FieldWrapper>
-            <Label htmlFor="userName">* Full name:</Label>
+            <Label htmlFor={valuesMap.userName}>{form.userName.label}</Label>
             <Input
-              id="userName"
-              name="userName"
-              placeholder="John Rosie"
+              id={valuesMap.userName}
+              name={valuesMap.userName}
+              placeholder={form.userName.placeholder}
               required
-              $validate={errors.userName && touched.userName}
-              onBlur={() => handleUpdateForm(values)}
+              $validate={formik.errors.userName && formik.touched.userName}
+              onBlur={event => handleBlurCustom(event, valuesMap.userName, formik)}
             />
-            <Error name="userName" component="div" />
+            <Error name={valuesMap.userName} component="div" />
           </FieldWrapper>
           <FieldWrapper>
-            <Label htmlFor="email">* E-mail:</Label>
+            <Label htmlFor={valuesMap.email}>{form.email.label}</Label>
             <Input
-              id="email"
-              name="email"
-              placeholder="johnrosie@gmail.com"
+              id={valuesMap.email}
+              name={valuesMap.email}
+              placeholder={form.email.placeholder}
               type="email"
               required
-              $validate={errors.email && touched.email}
-              onBlur={() => handleUpdateForm(values)}
+              $validate={formik.errors.email && formik.touched.email}
+              onBlur={event => handleBlurCustom(event, valuesMap.email, formik)}
             />
-            <Error name="email" component="div" />
+            <Error name={valuesMap.email} component="div" />
           </FieldWrapper>
           <FieldWrapper>
-            <Label htmlFor="phone">* Phone:</Label>
+            <Label htmlFor={valuesMap.phone}>{form.phone.label}</Label>
             <Input
-              id="phone"
-              name="phone"
-              placeholder="380961234567"
+              id={valuesMap.phone}
+              name={valuesMap.phone}
+              placeholder={form.phone.placeholder}
               type="phone"
               required
-              $validate={errors.phone && touched.phone}
-              onBlur={() => handleUpdateForm(values)}
+              $validate={formik.errors.phone && formik.touched.phone}
+              onBlur={event => handleBlurCustom(event, valuesMap.phone, formik)}
             />
-            <Error name="phone" component="div" />
+            <Error name={valuesMap.phone} component="div" />
           </FieldWrapper>
           <FieldWrapper>
-            <Label htmlFor="message">Message:</Label>
+            <Label htmlFor={valuesMap.message}>{form.message.label}</Label>
             <Input
               component="textarea"
               style={{ resize: 'none' }}
               autoComplete="off"
-              name="message"
-              id="message"
+              name={valuesMap.message}
+              id={valuesMap.message}
               cols="30"
               rows="10"
-              placeholder="Your message"
-              onBlur={() => handleUpdateForm(values)}
+              placeholder={form.message.placeholder}
+              onBlur={event => handleBlurCustom(event, valuesMap.message, formik)}
             />
           </FieldWrapper>
           <ButtonWrapper>

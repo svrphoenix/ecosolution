@@ -1,26 +1,24 @@
 import { forwardRef, useState } from 'react';
 
+import InTouchLink from '../../components/InTouchLink/InTouchLink';
+import Icon from '../../components/common/Icon/Icon';
+import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
+import { SectionStyled } from '../../components/common/styled/Section.styled';
+import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
 import {
   MoreQuestion,
   Questions,
   Question,
   Answer,
   Wrapper,
-  // AdditionWrapper,
   PositionWrapper,
   IconWrapper,
   QuestionBtn,
   QuestionItem,
   StyledSvg,
 } from './FaqSection.styled';
-
-import { SectionTitle } from '../../components/common/styled/SectionTitle.styled';
 import { colors } from '../../constants/theme';
 import { sections, faq, buttonCaptions } from '../../assets/content/main.json';
-import InTouchLink from '../../components/InTouchLink/InTouchLink';
-import Icon from '../../components/common/Icon/Icon';
-import { SectionStyled } from '../../components/common/styled/Section.styled';
-import { AdditionWrapper } from '../../components/common/styled/AdditionWrapper.styled';
 
 const FaqSection = forwardRef(function FaqSection(_, ref) {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
