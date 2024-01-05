@@ -3,7 +3,7 @@
 This project is the Ecosolution landing page. !
 
 <a href="https://svrphoenix.github.io/ecosolution" target="_blank" rel="noopener">
-	<img src="./public/images/screenshot.jpg" alt="Screenshot" />
+	<img src="./public/images/Screenshot.jpg" alt="Screenshot" />
 </a>
 
 ## Contents of site
