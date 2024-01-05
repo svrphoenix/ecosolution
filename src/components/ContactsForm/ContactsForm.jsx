@@ -19,7 +19,6 @@ const ContactsForm = () => {
     key: LOCAL_STORAGE_KEY,
     value: INITIAL_VALUES,
   });
-  console.log(initialValues);
 
   return (
     <Formik

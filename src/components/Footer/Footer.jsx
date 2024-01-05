@@ -1,38 +1,40 @@
-import { ADDRESS, EMAIL } from '../../constants/content';
-import { colors } from '../../constants/theme';
-// import ScrollToTop from '../ScrollToMain/ScrollToMain';
-import { Address, Copyright, Email } from '../common/styled/Contact.styled';
+import ScrollToMain from '../ScrollToMain/ScrollToMain';
 import Logo from '../common/Logo/Logo';
 import Socials from '../common/Socials/Socials';
-import { UnderLine } from '../common/Underline/Underline.styled';
+import { Address, Copyright, Email } from '../common/styled/Contact.styled';
+import { AdditionWrapper } from '../common/styled/AdditionWrapper.styled';
 import {
-  AdditionWrapper,
-  AddressWrapper,
   BtnWrapper,
+  EmailWrapper,
+  FooterAdditionWrapper,
   StyledFooter,
   Wrapper,
 } from './Footer.styled';
-import ScrollToMain from '../ScrollToMain/ScrollToMain';
+import { contacts, copyright } from '../../assets/content/main.json';
+import { colors } from '../../constants/theme';
 
 const Footer = () => {
   return (
     <StyledFooter>
-      <UnderLine />
       <Wrapper>
-        <AdditionWrapper>
+        <FooterAdditionWrapper>
           <Logo />
           <BtnWrapper>
             <ScrollToMain />
           </BtnWrapper>
+        </FooterAdditionWrapper>
+        <AdditionWrapper>
+          <Socials gap="8px" mainColor={colors.mainColor} hoverColor={colors.accentColor} />
         </AdditionWrapper>
-        <Socials gap="8px" mainColor={colors.mainColor} hoverColor={colors.accentColor} />
       </Wrapper>
-      <Wrapper>
-        <AddressWrapper>
-          <Address>{ADDRESS}</Address>
-        </AddressWrapper>
-        <Email href={`mailto:${EMAIL}`}>{EMAIL}</Email>
-        <Copyright>ecosolution © 2023</Copyright>
+      <Wrapper $noMargin>
+        <AdditionWrapper>
+          <Address>{contacts.address.value}</Address>
+        </AdditionWrapper>
+        <EmailWrapper>
+          <Email href={`mailto:${contacts.email.value}`}>{contacts.email.value}</Email>
+          <Copyright>{copyright}</Copyright>
+        </EmailWrapper>
       </Wrapper>
     </StyledFooter>
   );
