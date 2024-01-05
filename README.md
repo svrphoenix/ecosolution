@@ -1,6 +1,6 @@
 # Ecosolution Landing Page
 
-This project is the Ecosolution landing page. !
+This project is the Ecosolution landing page.
 
 <a href="https://svrphoenix.github.io/ecosolution" target="_blank" rel="noopener">
 	<img src="./public/images/Screenshot.jpg" alt="Screenshot" />
@@ -43,7 +43,7 @@ Frequently Asked Questions
 
 Company contacts
 
-# React + Vite
+# Technologies: React + Vite
 
 This project use React + Vite.
 
